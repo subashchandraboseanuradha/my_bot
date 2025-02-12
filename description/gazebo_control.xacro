@@ -3,6 +3,11 @@
 
   <gazebo>
   <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
+  <!-- Add these parameters -->
+  <update_rate>50</update_rate>
+  <command_topic>cmd_vel</command_topic>
+  <publish_rate>50</publish_rate>
+  
   <!-- Wheel Information-->
   <left_joint>left_wheel_joint</left_joint>
   <right_joint>right_wheel_joint</right_joint>
@@ -21,6 +26,11 @@
 <publish_odom>true</publish_odom>
 <publish_odom_tf>true</publish_odom_tf>
 <publish_wheel_tf>true</publish_wheel_tf>
+
+    <!-- Add this -->
+    <ros>
+        <use_sim_time>true</use_sim_time>
+    </ros>
   </plugin>
   </gazebo>
 
