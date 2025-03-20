@@ -10,6 +10,11 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <!-- Add these dependencies -->
+  <depend>ros2_control</depend>
+<depend>ros2_controllers</depend>
+<depend>gazebo_ros2_control</depend>
+<depend>diff_drive_controller</depend>
+
   <depend>rclcpp</depend>
   <depend>robot_state_publisher</depend>
   <depend>gazebo_ros</depend>
@@ -25,4 +30,3 @@
     <build_type>ament_cmake</build_type>
   </export>
 </package>
-
