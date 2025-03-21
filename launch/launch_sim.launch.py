@@ -24,7 +24,14 @@ def generate_launch_description():
                 'launch','rsp.launch.py'
             )
         ]), 
-        launch_arguments={'use_sim_time': 'true'}.items()
+        launch_arguments={'use_sim_time': 'true', 'use_ros2_control':'true'}.items()
+    )
+
+    # Gazebo parameters file
+    gazebo_params_file = os.path.join(
+        get_package_share_directory(package_name),
+        'config',
+        'gazebo_params.yaml'
     )
 
     # Gazebo Simulation
@@ -35,7 +42,7 @@ def generate_launch_description():
                 'launch', 'gazebo.launch.py'
             )
         ]),
-        launch_arguments={'use_sim_time': 'true'}.items()
+        launch_arguments={'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_file}.items()
     )
 
     # Entity Spawning
