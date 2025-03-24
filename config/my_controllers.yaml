@@ -1,7 +1,7 @@
 controller_manager:
   ros__parameters:
-    update_rate: 30  # Hz
-    use_sim_time: true
+    update_rate: 100  # Increased for better control
+    use_sim_time: false  # Changed for real hardware
 
     diff_drive_controller:
       type: diff_drive_controller/DiffDriveController
@@ -30,7 +30,7 @@ diff_drive_controller:
     enable_odom_tf: true
     cmd_vel_timeout: 0.5
     use_stamped_vel: false
-    use_sim_time: true
+    use_sim_time: false  # Changed for real hardware
 
     # Velocity and acceleration limits
     linear.x.has_velocity_limits: true

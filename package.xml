@@ -11,11 +11,16 @@
 
   <!-- Add these dependencies -->
   <depend>ros2_control</depend>
-<depend>ros2_controllers</depend>
-<depend>gazebo_ros2_control</depend>
-<depend>diff_drive_controller</depend>
+  <depend>ros2_controllers</depend>
+  <depend>gazebo_ros2_control</depend>
+  <depend>diff_drive_controller</depend>
 
+  <depend>hardware_interface</depend>
+  <depend>pluginlib</depend>
+  <depend>rclcpp_lifecycle</depend>
+  <depend>libserial-dev</depend>
   <depend>rclcpp</depend>
+
   <depend>robot_state_publisher</depend>
   <depend>gazebo_ros</depend>
   <depend>gazebo_ros_pkgs</depend>
