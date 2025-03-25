@@ -1,0 +1,3 @@
+/home/bose/dev_ws/install/my_bot/lib/libmy_bot.so
+/home/bose/dev_ws/install/my_bot/share/my_bot/cmake/export_my_botExport.cmake
+/home/bose/dev_ws/install/my_bot/share/my_bot/cmake/export_my_botExport-noconfig.cmake

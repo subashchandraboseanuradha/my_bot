@@ -1,0 +1,111 @@
+[0.091s] Invoking command in '/home/bose/dev_ws/build/my_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake /home/bose/dev_ws/src/my_bot -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/bose/dev_ws/install/my_bot
+[0.440s] -- The CXX compiler identification is GNU 11.4.0
+[0.471s] -- Detecting CXX compiler ABI info
+[0.889s] -- Detecting CXX compiler ABI info - done
+[0.917s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.918s] -- Detecting CXX compile features
+[0.919s] -- Detecting CXX compile features - done
+[0.952s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.942s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[2.362s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[2.745s] -- Found hardware_interface: 2.48.0 (/opt/ros/humble/share/hardware_interface/cmake)
+[3.176s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[3.235s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[3.312s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[3.404s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.530s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.236s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[5.292s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[5.594s] -- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND
+[6.152s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[6.180s] -- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND
+[6.314s] -- Found FastRTPS: /opt/ros/humble/include  
+[6.359s] -- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND
+[6.455s] -- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND
+[6.514s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[6.700s] -- Looking for C++ include pthread.h
+[7.715s] -- Looking for C++ include pthread.h - found
+[7.720s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[8.839s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[8.851s] -- Found Threads: TRUE  
+[9.377s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") 
+[9.381s] -- Checking for module 'libserial'
+[9.603s] --   Found libserial, version 1.0.0
+[10.240s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[11.794s] -- Added test 'copyright' to check source files copyright and LICENSE
+[12.002s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[12.005s] -- Configured cppcheck include dirs: /home/bose/dev_ws/src/my_bot/hardware/include;/home/bose/dev_ws/src/my_bot/include;$<BUILD_INTERFACE:/home/bose/dev_ws/src/my_bot/hardware/include>
+[12.007s] -- Configured cppcheck exclude dirs and/or files: 
+[12.164s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[12.165s] -- Configured cpplint exclude dirs and/or files: 
+[12.184s] -- Added test 'flake8' to check Python code syntax and style conventions
+[12.240s] -- Added test 'lint_cmake' to check CMake code style
+[12.267s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[12.408s] -- Added test 'uncrustify' to check C / C++ code style
+[12.410s] -- Configured uncrustify additional arguments: 
+[12.442s] -- Added test 'xmllint' to check XML markup files
+[12.484s] -- Configuring done
+[12.808s] -- Generating done
+[12.856s] -- Build files have been written to: /home/bose/dev_ws/build/my_bot
+[12.927s] Invoked command in '/home/bose/dev_ws/build/my_bot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake /home/bose/dev_ws/src/my_bot -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/bose/dev_ws/install/my_bot
+[12.933s] Invoking command in '/home/bose/dev_ws/build/my_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --build /home/bose/dev_ws/build/my_bot -- -j4 -l4
+[13.515s] [ 50%] [32mBuilding CXX object CMakeFiles/my_bot.dir/hardware/diffbot_system.cpp.o[0m
+[39.560s] [100%] [32m[1mLinking CXX shared library libmy_bot.so[0m
+[40.779s] [100%] Built target my_bot
+[40.830s] Invoked command in '/home/bose/dev_ws/build/my_bot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --build /home/bose/dev_ws/build/my_bot -- -j4 -l4
+[40.841s] Invoking command in '/home/bose/dev_ws/build/my_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --install /home/bose/dev_ws/build/my_bot
+[40.873s] -- Install configuration: ""
+[40.876s] -- Execute custom install script
+[40.878s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot//my_bot.xml
+[40.919s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/my_bot.xml
+[40.922s] -- Symlinking: /home/bose/dev_ws/install/my_bot/include/my_bot/my_bot/arduino_comms.hpp
+[40.966s] -- Symlinking: /home/bose/dev_ws/install/my_bot/include/my_bot/my_bot/diffbot_system.hpp
+[41.012s] -- Symlinking: /home/bose/dev_ws/install/my_bot/include/my_bot/my_bot/visibility_control.h
+[41.057s] -- Symlinking: /home/bose/dev_ws/install/my_bot/include/my_bot/my_bot/wheel.hpp
+[41.103s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/config/diffbot_controllers.yaml
+[41.146s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/config/drive_ot.rviz
+[41.192s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/config/empty.yaml
+[41.238s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/config/gazebo_params.yaml
+[41.287s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/config/my_controllers.yaml
+[41.336s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/config/view_bot.rviz
+[41.380s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/description/camera.xacro
+[41.424s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/description/gazebo_control.xacro
+[41.465s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/description/inertial_macros.xacro
+[41.506s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/description/lidar.xacro
+[41.547s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/description/robot.urdf.xacro
+[41.588s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/description/robot_core.xacro
+[41.629s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/description/ros2_control.xacro
+[41.672s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/launch/camera.launch.py
+[41.713s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/launch/launch_robot.launch.py
+[41.755s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/launch/launch_sim.launch.py
+[41.797s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/launch/rplidar.launch.py
+[41.838s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/launch/rsp.launch.py
+[41.884s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/worlds/empty.world
+[41.926s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/worlds/lidar.world
+[41.968s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/worlds/new.world
+[42.014s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/worlds/obstacle.world
+[42.052s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/environment/library_path.sh
+[42.090s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/environment/library_path.dsv
+[42.129s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/ament_index/resource_index/package_run_dependencies/my_bot
+[42.167s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/ament_index/resource_index/parent_prefix_path/my_bot
+[42.206s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/environment/ament_prefix_path.sh
+[42.244s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/environment/ament_prefix_path.dsv
+[42.283s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/environment/path.sh
+[42.320s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/environment/path.dsv
+[42.360s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/local_setup.bash
+[42.398s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/local_setup.sh
+[42.436s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/local_setup.zsh
+[42.476s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/local_setup.dsv
+[42.517s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/package.dsv
+[42.553s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/ament_index/resource_index/packages/my_bot
+[42.590s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/ament_index/resource_index/my_bot__pluginlib__plugin/my_bot
+[42.628s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/cmake/ament_cmake_export_targets-extras.cmake
+[42.664s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/cmake/ament_cmake_export_dependencies-extras.cmake
+[42.702s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/cmake/my_botConfig.cmake
+[42.739s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/cmake/my_botConfig-version.cmake
+[42.779s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/package.xml
+[42.816s] -- Installing: /home/bose/dev_ws/install/my_bot/lib/libmy_bot.so
+[42.823s] -- Set runtime path of "/home/bose/dev_ws/install/my_bot/lib/libmy_bot.so" to ""
+[42.823s] -- Installing: /home/bose/dev_ws/install/my_bot/share/my_bot/cmake/export_my_botExport.cmake
+[42.824s] -- Installing: /home/bose/dev_ws/install/my_bot/share/my_bot/cmake/export_my_botExport-noconfig.cmake
+[42.834s] Invoked command in '/home/bose/dev_ws/build/my_bot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --install /home/bose/dev_ws/build/my_bot
