@@ -74,12 +74,13 @@ source install/setup.bash
 
 ### Hardware Interface
 
-The robot uses a custom hardware interface that implements the ROS2 Control `SystemInterface`. This allows for:
+The robot uses a custom hardware interface that implements the ROS2 Control `SystemInterface`. Key features include:
 
-- Reading encoder values
-- Publishing joint states
-- Commanding motor velocities
-- Communicating with the motor controller
+- Serial communication with Arduino via `/dev/ttyUSB0` at 57600 baud
+- Velocity control with limits: ±5 rad/s per wheel
+- Encoder resolution: 1440 counts per revolution
+- Loop rate: 30 Hz
+- Timeout: 1000 ms
 
 ## 🚀 Usage
 
@@ -184,6 +185,35 @@ ros2 topic echo /joint_states
 # Monitor controller status
 ros2 control list_controllers
 ```
+
+### Serial Communication Issues
+1. Check device permissions:
+   ```bash
+   ls -l /dev/ttyUSB0
+   sudo chmod 666 /dev/ttyUSB0
+   ```
+2. Test direct Arduino communication:
+   ```bash
+   python3 -m serial.tools.miniterm /dev/ttyUSB0 57600 --eol CR
+   ```
+3. Verify Arduino is responding to commands:
+   - Send `e\r` to read encoders
+   - Send `o 100 100\r` to test motors
+
+#### Controller Issues
+- Verify velocity limits in `ros2_control.xacro`
+- Check controller status:
+  ```bash
+  ros2 control list_controllers
+  ros2 control list_hardware_interfaces
+  ```
+
+#### Motor Control Issues
+- Test motor response using direct commands:
+  ```bash
+  ros2 topic pub /diff_cont/cmd_vel_unstamped geometry_msgs/msg/Twist "{linear: {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
+  ```
+- Verify motor connections and power supply
 
 ## 🤝 Contributing
 
