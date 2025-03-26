@@ -1,0 +1,118 @@
+[0.638s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'list', '-p', '--base-paths', '/home/bose/dev_ws']
+[0.639s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='list', build_base='build', ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['/home/bose/dev_ws'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], topological_order=False, names_only=False, paths_only=True, topological_graph=False, topological_graph_dot=False, topological_graph_density=False, topological_graph_legend=False, topological_graph_dot_cluster=False, topological_graph_dot_include_skipped=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffffa79196c0>, verb_extension=<colcon_package_information.verb.list.ListVerb object at 0xffffa7a31ed0>, main=<bound method ListVerb.main of <colcon_package_information.verb.list.ListVerb object at 0xffffa7a31ed0>>)
+[2.546s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[2.547s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[2.547s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[2.547s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[2.547s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[2.548s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/bose/dev_ws'
+[2.549s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws) by extensions ['ignore', 'ignore_ament_install']
+[2.551s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws) by extension 'ignore'
+[2.551s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws) by extension 'ignore_ament_install'
+[2.552s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws) by extensions ['colcon_pkg']
+[2.553s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws) by extension 'colcon_pkg'
+[2.554s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws) by extensions ['colcon_meta']
+[2.554s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws) by extension 'colcon_meta'
+[2.555s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws) by extensions ['ros']
+[2.555s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws) by extension 'ros'
+[2.647s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws) by extensions ['cmake', 'python']
+[2.648s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws) by extension 'cmake'
+[2.648s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws) by extension 'python'
+[2.649s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws) by extensions ['python_setup_py']
+[2.650s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws) by extension 'python_setup_py'
+[2.652s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/backup) by extensions ['ignore', 'ignore_ament_install']
+[2.653s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/backup) by extension 'ignore'
+[2.654s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/backup) by extension 'ignore_ament_install'
+[2.655s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/backup) by extensions ['colcon_pkg']
+[2.656s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/backup) by extension 'colcon_pkg'
+[2.656s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/backup) by extensions ['colcon_meta']
+[2.657s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/backup) by extension 'colcon_meta'
+[2.658s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/backup) by extensions ['ros']
+[2.658s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/backup) by extension 'ros'
+[2.659s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/backup) by extensions ['cmake', 'python']
+[2.660s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/backup) by extension 'cmake'
+[2.662s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/backup) by extension 'python'
+[2.663s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/backup) by extensions ['python_setup_py']
+[2.663s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/backup) by extension 'python_setup_py'
+[2.665s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/build) by extensions ['ignore', 'ignore_ament_install']
+[2.667s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/build) by extension 'ignore'
+[2.668s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/build) ignored
+[2.670s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/install) by extensions ['ignore', 'ignore_ament_install']
+[2.671s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/install) by extension 'ignore'
+[2.672s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/install) ignored
+[2.674s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/log) by extensions ['ignore', 'ignore_ament_install']
+[2.676s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/log) by extension 'ignore'
+[2.677s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/log) ignored
+[2.679s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src) by extensions ['ignore', 'ignore_ament_install']
+[2.679s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src) by extension 'ignore'
+[2.680s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src) by extension 'ignore_ament_install'
+[2.681s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src) by extensions ['colcon_pkg']
+[2.681s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src) by extension 'colcon_pkg'
+[2.682s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src) by extensions ['colcon_meta']
+[2.682s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src) by extension 'colcon_meta'
+[2.683s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src) by extensions ['ros']
+[2.683s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src) by extension 'ros'
+[2.684s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src) by extensions ['cmake', 'python']
+[2.685s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src) by extension 'cmake'
+[2.686s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src) by extension 'python'
+[2.686s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src) by extensions ['python_setup_py']
+[2.687s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src) by extension 'python_setup_py'
+[2.689s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/diffdrive_arduino) by extensions ['ignore', 'ignore_ament_install']
+[2.690s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/diffdrive_arduino) by extension 'ignore'
+[2.690s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/diffdrive_arduino) by extension 'ignore_ament_install'
+[2.691s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/diffdrive_arduino) by extensions ['colcon_pkg']
+[2.691s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/diffdrive_arduino) by extension 'colcon_pkg'
+[2.692s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/diffdrive_arduino) by extensions ['colcon_meta']
+[2.692s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/diffdrive_arduino) by extension 'colcon_meta'
+[2.692s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/diffdrive_arduino) by extensions ['ros']
+[2.693s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/diffdrive_arduino) by extension 'ros'
+[2.708s] DEBUG:colcon.colcon_core.package_identification:Package '/home/bose/dev_ws/src/diffdrive_arduino' with type 'ros.ament_cmake' and name 'diffdrive_arduino'
+[2.710s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/my_bot) by extensions ['ignore', 'ignore_ament_install']
+[2.711s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/my_bot) by extension 'ignore'
+[2.711s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/my_bot) by extension 'ignore_ament_install'
+[2.712s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/my_bot) by extensions ['colcon_pkg']
+[2.712s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/my_bot) by extension 'colcon_pkg'
+[2.712s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/my_bot) by extensions ['colcon_meta']
+[2.713s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/my_bot) by extension 'colcon_meta'
+[2.713s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/my_bot) by extensions ['ros']
+[2.713s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/my_bot) by extension 'ros'
+[2.721s] DEBUG:colcon.colcon_core.package_identification:Package '/home/bose/dev_ws/src/my_bot' with type 'ros.ament_cmake' and name 'my_bot'
+[2.722s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge) by extensions ['ignore', 'ignore_ament_install']
+[2.723s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge) by extension 'ignore'
+[2.723s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge) by extension 'ignore_ament_install'
+[2.723s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge) by extensions ['colcon_pkg']
+[2.724s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge) by extension 'colcon_pkg'
+[2.724s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge) by extensions ['colcon_meta']
+[2.724s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge) by extension 'colcon_meta'
+[2.725s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge) by extensions ['ros']
+[2.725s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge) by extension 'ros'
+[2.726s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge) by extensions ['cmake', 'python']
+[2.726s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge) by extension 'cmake'
+[2.726s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge) by extension 'python'
+[2.727s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge) by extensions ['python_setup_py']
+[2.727s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge) by extension 'python_setup_py'
+[2.728s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge/ROSArduinoBridge) by extensions ['ignore', 'ignore_ament_install']
+[2.729s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge/ROSArduinoBridge) by extension 'ignore'
+[2.729s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge/ROSArduinoBridge) by extension 'ignore_ament_install'
+[2.730s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge/ROSArduinoBridge) by extensions ['colcon_pkg']
+[2.730s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge/ROSArduinoBridge) by extension 'colcon_pkg'
+[2.731s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge/ROSArduinoBridge) by extensions ['colcon_meta']
+[2.731s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge/ROSArduinoBridge) by extension 'colcon_meta'
+[2.732s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge/ROSArduinoBridge) by extensions ['ros']
+[2.732s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge/ROSArduinoBridge) by extension 'ros'
+[2.733s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge/ROSArduinoBridge) by extensions ['cmake', 'python']
+[2.733s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge/ROSArduinoBridge) by extension 'cmake'
+[2.733s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge/ROSArduinoBridge) by extension 'python'
+[2.734s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge/ROSArduinoBridge) by extensions ['python_setup_py']
+[2.734s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/ros_arduino_bridge/ROSArduinoBridge) by extension 'python_setup_py'
+[2.735s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/serial) by extensions ['ignore', 'ignore_ament_install']
+[2.736s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/serial) by extension 'ignore'
+[2.736s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/serial) by extension 'ignore_ament_install'
+[2.737s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/serial) by extensions ['colcon_pkg']
+[2.737s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/serial) by extension 'colcon_pkg'
+[2.737s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/serial) by extensions ['colcon_meta']
+[2.737s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/serial) by extension 'colcon_meta'
+[2.738s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/serial) by extensions ['ros']
+[2.738s] Level 1:colcon.colcon_core.package_identification:_identify(/home/bose/dev_ws/src/serial) by extension 'ros'
+[2.741s] DEBUG:colcon.colcon_core.package_identification:Package '/home/bose/dev_ws/src/serial' with type 'ros.ament_cmake' and name 'serial'
+[2.742s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults

@@ -1,0 +1,1 @@
+/home/bose/dev_ws/build/my_bot/ament_cmake_export_include_directories/ament_cmake_export_include_directories-extras.cmake

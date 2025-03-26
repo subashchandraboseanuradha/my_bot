@@ -310,17 +310,17 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(FILES "my_bot.xml" "DESTINATION" "share/my_bot/")
-ament_cmake_symlink_install_files("/home/bose/dev_ws/src/my_bot" FILES "my_bot.xml" "DESTINATION" "share/my_bot/")
+# install("TARGETS" "my_bot" "DESTINATION" "lib")
+include("/home/bose/dev_ws/build/my_bot/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
-# install(FILES "my_bot.xml" "DESTINATION" "share/my_bot")
-ament_cmake_symlink_install_files("/home/bose/dev_ws/src/my_bot" FILES "my_bot.xml" "DESTINATION" "share/my_bot")
-
-# install(DIRECTORY "hardware/include/" "DESTINATION" "include/my_bot")
-ament_cmake_symlink_install_directory("/home/bose/dev_ws/src/my_bot" DIRECTORY "hardware/include/" "DESTINATION" "include/my_bot")
+# install(DIRECTORY "hardware/include/" "DESTINATION" "include")
+ament_cmake_symlink_install_directory("/home/bose/dev_ws/src/my_bot" DIRECTORY "hardware/include/" "DESTINATION" "include")
 
 # install(DIRECTORY "config" "description" "launch" "worlds" "DESTINATION" "share/my_bot")
 ament_cmake_symlink_install_directory("/home/bose/dev_ws/src/my_bot" DIRECTORY "config" "description" "launch" "worlds" "DESTINATION" "share/my_bot")
+
+# install(FILES "my_bot.xml" "DESTINATION" "share/my_bot/")
+ament_cmake_symlink_install_files("/home/bose/dev_ws/src/my_bot" FILES "my_bot.xml" "DESTINATION" "share/my_bot/")
 
 # install(FILES "/opt/ros/humble/lib/python3.10/site-packages/ament_package/template/environment_hook/library_path.sh" "DESTINATION" "share/my_bot/environment")
 ament_cmake_symlink_install_files("/home/bose/dev_ws/src/my_bot" FILES "/opt/ros/humble/lib/python3.10/site-packages/ament_package/template/environment_hook/library_path.sh" "DESTINATION" "share/my_bot/environment")
@@ -364,11 +364,14 @@ ament_cmake_symlink_install_files("/home/bose/dev_ws/src/my_bot" FILES "/home/bo
 # install(FILES "/home/bose/dev_ws/build/my_bot/ament_cmake_index/share/ament_index/resource_index/packages/my_bot" "DESTINATION" "share/ament_index/resource_index/packages")
 ament_cmake_symlink_install_files("/home/bose/dev_ws/src/my_bot" FILES "/home/bose/dev_ws/build/my_bot/ament_cmake_index/share/ament_index/resource_index/packages/my_bot" "DESTINATION" "share/ament_index/resource_index/packages")
 
-# install(FILES "/home/bose/dev_ws/build/my_bot/ament_cmake_index/share/ament_index/resource_index/my_bot__pluginlib__plugin/my_bot" "DESTINATION" "share/ament_index/resource_index/my_bot__pluginlib__plugin")
-ament_cmake_symlink_install_files("/home/bose/dev_ws/src/my_bot" FILES "/home/bose/dev_ws/build/my_bot/ament_cmake_index/share/ament_index/resource_index/my_bot__pluginlib__plugin/my_bot" "DESTINATION" "share/ament_index/resource_index/my_bot__pluginlib__plugin")
+# install(FILES "/home/bose/dev_ws/build/my_bot/ament_cmake_index/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/my_bot" "DESTINATION" "share/ament_index/resource_index/hardware_interface__pluginlib__plugin")
+ament_cmake_symlink_install_files("/home/bose/dev_ws/src/my_bot" FILES "/home/bose/dev_ws/build/my_bot/ament_cmake_index/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/my_bot" "DESTINATION" "share/ament_index/resource_index/hardware_interface__pluginlib__plugin")
 
-# install(FILES "/home/bose/dev_ws/build/my_bot/ament_cmake_export_targets/ament_cmake_export_targets-extras.cmake" "DESTINATION" "share/my_bot/cmake")
-ament_cmake_symlink_install_files("/home/bose/dev_ws/src/my_bot" FILES "/home/bose/dev_ws/build/my_bot/ament_cmake_export_targets/ament_cmake_export_targets-extras.cmake" "DESTINATION" "share/my_bot/cmake")
+# install(FILES "/home/bose/dev_ws/build/my_bot/ament_cmake_export_include_directories/ament_cmake_export_include_directories-extras.cmake" "DESTINATION" "share/my_bot/cmake")
+ament_cmake_symlink_install_files("/home/bose/dev_ws/src/my_bot" FILES "/home/bose/dev_ws/build/my_bot/ament_cmake_export_include_directories/ament_cmake_export_include_directories-extras.cmake" "DESTINATION" "share/my_bot/cmake")
+
+# install(FILES "/home/bose/dev_ws/build/my_bot/ament_cmake_export_libraries/ament_cmake_export_libraries-extras.cmake" "DESTINATION" "share/my_bot/cmake")
+ament_cmake_symlink_install_files("/home/bose/dev_ws/src/my_bot" FILES "/home/bose/dev_ws/build/my_bot/ament_cmake_export_libraries/ament_cmake_export_libraries-extras.cmake" "DESTINATION" "share/my_bot/cmake")
 
 # install(FILES "/home/bose/dev_ws/build/my_bot/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake" "DESTINATION" "share/my_bot/cmake")
 ament_cmake_symlink_install_files("/home/bose/dev_ws/src/my_bot" FILES "/home/bose/dev_ws/build/my_bot/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake" "DESTINATION" "share/my_bot/cmake")

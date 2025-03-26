@@ -1,50 +1,41 @@
-# Copyright 2023 Your Name
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
+#!/usr/bin/env python3
 import os
-from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import RegisterEventHandler
-from launch.event_handlers import OnProcessExit
-from launch.substitutions import Command, FindExecutable, PathJoinSubstitution
+from launch.actions import RegisterEventHandler, DeclareLaunchArgument, TimerAction
+from launch.event_handlers import OnProcessExit, OnProcessStart
+from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration
 from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
+from ament_index_python.packages import get_package_share_directory
+import xacro
 
 def generate_launch_description():
+    # Declare launch arguments
+    use_mock_hardware = LaunchConfiguration('use_mock_hardware')
+    
+    declare_use_mock_hardware = DeclareLaunchArgument(
+        'use_mock_hardware',
+        default_value='false',
+        description='Whether to use mock hardware')
+    
     # Get URDF via xacro
     robot_description_content = Command(
         [
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
             PathJoinSubstitution(
-                [get_package_share_directory("my_bot"), "description", "robot.urdf.xacro"]
+                [FindPackageShare("my_bot"), "description", "robot.urdf.xacro"]
             ),
+            " ",
+            "use_mock_hardware:=", use_mock_hardware,
+            " ",
+            "sim_mode:=false",
         ]
     )
     robot_description = {"robot_description": robot_description_content}
 
-    robot_controllers = os.path.join(
-        get_package_share_directory("my_bot"),
-        "config",
-        "my_controllers.yaml",
-    )
-
-    control_node = Node(
-        package="controller_manager",
-        executable="ros2_control_node",
-        parameters=[robot_description, robot_controllers],
-        output="both",
-    )
+    my_bot_dir = get_package_share_directory('my_bot')
+    controller_config = os.path.join(my_bot_dir, 'config', 'my_controllers.yaml')
 
     robot_state_pub_node = Node(
         package="robot_state_publisher",
@@ -53,32 +44,48 @@ def generate_launch_description():
         parameters=[robot_description],
     )
 
+    controller_manager = Node(
+        package="controller_manager",
+        executable="ros2_control_node",
+        parameters=[robot_description, controller_config],
+        output="screen",
+    )
+
+    # Joint state broadcaster spawner
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
         executable="spawner",
         arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
+        output="screen",
     )
 
-    robot_controller_spawner = Node(
+    # Differential drive controller spawner
+    diff_drive_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["diffbot_base_controller", "--controller-manager", "/controller_manager"],
-    )
-    
-
-    # Delay start of robot_controller after joint_state_broadcaster
-    delay_robot_controller_spawner_after_joint_state_broadcaster_spawner = RegisterEventHandler(
-        event_handler=OnProcessExit(
-            target_action=joint_state_broadcaster_spawner,
-            on_exit=[robot_controller_spawner],
-        )
+        arguments=["diff_cont", "--controller-manager", "/controller_manager"],
+        output="screen",
     )
 
+    # Delay joint_state_broadcaster after controller_manager
+    delayed_joint_state_broadcaster_spawner = TimerAction(
+        period=3.0,
+        actions=[joint_state_broadcaster_spawner]
+    )
+
+    # Delay diff_drive_spawner after joint_state_broadcaster
+    delayed_diff_drive_spawner = TimerAction(
+        period=5.0,
+        actions=[diff_drive_spawner]
+    )
+
+    # Define the final launch description and return it
     nodes = [
-        control_node,
+        declare_use_mock_hardware,
         robot_state_pub_node,
-        joint_state_broadcaster_spawner,
-        delay_robot_controller_spawner_after_joint_state_broadcaster_spawner,
+        controller_manager,
+        delayed_joint_state_broadcaster_spawner,
+        delayed_diff_drive_spawner,
     ]
 
     return LaunchDescription(nodes) 

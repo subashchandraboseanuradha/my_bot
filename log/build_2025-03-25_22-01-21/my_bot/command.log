@@ -1,0 +1,2 @@
+Invoking command in '/home/bose/dev_ws/build/my_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --build /home/bose/dev_ws/build/my_bot -- -j4 -l4
+Invoked command in '/home/bose/dev_ws/build/my_bot' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --build /home/bose/dev_ws/build/my_bot -- -j4 -l4

@@ -1,0 +1,55 @@
+[0.080s] Invoking command in '/home/bose/dev_ws/build/my_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --build /home/bose/dev_ws/build/my_bot -- -j4 -l4
+[0.577s] [100%] Built target my_bot
+[0.625s] Invoked command in '/home/bose/dev_ws/build/my_bot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --build /home/bose/dev_ws/build/my_bot -- -j4 -l4
+[0.673s] Invoking command in '/home/bose/dev_ws/build/my_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --install /home/bose/dev_ws/build/my_bot
+[0.712s] -- Install configuration: ""
+[0.737s] -- Execute custom install script
+[0.741s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/lib/libmy_bot.so
+[0.755s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/include/my_bot/arduino_comms.hpp
+[0.756s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/include/my_bot/diffbot_system.hpp
+[0.758s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/include/my_bot/visibility_control.h
+[0.760s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/include/my_bot/wheel.hpp
+[0.763s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/config/drive_ot.rviz
+[0.764s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/config/empty.yaml
+[0.765s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/config/gazebo_params.yaml
+[0.766s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/config/my_controllers.yaml
+[0.767s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/config/view_bot.rviz
+[0.770s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/description/camera.xacro
+[0.770s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/description/gazebo_control.xacro
+[0.771s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/description/inertial_macros.xacro
+[0.772s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/description/lidar.xacro
+[0.772s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/description/robot.urdf.xacro
+[0.773s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/description/robot_core.xacro
+[0.774s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/description/ros2_control.xacro
+[0.775s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/launch/camera.launch.py
+[0.776s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/launch/launch_robot.launch.py
+[0.777s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/launch/launch_sim.launch.py
+[0.777s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/launch/rplidar.launch.py
+[0.778s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/launch/rsp.launch.py
+[0.780s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/worlds/empty.world
+[0.781s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/worlds/lidar.world
+[0.781s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/worlds/new.world
+[0.782s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/worlds/obstacle.world
+[0.782s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot//my_bot.xml
+[0.783s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/environment/library_path.sh
+[0.784s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/environment/library_path.dsv
+[0.785s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/ament_index/resource_index/package_run_dependencies/my_bot
+[0.788s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/ament_index/resource_index/parent_prefix_path/my_bot
+[0.788s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/environment/ament_prefix_path.sh
+[0.789s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/environment/ament_prefix_path.dsv
+[0.790s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/environment/path.sh
+[0.791s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/environment/path.dsv
+[0.792s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/local_setup.bash
+[0.793s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/local_setup.sh
+[0.794s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/local_setup.zsh
+[0.795s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/local_setup.dsv
+[0.795s] -- Symlinking: /home/bose/dev_ws/install/my_bot/share/my_bot/package.dsv
+[0.834s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/ament_index/resource_index/packages/my_bot
+[0.835s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/my_bot
+[0.836s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.837s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/cmake/ament_cmake_export_libraries-extras.cmake
+[0.838s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.839s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/cmake/my_botConfig.cmake
+[0.840s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/cmake/my_botConfig-version.cmake
+[0.840s] -- Up-to-date symlink: /home/bose/dev_ws/install/my_bot/share/my_bot/package.xml
+[0.847s] Invoked command in '/home/bose/dev_ws/build/my_bot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --install /home/bose/dev_ws/build/my_bot
