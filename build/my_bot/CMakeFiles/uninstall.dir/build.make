@@ -56,7 +56,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/bose/dev_ws/src/my_bot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bose/dev_ws/build/my_bot
+CMAKE_BINARY_DIR = /home/bose/dev_ws/src/my_bot/build/my_bot
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/bose/dev_ws/build/my_bot && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bose/dev_ws/src/my_bot /home/bose/dev_ws/src/my_bot /home/bose/dev_ws/build/my_bot /home/bose/dev_ws/build/my_bot /home/bose/dev_ws/build/my_bot/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/bose/dev_ws/src/my_bot/build/my_bot && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bose/dev_ws/src/my_bot /home/bose/dev_ws/src/my_bot /home/bose/dev_ws/src/my_bot/build/my_bot /home/bose/dev_ws/src/my_bot/build/my_bot /home/bose/dev_ws/src/my_bot/build/my_bot/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 

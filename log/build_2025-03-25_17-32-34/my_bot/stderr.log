@@ -1,7 +1,0 @@
-[01m[K/home/bose/dev_ws/src/my_bot/hardware/diffbot_system.cpp:1:10:[m[K [01;31m[Kfatal error: [m[Khardware/include/my_bot/diffbot_system.hpp: No such file or directory
-    1 | #include [01;31m[K"hardware/include/my_bot/diffbot_system.hpp"[m[K
-      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
-compilation terminated.
-gmake[2]: *** [CMakeFiles/my_bot.dir/build.make:76: CMakeFiles/my_bot.dir/hardware/diffbot_system.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/my_bot.dir/all] Error 2
-gmake: *** [Makefile:146: all] Error 2

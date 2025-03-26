@@ -1,1 +1,0 @@
-/home/bose/dev_ws/src/my_bot/hardware/include/my_bot/visibility_control.h
