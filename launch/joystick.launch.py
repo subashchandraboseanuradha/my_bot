@@ -1,8 +1,7 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.substitutions import LaunchConfiguration
-from launch.actions import DeclareLaunchArgument
-
+from launch.actions import DeclareLaunchArgument, ExecuteProcess
 import os
 from ament_index_python.packages import get_package_share_directory
 
@@ -11,10 +10,19 @@ def generate_launch_description():
 
     joy_params = os.path.join(get_package_share_directory('my_bot'),'config','joystick.yaml')
 
+    # Set ROS_DOMAIN_ID and network configuration
+    env_config = {
+        'ROS_DOMAIN_ID': '28',
+        'ROS_LOCALHOST_ONLY': '0'
+    }
+
     joy_node = Node(
             package='joy',
             executable='joy_node',
             parameters=[joy_params, {'use_sim_time': use_sim_time}],
+            output='screen',
+            emulate_tty=True,
+            additional_env=env_config
          )
 
     teleop_node = Node(
@@ -22,19 +30,11 @@ def generate_launch_description():
             executable='teleop_node',
             name='teleop_node',
             parameters=[joy_params, {'use_sim_time': use_sim_time}],
-            remappings=[('/cmd_vel','/diff_cont/cmd_vel_unstamped')]
+            remappings=[('/cmd_vel','/diff_cont/cmd_vel_unstamped')],
+            output='screen',
+            emulate_tty=True,
+            additional_env=env_config
          )
-
-    # For Humble, we don't need the twist_stamper since we're using stamped velocity commands
-    # Keeping this commented for reference
-    # twist_stamper = Node(
-    #         package='twist_stamper',
-    #         executable='twist_stamper',
-    #         parameters=[{'use_sim_time': use_sim_time}],
-    #         remappings=[('/cmd_vel_in','/diff_cont/cmd_vel_unstamped'),
-    #                     ('/cmd_vel_out','/diff_cont/cmd_vel')]
-    #      )
-
 
     return LaunchDescription([
         DeclareLaunchArgument(
@@ -43,5 +43,4 @@ def generate_launch_description():
             description='Use sim time if true'),
         joy_node,
         teleop_node,
-        # twist_stamper       
     ])
