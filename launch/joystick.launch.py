@@ -22,16 +22,18 @@ def generate_launch_description():
             executable='teleop_node',
             name='teleop_node',
             parameters=[joy_params, {'use_sim_time': use_sim_time}],
-            remappings=[('/cmd_vel','/diff_cont/cmd_vel_unstamped')]
+            remappings=[('/cmd_vel','/diff_cont/cmd_vel')]
          )
 
-    twist_stamper = Node(
-            package='twist_stamper',
-            executable='twist_stamper',
-            parameters=[{'use_sim_time': use_sim_time}],
-            remappings=[('/cmd_vel_in','/diff_cont/cmd_vel_unstamped'),
-                        ('/cmd_vel_out','/diff_cont/cmd_vel')]
-         )
+    # For Humble, we don't need the twist_stamper since we're using stamped velocity commands
+    # Keeping this commented for reference
+    # twist_stamper = Node(
+    #         package='twist_stamper',
+    #         executable='twist_stamper',
+    #         parameters=[{'use_sim_time': use_sim_time}],
+    #         remappings=[('/cmd_vel_in','/diff_cont/cmd_vel_unstamped'),
+    #                     ('/cmd_vel_out','/diff_cont/cmd_vel')]
+    #      )
 
 
     return LaunchDescription([

@@ -21,7 +21,10 @@ teleop_node:
       yaw: 1.0
 
 
-    enable_button: 6
-    enable_turbo_button: 7
+    enable_button: 6  # BTN_SELECT (314) on Xbox 360 controller
+    enable_turbo_button: 7  # BTN_START (315) on Xbox 360 controller
 
     require_enable_button: true
+    
+    stamped: true
+    frame_id: "base_link"
