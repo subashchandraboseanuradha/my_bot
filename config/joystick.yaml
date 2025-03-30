@@ -7,7 +7,7 @@ joy_node:
 teleop_node:
   ros__parameters:
     axis_linear:
-      x: 5  # Working axis for forward/backward
+      x: 1  # Use axis 1 (typically left stick up/down)
     scale_linear:
       x: 0.7  # Increased from 0.5 for better response
     scale_linear_turbo:
