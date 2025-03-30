@@ -7,32 +7,24 @@ joy_node:
 teleop_node:
   ros__parameters:
     axis_linear:
-      x: 1  # Use axis 1 (typically left stick up/down)
+      x: 1  # Left stick up/down (verified working)
     scale_linear:
-      x: 0.7  # Increased from 0.5 for better response
+      x: 0.7  # Good responsive speed
     scale_linear_turbo:
-      x: 1.2  # Increased for turbo mode
+      x: 1.2  # Faster in turbo mode
 
     axis_angular:
-      yaw: 2  # Working axis for turning
+      yaw: 0  # Left stick left/right for rotation
     scale_angular:
-      yaw: 4.0  # Increased to 4.0 as you suggested
+      yaw: 4.0  # Higher rotation speed
     scale_angular_turbo:
       yaw: 5.0  # Even higher for turbo mode
 
-    # Try different enable buttons
-    enable_button: 5  # RB button works
-    # Alternative enable buttons to try:
-    # 1: B button
-    # 2: X button  
-    # 3: Y button
-    # 4: LB button
-    # 5: RB button
-    # 6: Select button
-    # 7: Start button
+    # Working buttons
+    enable_button: 4  # LB button (confirmed working)
+    enable_turbo_button: 7  # Start button (confirmed working)
     
-    enable_turbo_button: 7  # Start button for turbo
     require_enable_button: true
     
-    stamped: false
+    stamped: false  # Changed to false since this works with your controller
     frame_id: "base_link"
