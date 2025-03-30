@@ -1,0 +1,38 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/bose/dev_ws/install/serial_motor_demo_msgs/include/**",
+        "/home/bose/dev_ws/install/ros2_control_demo_example_9/include/**",
+        "/home/bose/dev_ws/install/ros2_control_demo_example_8/include/**",
+        "/home/bose/dev_ws/install/ros2_control_demo_example_7/include/**",
+        "/home/bose/dev_ws/install/ros2_control_demo_example_6/include/**",
+        "/home/bose/dev_ws/install/ros2_control_demo_example_5/include/**",
+        "/home/bose/dev_ws/install/ros2_control_demo_example_4/include/**",
+        "/home/bose/dev_ws/install/ros2_control_demo_example_3/include/**",
+        "/home/bose/dev_ws/install/ros2_control_demo_example_2/include/**",
+        "/home/bose/dev_ws/install/ros2_control_demo_example_14/include/**",
+        "/home/bose/dev_ws/install/ros2_control_demo_example_12/include/**",
+        "/home/bose/dev_ws/install/ros2_control_demo_example_11/include/**",
+        "/home/bose/dev_ws/install/ros2_control_demo_example_10/include/**",
+        "/home/bose/dev_ws/install/ros2_control_demo_example_1/include/**",
+        "/home/bose/dev_ws/install/gazebo_ros2_control/include/**",
+        "/home/bose/install/serial_motor_demo_msgs/include/**",
+        "/home/bose/install/gazebo_ros2_control/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/bose/dev_ws/src/gazebo_ros2_control/gazebo_ros2_control/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
