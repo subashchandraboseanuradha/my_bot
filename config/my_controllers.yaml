@@ -36,8 +36,8 @@ diff_cont:
     angular.z.has_velocity_limits: true
     angular.z.has_acceleration_limits: true
     angular.z.has_jerk_limits: false
-    angular.z.max_velocity: 1.0  # rad/s
-    angular.z.min_velocity: -1.0
+    angular.z.max_velocity: 3.5  # rad/s (based on working value)
+    angular.z.min_velocity: -3.5
     angular.z.max_acceleration: 2.0  # rad/s^2
     angular.z.min_acceleration: -2.0
     angular.z.max_jerk: 0.0  # rad/s^3
