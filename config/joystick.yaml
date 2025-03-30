@@ -26,5 +26,5 @@ teleop_node:
 
     require_enable_button: true
     
-    stamped: true
+    stamped: false
     frame_id: "base_link"
