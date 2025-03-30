@@ -7,23 +7,31 @@ joy_node:
 teleop_node:
   ros__parameters:
     axis_linear:
-      x: 1
+      x: 5  # Working axis for forward/backward
     scale_linear:
-      x: 0.5
+      x: 0.7  # Increased from 0.5 for better response
     scale_linear_turbo:
-      x: 1.0
+      x: 1.2  # Increased for turbo mode
 
     axis_angular:
-      yaw: 0
+      yaw: 2  # Working axis for turning
     scale_angular:
-      yaw: 0.5
+      yaw: 4.0  # Increased to 4.0 as you suggested
     scale_angular_turbo:
-      yaw: 1.0
+      yaw: 5.0  # Even higher for turbo mode
 
-
-    enable_button: 6  # BTN_SELECT (314) on Xbox 360 controller
-    enable_turbo_button: 7  # BTN_START (315) on Xbox 360 controller
-
+    # Try different enable buttons
+    enable_button: 5  # RB button works
+    # Alternative enable buttons to try:
+    # 1: B button
+    # 2: X button  
+    # 3: Y button
+    # 4: LB button
+    # 5: RB button
+    # 6: Select button
+    # 7: Start button
+    
+    enable_turbo_button: 7  # Start button for turbo
     require_enable_button: true
     
     stamped: false
