@@ -6,6 +6,15 @@
   <xacro:arg name="use_arduino" default="true"/>
 
   <ros2_control name="DiffBotHardware" type="system">
+
+    <!-- Simulated Gazebo Plugin -->
+    <xacro:if value="$(arg sim_mode)">
+      <hardware>
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      </hardware>
+    </xacro:if>
+
+    <!-- Mock Hardware Plugin -->
     <xacro:if value="$(arg use_mock_hardware)">
       <hardware>
         <plugin>mock_components/GenericSystem</plugin>
@@ -15,19 +24,23 @@
       </hardware>
     </xacro:if>
 
-    <xacro:unless value="$(arg use_mock_hardware)">
-      <hardware>
-        <plugin>my_bot/DiffBotSystemHardware</plugin>
-        <param name="left_wheel_name">left_wheel_joint</param>
-        <param name="right_wheel_name">right_wheel_joint</param>
-        <param name="loop_rate">30.0</param>
-        <param name="device">/dev/ttyUSB0</param>
-        <param name="baud_rate">57600</param>
-        <param name="timeout_ms">1000</param>
-        <param name="enc_counts_per_rev">1440</param>
-      </hardware>
+    <!-- Real Hardware Plugin -->
+    <xacro:unless value="$(arg sim_mode)">
+      <xacro:unless value="$(arg use_mock_hardware)">
+        <hardware>
+          <plugin>my_bot/DiffBotSystemHardware</plugin>
+          <param name="left_wheel_name">left_wheel_joint</param>
+          <param name="right_wheel_name">right_wheel_joint</param>
+          <param name="loop_rate">30.0</param>
+          <param name="device">/dev/ttyUSB0</param>
+          <param name="baud_rate">57600</param>
+          <param name="timeout_ms">1000</param>
+          <param name="enc_counts_per_rev">1440</param>
+        </hardware>
+      </xacro:unless>
     </xacro:unless>
 
+    <!-- Joints -->
     <joint name="left_wheel_joint">
       <command_interface name="velocity">
         <param name="min">-5</param>
@@ -46,9 +59,12 @@
     </joint>
   </ros2_control>
 
+  <!-- Gazebo plugin -->
   <gazebo>
     <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
       <parameters>$(find my_bot)/config/my_controllers.yaml</parameters>
+      <robot_param>robot_description</robot_param>
+      <robot_param_node>robot_state_publisher</robot_param_node>
     </plugin>
   </gazebo>
 

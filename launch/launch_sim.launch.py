@@ -24,7 +24,36 @@ def generate_launch_description():
                 'launch','rsp.launch.py'
             )
         ]), 
-        launch_arguments={'use_sim_time': 'true', 'use_ros2_control':'true'}.items()
+        launch_arguments={
+            'use_sim_time': 'true', 
+            'use_ros2_control': 'true',
+            'sim_mode': 'true'
+        }.items()
+    )
+
+    # Joystick controller - only include if file exists
+    joystick_launch_path = os.path.join(
+        get_package_share_directory(package_name),
+        'launch','joystick.launch.py'
+    )
+    
+    # Debug print to show if joystick.launch.py is found
+    print(f"Checking joystick path: {joystick_launch_path}")
+    print(f"Joystick file exists: {os.path.exists(joystick_launch_path)}")
+
+    # Add twist_mux if config exists
+    twist_mux_params_path = os.path.join(
+        get_package_share_directory(package_name),
+        'config',
+        'twist_mux.yaml'
+    )
+    
+    # Only include twist_mux if the config file exists
+    twist_mux = Node(
+        package="twist_mux",
+        executable="twist_mux",
+        parameters=[{'use_sim_time': True}],
+        remappings=[('/cmd_vel_out','/diff_cont/cmd_vel_unstamped')]
     )
 
     # Gazebo parameters file
@@ -58,7 +87,7 @@ def generate_launch_description():
     diff_drive_spawner = Node(
         package='controller_manager',
         executable='spawner',
-        arguments=['diff_drive_controller', '--controller-manager', '/controller_manager'],
+        arguments=['diff_cont', '--controller-manager', '/controller_manager'],
         output='screen',
         parameters=[{'use_sim_time': True}]
     )
@@ -86,10 +115,29 @@ def generate_launch_description():
         )
     )
 
-    return LaunchDescription([
+    # Create launch description elements list
+    nodes = [
         rsp,
         gazebo,
         spawn_entity,
         diff_drive_delay,
         joint_state_broadcaster_delay
-    ])
+    ]
+    
+    # Add joystick if it exists
+    if os.path.exists(joystick_launch_path):
+        print("Including joystick launch file")
+        joystick = IncludeLaunchDescription(
+            PythonLaunchDescriptionSource([joystick_launch_path]), 
+            launch_arguments={'use_sim_time': 'true'}.items()
+        )
+        nodes.append(joystick)
+    else:
+        print("WARNING: Joystick launch file not found at", joystick_launch_path)
+    
+    # Add twist_mux if config exists
+    if os.path.exists(twist_mux_params_path):
+        twist_mux.parameters.append(twist_mux_params_path)
+        nodes.append(twist_mux)
+
+    return LaunchDescription(nodes)
