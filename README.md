@@ -23,6 +23,7 @@
 
 ## 📋 Table of Contents
 
+- [Quick Start](#-quick-start)
 - [Installation](#-installation)
 - [Hardware Setup](#-hardware-setup)
 - [Usage](#-usage)
@@ -33,14 +34,56 @@
 - [Contributing](#-contributing)
 - [License](#-license)
 
+## 🚀 Quick Start
+
+```bash
+# 1. Create and setup workspace
+mkdir -p ~/dev_ws/src
+cd ~/dev_ws/src
+
+# 2. Clone the repository
+git clone https://github.com/yourusername/my_bot.git
+
+# 3. Install dependencies
+cd ~/dev_ws
+rosdep install --from-paths src --ignore-src -r -y
+
+# 4. Build the workspace
+colcon build --symlink-install
+
+# 5. Source the workspace
+source install/setup.bash
+
+# 6. Launch the robot
+ros2 launch my_bot launch_robot.launch.py
+```
+
 ## 🔧 Installation
 
 ### Prerequisites
 
-- Ubuntu 22.04
-- ROS2 Humble
-- Colcon build tools
-- Hardware dependencies (Arduino, RPi, etc. - optional for physical robot)
+1. **Ubuntu 22.04**
+   ```bash
+   # Check Ubuntu version
+   lsb_release -a
+   ```
+
+2. **ROS2 Humble**
+   ```bash
+   # Install ROS2 Humble if not already installed
+   sudo apt update && sudo apt install ros-humble-desktop
+   ```
+
+3. **Colcon build tools**
+   ```bash
+   sudo apt install python3-colcon-common-extensions
+   ```
+
+4. **Additional dependencies**
+   ```bash
+   sudo apt install ros-humble-ros2-control ros-humble-ros2-controllers
+   sudo apt install ros-humble-gazebo-ros2-control
+   ```
 
 ### Build from Source
 
@@ -82,7 +125,7 @@ The robot uses a custom hardware interface that implements the ROS2 Control `Sys
 - Loop rate: 30 Hz
 - Timeout: 1000 ms
 
-## 🚀 Usage
+## 🎮 Usage
 
 ### Launch the Robot
 
@@ -167,11 +210,49 @@ Edit `config/my_controllers.yaml` to modify:
 
 ## 🔍 Troubleshooting
 
-### Common Issues
+### Common Issues and Solutions
 
-- **Hardware Not Found**: Ensure serial device exists and has correct permissions
-- **Plugin Not Loading**: Verify CMake configuration and plugin registration
-- **Controller Errors**: Check namespaces and joint names in configuration
+1. **Hardware Not Found**
+   ```bash
+   # Check if device exists
+   ls -l /dev/ttyUSB0
+   
+   # Fix permissions
+   sudo chmod 666 /dev/ttyUSB0
+   
+   # Add user to dialout group
+   sudo usermod -a -G dialout $USER
+   ```
+
+2. **Joystick Not Working**
+   ```bash
+   # Check joystick detection
+   ls -l /dev/input/js*
+   
+   # Fix permissions
+   sudo chmod a+rw /dev/input/js*
+   
+   # Test joystick
+   jstest /dev/input/js0
+   ```
+
+3. **Controller Errors**
+   ```bash
+   # Check controller status
+   ros2 control list_controllers
+   
+   # Verify topic publication
+   ros2 topic echo /joint_states
+   ```
+
+4. **Build Errors**
+   ```bash
+   # Clean build
+   rm -rf build/ install/ log/
+   
+   # Rebuild
+   colcon build --symlink-install
+   ```
 
 ### Debugging Commands
 

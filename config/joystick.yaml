@@ -8,7 +8,7 @@ joy_node:
 
 teleop_node:
   ros__parameters:
-    # Xbox 360 controller mapping:
+    #  Xbox 360 controller mapping:
     # Axes: 0=LeftStickX, 1=LeftStickY, 2=LeftTrigger, 3=RightStickX, 
     #       4=RightStickY, 5=RightTrigger, 6=DPadX, 7=DPadY
     axis_linear:
