@@ -16,6 +16,27 @@ def generate_launch_description():
         'my_controllers.yaml'
     )
 
+    # SLAM configuration
+    slam_params_file = os.path.join(
+        get_package_share_directory('slam_toolbox'),
+        'config',
+        'mapper_params_online_async.yaml'
+    )
+
+    # SLAM Node
+    slam_node = Node(
+        package='slam_toolbox',
+        executable='async_slam_toolbox_node',
+        name='slam_toolbox',
+        output='screen',
+        parameters=[slam_params_file, {'use_sim_time': True}],
+        remappings=[
+            ('scan', '/scan'),
+            ('map', '/map'),
+            ('odom', '/odom')
+        ]
+    )
+
     # Robot State Publisher (URDF/Xacro processing)
     rsp = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
@@ -121,7 +142,8 @@ def generate_launch_description():
         gazebo,
         spawn_entity,
         diff_drive_delay,
-        joint_state_broadcaster_delay
+        joint_state_broadcaster_delay,
+        slam_node
     ]
     
     # Add joystick if it exists
