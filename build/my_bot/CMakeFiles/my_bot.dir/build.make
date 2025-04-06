@@ -176,7 +176,7 @@ libmy_bot.so: /opt/ros/humble/lib/librosidl_typesupport_c.so
 libmy_bot.so: /opt/ros/humble/lib/librosidl_typesupport_cpp.so
 libmy_bot.so: /opt/ros/humble/lib/librosidl_typesupport_introspection_c.so
 libmy_bot.so: /opt/ros/humble/lib/librosidl_typesupport_introspection_cpp.so
-libmy_bot.so: /usr/lib/aarch64-linux-gnu/libconsole_bridge.so.1.0
+libmy_bot.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.1.0
 libmy_bot.so: /opt/ros/humble/lib/libclass_loader.so
 libmy_bot.so: /opt/ros/humble/lib/libclass_loader.so
 libmy_bot.so: /usr/lib/aarch64-linux-gnu/libtinyxml2.so
@@ -192,7 +192,7 @@ libmy_bot.so: /opt/ros/humble/lib/liblifecycle_msgs__rosidl_typesupport_fastrtps
 libmy_bot.so: /opt/ros/humble/lib/liblifecycle_msgs__rosidl_typesupport_introspection_cpp.so
 libmy_bot.so: /opt/ros/humble/lib/liblifecycle_msgs__rosidl_typesupport_cpp.so
 libmy_bot.so: /opt/ros/humble/lib/liblifecycle_msgs__rosidl_generator_py.so
-libmy_bot.so: /usr/lib/aarch64-linux-gnu/libpython3.10.so
+libmy_bot.so: /usr/lib/x86_64-linux-gnu/libpython3.10.so
 libmy_bot.so: /opt/ros/humble/lib/librclcpp_lifecycle.so
 libmy_bot.so: /opt/ros/humble/lib/librclcpp.so
 libmy_bot.so: /opt/ros/humble/lib/librcl_lifecycle.so
@@ -204,7 +204,7 @@ libmy_bot.so: /opt/ros/humble/lib/liblifecycle_msgs__rosidl_typesupport_cpp.so
 libmy_bot.so: /opt/ros/humble/lib/liblifecycle_msgs__rosidl_generator_py.so
 libmy_bot.so: /opt/ros/humble/lib/librcpputils.so
 libmy_bot.so: /opt/ros/humble/lib/librcutils.so
-libmy_bot.so: /usr/lib/aarch64-linux-gnu/libconsole_bridge.so.1.0
+libmy_bot.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.1.0
 libmy_bot.so: /opt/ros/humble/lib/liblibstatistics_collector.so
 libmy_bot.so: /opt/ros/humble/lib/librosgraph_msgs__rosidl_typesupport_fastrtps_c.so
 libmy_bot.so: /opt/ros/humble/lib/librosgraph_msgs__rosidl_typesupport_fastrtps_cpp.so
@@ -284,7 +284,7 @@ libmy_bot.so: /opt/ros/humble/lib/librosidl_typesupport_c.so
 libmy_bot.so: /opt/ros/humble/lib/librcpputils.so
 libmy_bot.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libmy_bot.so: /opt/ros/humble/lib/librcutils.so
-libmy_bot.so: /usr/lib/aarch64-linux-gnu/libpython3.10.so
+libmy_bot.so: /usr/lib/x86_64-linux-gnu/libpython3.10.so
 libmy_bot.so: CMakeFiles/my_bot.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bose/dev_ws/src/my_bot/build/my_bot/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library libmy_bot.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/my_bot.dir/link.txt --verbose=$(VERBOSE)

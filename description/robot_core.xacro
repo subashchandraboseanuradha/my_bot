@@ -24,15 +24,28 @@
     </material>
 
     <!-- BASE LINK -->
-
+    <!-- This is the actual physical base of the robot -->
     <link name="base_link">
-
+        <visual>
+            <geometry>
+                <box size="0.3 0.3 0.02"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.3 0.3 0.02"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.5" x="0.3" y="0.3" z="0.02">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_box>
     </link>
 
     <!-- BASE FOOTPRINT LINK -->
     <joint name="base_footprint_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="base_footprint"/>
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
         <origin xyz="0 0 0"/>
     </joint>
 

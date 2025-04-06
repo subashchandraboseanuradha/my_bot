@@ -1,0 +1,32 @@
+[0.045s] Invoking command in '/home/bose/dev_ws/src/my_bot/build/my_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/turtlebot3_ws/install/turtlebot3_teleop:/home/bose/turtlebot3_ws/install/turtlebot3_example:/home/bose/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake /home/bose/dev_ws/src/my_bot -DCMAKE_INSTALL_PREFIX=/home/bose/dev_ws/src/my_bot/install/my_bot
+[0.947s] -- The C compiler identification is GNU 11.4.0
+[0.998s] -- Detecting C compiler ABI info
+[1.303s] -- Detecting C compiler ABI info - done
+[1.311s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.313s] -- Detecting C compile features
+[1.315s] -- Detecting C compile features - done
+[1.328s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.587s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.665s] -- Found hardware_interface: 2.49.0 (/opt/ros/humble/share/hardware_interface/cmake)
+[1.849s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.863s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.894s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.928s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.974s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.587s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[2.601s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[2.707s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[2.870s] -- Checking for module 'libserial'
+[2.900s] --   Found libserial, version 1.0.0
+[3.107s] -- Configuring done
+[3.253s] -- Generating done
+[3.297s] -- Build files have been written to: /home/bose/dev_ws/src/my_bot/build/my_bot
+[3.322s] Invoked command in '/home/bose/dev_ws/src/my_bot/build/my_bot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/turtlebot3_ws/install/turtlebot3_teleop:/home/bose/turtlebot3_ws/install/turtlebot3_example:/home/bose/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake /home/bose/dev_ws/src/my_bot -DCMAKE_INSTALL_PREFIX=/home/bose/dev_ws/src/my_bot/install/my_bot
+[3.322s] Invoking command in '/home/bose/dev_ws/src/my_bot/build/my_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/turtlebot3_ws/install/turtlebot3_teleop:/home/bose/turtlebot3_ws/install/turtlebot3_example:/home/bose/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --build /home/bose/dev_ws/src/my_bot/build/my_bot -- -j2 -l2
+[3.408s] [35m[1mConsolidate compiler generated dependencies of target my_bot[0m
+[3.497s] gmake[2]: *** No rule to make target '/usr/lib/aarch64-linux-gnu/libtinyxml2.so', needed by 'libmy_bot.so'.  Stop.
+[3.497s] gmake[2]: *** Waiting for unfinished jobs....
+[3.510s] [ 50%] [32mBuilding CXX object CMakeFiles/my_bot.dir/hardware/diffbot_system.cpp.o[0m
+[10.110s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/my_bot.dir/all] Error 2
+[10.110s] gmake: *** [Makefile:146: all] Error 2
+[10.114s] Invoked command in '/home/bose/dev_ws/src/my_bot/build/my_bot' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/turtlebot3_ws/install/turtlebot3_teleop:/home/bose/turtlebot3_ws/install/turtlebot3_example:/home/bose/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --build /home/bose/dev_ws/src/my_bot/build/my_bot -- -j2 -l2

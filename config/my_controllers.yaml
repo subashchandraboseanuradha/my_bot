@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 30  # Hz
+    update_rate: 200  # Hz - Increased for smoother control
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
@@ -15,30 +15,54 @@ diff_cont:
 
     wheel_separation: 0.31
     wheel_radius: 0.055
+    
+    # Additional wheel parameters
+    wheel_separation_multiplier: 1.0  # Keep at 1.0 for accurate odometry
+    left_wheel_radius_multiplier: 1.0
+    right_wheel_radius_multiplier: 1.0
 
     # Odometry covariances for the encoder output of the robot
-    pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.001]
-    twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.001]
+    pose_covariance_diagonal: [0.01, 0.01, 0.01, 0.1, 0.1, 0.1]  # Increased for more realistic error modeling
+    twist_covariance_diagonal: [0.01, 0.01, 0.01, 0.1, 0.1, 0.1]  # Increased for more realistic error modeling
 
     use_stamped_vel: false
 
-    # Velocity and acceleration limits
+    # Velocity and acceleration limits - heavily reduced to prevent sudden movements
     # Whenever a min_* is unspecified, default to -max_*
     linear.x.has_velocity_limits: true
     linear.x.has_acceleration_limits: true
-    linear.x.has_jerk_limits: false
-    linear.x.max_velocity: 0.5  # m/s
+    linear.x.has_jerk_limits: true
+    linear.x.max_velocity: 0.5  # m/s - optimal for mapping
     linear.x.min_velocity: -0.5
-    linear.x.max_acceleration: 1.0 # m/s^2
-    linear.x.max_jerk: 0.0  # m/s^3
-    linear.x.min_jerk: 0.0
+    linear.x.max_acceleration: 0.2 # m/s^2 - reduced for gentler acceleration
+    linear.x.min_acceleration: -0.2
+    linear.x.max_jerk: 0.3  # m/s^3 - reduced
+    linear.x.min_jerk: -0.3
 
     angular.z.has_velocity_limits: true
     angular.z.has_acceleration_limits: true
-    angular.z.has_jerk_limits: false
-    angular.z.max_velocity: 3.5  # rad/s (based on working value)
-    angular.z.min_velocity: -3.5
-    angular.z.max_acceleration: 2.0  # rad/s^2
-    angular.z.min_acceleration: -2.0
-    angular.z.max_jerk: 0.0  # rad/s^3
-    angular.z.min_jerk: 0.0 
+    angular.z.has_jerk_limits: true
+    angular.z.max_velocity: 1.0  # rad/s - optimal for mapping
+    angular.z.min_velocity: -1.0
+    angular.z.max_acceleration: 0.4  # rad/s^2 - reduced
+    angular.z.min_acceleration: -0.4
+    angular.z.max_jerk: 0.7  # rad/s^3 - reduced
+    angular.z.min_jerk: -0.7
+
+    # Odometry frame configuration
+    odom_frame_id: "odom"
+    base_frame_id: "base_footprint"  # Matches SLAM config
+    publish_odom: true
+    publish_odom_tf: true
+    publish_wheel_tf: true  # Enable wheel TF publishing for more complete TF tree
+    
+    # Topic configuration
+    odom_topic: "/diff_cont/odom"
+    cmd_vel_topic: "/cmd_vel"
+    
+    # Additional stability parameters
+    position_feedback: true
+    open_loop: false  # Set to false for closed-loop control with encoder feedback
+    enable_odom_tf: true
+    publish_rate: 200.0  # Hz - Match update_rate for consistent timing
+    cmd_vel_timeout: 0.5

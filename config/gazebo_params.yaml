@@ -1,3 +1,20 @@
 gazebo:
   ros__parameters:
-    publish_rate: 400.0  # Increase the publish rate
+    publish_rate: 300.0  # Increased for better physics-to-ROS synchronization
+    
+    # Physics parameters - optimized for stability and accuracy
+    physics_engine: ode
+    max_step_size: 0.001  # Small step size for accurate physics
+    real_time_factor: 1.0
+    real_time_update_rate: 1000.0  # Must be 1/max_step_size for real-time simulation
+    
+    # ODE-specific parameters for better stability
+    ode_solver_type: quick
+    world_damping: true  # Enable damping to reduce drift
+    ode_constraints: true  # Enable constraints to improve stability
+    
+    # Sensor-specific settings
+    sensors:
+      ray:
+        noise_std_dev: 0.01  # Reasonable noise for LiDAR
+        update_rate_multiplier: 1.0
