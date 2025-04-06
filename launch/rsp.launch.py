@@ -21,7 +21,10 @@ def generate_launch_description():
 
     params = {
         'robot_description': robot_description_config,
-        'use_sim_time': use_sim_time
+        'use_sim_time': use_sim_time,
+        'publish_frequency': 100.0,
+        'ignore_timestamp': True,
+        'frame_prefix': ''
     }
 
     node_robot_state_publisher = Node(
@@ -35,7 +38,12 @@ def generate_launch_description():
         package='joint_state_publisher',
         executable='joint_state_publisher',
         name='joint_state_publisher',
-        parameters=[{'use_sim_time': use_sim_time}]
+        parameters=[{
+            'use_sim_time': use_sim_time,
+            'rate': 100,                # Higher rate for smoother motion
+            'publish_default_positions': True,  # Publish for fixed joints too
+            'publish_default_velocities': True  # Important for continuous joints
+        }]
     )
 
     return LaunchDescription([

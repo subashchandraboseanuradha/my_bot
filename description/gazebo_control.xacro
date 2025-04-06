@@ -4,9 +4,9 @@
   <gazebo>
   <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
   <!-- Add these parameters -->
-  <update_rate>50</update_rate>
+  <update_rate>100</update_rate>
   <command_topic>cmd_vel</command_topic>
-  <publish_rate>50</publish_rate>
+  <publish_rate>100</publish_rate>
   
   <!-- Wheel Information-->
   <left_joint>left_wheel_joint</left_joint>
@@ -21,16 +21,23 @@
 <!-- Odometry frame and robot base frame -->
 <!-- The frame in which odometry data will be published. Expected value is the name of the odometry frame. -->
 <odometry_frame>odom</odometry_frame>
-<robot_base_frame>base_link</robot_base_frame>
+<robot_base_frame>base_footprint</robot_base_frame>
 
 <publish_odom>true</publish_odom>
 <publish_odom_tf>true</publish_odom_tf>
-<publish_wheel_tf>true</publish_wheel_tf>
+<publish_wheel_tf>false</publish_wheel_tf>
 
     <!-- Add this -->
     <ros>
         <use_sim_time>true</use_sim_time>
+        <!-- Added parameters to handle TF timing properly -->
+        <remapping>/tf:=tf</remapping>
+        <remapping>/tf_static:=tf_static</remapping>
     </ros>
+    
+    <!-- Add parameters to fix wheel timing issues -->
+    <tf_future_dated_reads>true</tf_future_dated_reads>
+    <tf_message_filter_tolerance>0.1</tf_message_filter_tolerance>
   </plugin>
   </gazebo>
 

@@ -20,8 +20,6 @@ def generate_launch_description():
         'my_controllers.yaml'
     )
 
-   
-
     # Robot State Publisher (URDF/Xacro processing)
     rsp = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
@@ -52,6 +50,24 @@ def generate_launch_description():
         get_package_share_directory(package_name),
         'config',
         'gazebo_params.yaml'
+    )
+
+    # Static transform publisher to help stabilize TF tree
+    static_transform_publisher = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_tf_pub_wheel_fix',
+        arguments=['0', '0', '0', '0', '0', '0', 'base_link', 'temp_wheel_stabilizer'],
+        parameters=[{'use_sim_time': use_sim_time}]
+    )
+
+    # Static transform publisher for base_footprint to base_link
+    static_base_footprint_publisher = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_base_footprint_to_link',
+        arguments=['0', '0', '0', '0', '0', '0', 'base_footprint', 'base_link'],
+        parameters=[{'use_sim_time': use_sim_time}]
     )
 
     # Gazebo Simulation
@@ -118,6 +134,8 @@ def generate_launch_description():
 
     # Create launch description elements list
     nodes = [
+        static_transform_publisher,
+        static_base_footprint_publisher,
         rsp,
         gazebo,
         spawn_entity,
