@@ -27,27 +27,26 @@ diff_cont:
 
     use_stamped_vel: false
 
-    # Velocity and acceleration limits - heavily reduced to prevent sudden movements
-    # Whenever a min_* is unspecified, default to -max_*
+    # Velocity and acceleration limits - increased for better responsiveness
     linear.x.has_velocity_limits: true
     linear.x.has_acceleration_limits: true
     linear.x.has_jerk_limits: true
-    linear.x.max_velocity: 0.5  # m/s - optimal for mapping
-    linear.x.min_velocity: -0.5
-    linear.x.max_acceleration: 0.2 # m/s^2 - reduced for gentler acceleration
-    linear.x.min_acceleration: -0.2
-    linear.x.max_jerk: 0.3  # m/s^3 - reduced
-    linear.x.min_jerk: -0.3
+    linear.x.max_velocity: 1.0  # m/s - increased from 0.5
+    linear.x.min_velocity: -1.0
+    linear.x.max_acceleration: 0.5 # m/s^2 - increased from 0.2
+    linear.x.min_acceleration: -0.5
+    linear.x.max_jerk: 0.8  # m/s^3 - increased from 0.3
+    linear.x.min_jerk: -0.8
 
     angular.z.has_velocity_limits: true
     angular.z.has_acceleration_limits: true
     angular.z.has_jerk_limits: true
-    angular.z.max_velocity: 1.0  # rad/s - optimal for mapping
-    angular.z.min_velocity: -1.0
-    angular.z.max_acceleration: 0.4  # rad/s^2 - reduced
-    angular.z.min_acceleration: -0.4
-    angular.z.max_jerk: 0.7  # rad/s^3 - reduced
-    angular.z.min_jerk: -0.7
+    angular.z.max_velocity: 2.0  # rad/s - increased from 1.0
+    angular.z.min_velocity: -2.0
+    angular.z.max_acceleration: 1.0  # rad/s^2 - increased from 0.4
+    angular.z.min_acceleration: -1.0
+    angular.z.max_jerk: 1.5  # rad/s^3 - increased from 0.7
+    angular.z.min_jerk: -1.5
 
     # Odometry frame configuration
     odom_frame_id: "odom"

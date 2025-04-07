@@ -14,16 +14,16 @@ teleop_node:
     axis_linear:
       x: 1  # Left stick up/down
     scale_linear:
-      x: 0.7  
+      x: 1.0  # Increased from 0.7
     scale_linear_turbo:
-      x: 1.2  
+      x: 2.0  # Increased from 1.2
 
     axis_angular:
       yaw: 0  # Left stick left/right
     scale_angular:
-      yaw: 2.0  # Reduced for more precise control
+      yaw: 3.0  # Increased from 2.0
     scale_angular_turbo:
-      yaw: 3.0  # Higher for turbo mode
+      yaw: 4.0  # Increased from 3.0
 
     # Xbox 360 buttons: 
     # 0=A, 1=B, 2=X, 3=Y, 4=LB, 5=RB, 6=Back/Select, 7=Start, 
