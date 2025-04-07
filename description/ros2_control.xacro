@@ -35,7 +35,9 @@
           <param name="device">/dev/ttyUSB0</param>
           <param name="baud_rate">57600</param>
           <param name="timeout_ms">1000</param>
-          <param name="enc_counts_per_rev">1440</param>
+          <param name="encoder_ppr">7</param>
+          <param name="gear_ratio">99.5</param>
+          <param name="enc_counts_per_rev">697</param>
         </hardware>
       </xacro:unless>
     </xacro:unless>
