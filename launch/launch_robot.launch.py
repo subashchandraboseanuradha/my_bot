@@ -57,6 +57,15 @@ def generate_launch_description():
         output="screen",
     )
 
+    # Static transform publisher for base_footprint to base_link
+    static_base_footprint_publisher = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_base_footprint_to_link',
+        arguments=['0', '0', '0', '0', '0', '0', 'base_footprint', 'base_link'],
+        parameters=[{'use_sim_time': use_sim_time}],
+    )
+
     # Joystick controller - include only if file exists
     joystick_launch_path = os.path.join(my_bot_dir, 'launch', 'joystick.launch.py')
     
@@ -106,6 +115,7 @@ def generate_launch_description():
         declare_use_sim_time,
         robot_state_pub_node,
         controller_manager,
+        static_base_footprint_publisher,
         delayed_joint_state_broadcaster_spawner,
         delayed_diff_drive_spawner,
     ]
