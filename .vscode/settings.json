@@ -1,16 +1,14 @@
 {
+    "ros.distro": "humble",
     "python.autoComplete.extraPaths": [
-        "/home/bose/dev_ws/build/serial_motor_demo",
-        "/home/bose/dev_ws/install/serial_motor_demo/lib/python3.10/site-packages",
-        "/home/bose/dev_ws/install/serial_motor_demo_msgs/local/lib/python3.10/dist-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ],
     "python.analysis.extraPaths": [
-        "/home/bose/dev_ws/build/serial_motor_demo",
-        "/home/bose/dev_ws/install/serial_motor_demo/lib/python3.10/site-packages",
-        "/home/bose/dev_ws/install/serial_motor_demo_msgs/local/lib/python3.10/dist-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
-    ]
+    ],
+    "files.associations": {
+        "sstream": "cpp"
+    }
 }

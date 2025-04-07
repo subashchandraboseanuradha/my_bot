@@ -1,0 +1,8 @@
+<library path="libmy_bot">
+  <class 
+    name="my_bot/DiffBotSystemHardware"
+    type="my_bot::DiffBotSystemHardware"
+    base_class_type="hardware_interface::SystemInterface">
+    <description>Differential drive hardware interface</description>
+  </class>
+</library>

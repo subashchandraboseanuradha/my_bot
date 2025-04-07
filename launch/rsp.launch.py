@@ -4,24 +4,29 @@ from launch import LaunchDescription
 from launch.substitutions import LaunchConfiguration, Command
 from launch.actions import DeclareLaunchArgument
 from launch_ros.actions import Node
-import xacro
 
 def generate_launch_description():
-    # Check if we're told to use sim time
     use_sim_time = LaunchConfiguration('use_sim_time')
     use_ros2_control = LaunchConfiguration('use_ros2_control')
+    sim_mode = LaunchConfiguration('sim_mode')  
 
-
-    # Process the URDF file
     pkg_path = os.path.join(get_package_share_directory('my_bot'))
-    xacro_file = os.path.join(pkg_path,'description','robot.urdf.xacro')
-    robot_description_config = Command(['xacro ', xacro_file, ' use_ros2_control:=', use_ros2_control])
+    xacro_file = os.path.join(pkg_path, 'description', 'robot.urdf.xacro')
 
+    robot_description_config = Command([
+        'xacro ', xacro_file,
+        ' use_ros2_control:=', use_ros2_control,
+        ' sim_mode:=', sim_mode  
+    ])
 
+    params = {
+        'robot_description': robot_description_config,
+        'use_sim_time': use_sim_time,
+        'publish_frequency': 100.0,
+        'ignore_timestamp': True,
+        'frame_prefix': ''
+    }
 
-
-    # Create a robot_state_publisher node
-    params = {'robot_description': robot_description_config, 'use_sim_time': use_sim_time}
     node_robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
@@ -29,28 +34,31 @@ def generate_launch_description():
         parameters=[params]
     )
 
-    # Create a joint_state_publisher node
     node_joint_state_publisher = Node(
         package='joint_state_publisher',
         executable='joint_state_publisher',
         name='joint_state_publisher',
-        parameters=[{'use_sim_time': use_sim_time}]
+        parameters=[{
+            'use_sim_time': use_sim_time,
+            'rate': 100,                # Higher rate for smoother motion
+            'publish_default_positions': True,  # Publish for fixed joints too
+            'publish_default_velocities': True  # Important for continuous joints
+        }]
     )
 
     return LaunchDescription([
-        # Declare arguments FIRST
         DeclareLaunchArgument(
-            'use_sim_time',
-            default_value='false',
+            'use_sim_time', default_value='false',
             description='Use simulation clock'
         ),
         DeclareLaunchArgument(
-            'use_ros2_control',
-            default_value='true',
+            'use_ros2_control', default_value='true',
             description='Enable ros2_control'
         ),
-        
-        # Then add nodes
+        DeclareLaunchArgument(  
+            'sim_mode', default_value='false',
+            description='Enable Gazebo simulation plugin'
+        ),
         node_robot_state_publisher,
         node_joint_state_publisher
     ])

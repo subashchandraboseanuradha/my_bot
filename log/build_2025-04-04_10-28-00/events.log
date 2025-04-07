@@ -1,0 +1,139 @@
+[0.000000] (-) TimerEvent: {}
+[0.000700] (my_bot) JobQueued: {'identifier': 'my_bot', 'dependencies': OrderedDict()}
+[0.000793] (my_bot) JobStarted: {'identifier': 'my_bot'}
+[0.038272] (my_bot) JobProgress: {'identifier': 'my_bot', 'progress': 'cmake'}
+[0.040937] (my_bot) Command: {'cmd': ['/usr/bin/cmake', '/home/bose/dev_ws/src/my_bot', '-DCMAKE_INSTALL_PREFIX=/home/bose/dev_ws/src/my_bot/install/my_bot'], 'cwd': '/home/bose/dev_ws/src/my_bot/build/my_bot', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'bose'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/bose/dev_ws/install/my_bot/lib:/home/bose/turtlebot3_ws/install/turtlebot3_msgs/lib:/home/bose/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib:/home/bose/turtlebot3_ws/install/dynamixel_sdk/lib:/home/bose/dev_ws/src/my_bot/install/my_bot/lib:/home/bose/install/serial_motor_demo_msgs/lib:/home/bose/install/my_bot/lib:/home/bose/install/gazebo_ros2_control/lib:/home/bose/dev_ws/src/install/my_bot/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/bose'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '18060'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/bose/dev_ws/src/my_bot/install:/home/bose/ros2_ws/install:/home/bose/dev_ws/install:/home/bose/install:/home/bose/turtlebot3_ws/install:/home/bose/dev_ws/src/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'bose'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'bose'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/bose-virtual-machine:@/tmp/.ICE-unix/1279,unix/bose-virtual-machine:/tmp/.ICE-unix/1279'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e3d42694_f9ee_4ae0_be79_55dabe1cbb3b'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.8DOE42'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.187'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '28'), ('AMENT_PREFIX_PATH', '/home/bose/dev_ws/install/my_bot:/home/bose/turtlebot3_ws/install/turtlebot3:/home/bose/turtlebot3_ws/install/turtlebot3_teleop:/home/bose/turtlebot3_ws/install/turtlebot3_simulations:/home/bose/turtlebot3_ws/install/turtlebot3_bringup:/home/bose/turtlebot3_ws/install/turtlebot3_node:/home/bose/turtlebot3_ws/install/turtlebot3_navigation2:/home/bose/turtlebot3_ws/install/turtlebot3_fake_node:/home/bose/turtlebot3_ws/install/turtlebot3_example:/home/bose/turtlebot3_ws/install/turtlebot3_msgs:/home/bose/turtlebot3_ws/install/turtlebot3_gazebo:/home/bose/turtlebot3_ws/install/turtlebot3_description:/home/bose/turtlebot3_ws/install/turtlebot3_cartographer:/home/bose/turtlebot3_ws/install/dynamixel_sdk_examples:/home/bose/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/bose/turtlebot3_ws/install/dynamixel_sdk:/home/bose/dev_ws/src/my_bot/install/my_bot:/home/bose/ros2_ws/install/urdf_example:/home/bose/install/urdf_example:/home/bose/install/serial_motor_demo:/home/bose/install/serial_motor_demo_msgs:/home/bose/install/ros2_control_demo_description:/home/bose/install/my_bot:/home/bose/install/gazebo_ros2_control_demos:/home/bose/install/gazebo_ros2_control:/home/bose/dev_ws/src/install/my_bot:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/bose/dev_ws/src/my_bot/build/my_bot'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/bose/turtlebot3_ws/build/turtlebot3_teleop:/home/bose/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.10/site-packages:/home/bose/turtlebot3_ws/build/turtlebot3_example:/home/bose/turtlebot3_ws/install/turtlebot3_example/lib/python3.10/site-packages:/home/bose/turtlebot3_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages:/home/bose/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/local/lib/python3.10/dist-packages:/home/bose/turtlebot3_ws/install/dynamixel_sdk/local/lib/python3.10/dist-packages:/home/bose/build/serial_motor_demo:/home/bose/install/serial_motor_demo/lib/python3.10/site-packages:/home/bose/install/serial_motor_demo_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/bose/dev_ws/install/my_bot:/home/bose/turtlebot3_ws/install/turtlebot3:/home/bose/turtlebot3_ws/install/turtlebot3_simulations:/home/bose/turtlebot3_ws/install/turtlebot3_bringup:/home/bose/turtlebot3_ws/install/turtlebot3_node:/home/bose/turtlebot3_ws/install/turtlebot3_navigation2:/home/bose/turtlebot3_ws/install/turtlebot3_fake_node:/home/bose/turtlebot3_ws/install/turtlebot3_msgs:/home/bose/turtlebot3_ws/install/turtlebot3_gazebo:/home/bose/turtlebot3_ws/install/turtlebot3_description:/home/bose/turtlebot3_ws/install/turtlebot3_cartographer:/home/bose/turtlebot3_ws/install/dynamixel_sdk_examples:/home/bose/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/bose/turtlebot3_ws/install/dynamixel_sdk:/home/bose/dev_ws/src/my_bot/install/my_bot:/home/bose/ros2_ws/install/urdf_example:/home/bose/install/urdf_example:/home/bose/install/serial_motor_demo_msgs:/home/bose/install/ros2_control_demo_description:/home/bose/install/my_bot:/home/bose/install/gazebo_ros2_control_demos:/home/bose/install/gazebo_ros2_control:/home/bose/dev_ws/src/install/my_bot:/home/bose/turtlebot3_ws/install/turtlebot3_teleop:/home/bose/turtlebot3_ws/install/turtlebot3_example:/home/bose/install/serial_motor_demo:/opt/ros/humble')]), 'shell': False}
+[0.098506] (-) TimerEvent: {}
+[0.199154] (-) TimerEvent: {}
+[0.300520] (-) TimerEvent: {}
+[0.404958] (-) TimerEvent: {}
+[0.506768] (-) TimerEvent: {}
+[0.608604] (-) TimerEvent: {}
+[0.709402] (-) TimerEvent: {}
+[0.810484] (-) TimerEvent: {}
+[0.912469] (-) TimerEvent: {}
+[0.948113] (my_bot) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.998603] (my_bot) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.012628] (-) TimerEvent: {}
+[1.114135] (-) TimerEvent: {}
+[1.215130] (-) TimerEvent: {}
+[1.303415] (my_bot) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.311490] (my_bot) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[1.313658] (my_bot) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.315704] (my_bot) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.315923] (-) TimerEvent: {}
+[1.328381] (my_bot) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[1.416336] (-) TimerEvent: {}
+[1.517321] (-) TimerEvent: {}
+[1.585672] (my_bot) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[1.617756] (-) TimerEvent: {}
+[1.665155] (my_bot) StdoutLine: {'line': b'-- Found hardware_interface: 2.49.0 (/opt/ros/humble/share/hardware_interface/cmake)\n'}
+[1.719337] (-) TimerEvent: {}
+[1.820435] (-) TimerEvent: {}
+[1.849973] (my_bot) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[1.863997] (my_bot) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[1.893691] (my_bot) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[1.920847] (-) TimerEvent: {}
+[1.928924] (my_bot) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.974290] (my_bot) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.022453] (-) TimerEvent: {}
+[2.124424] (-) TimerEvent: {}
+[2.226153] (-) TimerEvent: {}
+[2.326832] (-) TimerEvent: {}
+[2.427704] (-) TimerEvent: {}
+[2.528606] (-) TimerEvent: {}
+[2.587255] (my_bot) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[2.601437] (my_bot) StdoutLine: {'line': b'-- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)\n'}
+[2.629773] (-) TimerEvent: {}
+[2.706920] (my_bot) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_cyclonedds_cpp' as default\n"}
+[2.730313] (-) TimerEvent: {}
+[2.832606] (-) TimerEvent: {}
+[2.870960] (my_bot) StdoutLine: {'line': b"-- Checking for module 'libserial'\n"}
+[2.900741] (my_bot) StdoutLine: {'line': b'--   Found libserial, version 1.0.0\n'}
+[2.934608] (-) TimerEvent: {}
+[3.035657] (-) TimerEvent: {}
+[3.106094] (my_bot) StdoutLine: {'line': b'-- Configuring done\n'}
+[3.136334] (-) TimerEvent: {}
+[3.237448] (-) TimerEvent: {}
+[3.253487] (my_bot) StdoutLine: {'line': b'-- Generating done\n'}
+[3.297417] (my_bot) StdoutLine: {'line': b'-- Build files have been written to: /home/bose/dev_ws/src/my_bot/build/my_bot\n'}
+[3.322473] (my_bot) CommandEnded: {'returncode': 0}
+[3.322854] (my_bot) JobProgress: {'identifier': 'my_bot', 'progress': 'build'}
+[3.322877] (my_bot) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/bose/dev_ws/src/my_bot/build/my_bot', '--', '-j2', '-l2'], 'cwd': '/home/bose/dev_ws/src/my_bot/build/my_bot', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'bose'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/bose/dev_ws/install/my_bot/lib:/home/bose/turtlebot3_ws/install/turtlebot3_msgs/lib:/home/bose/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib:/home/bose/turtlebot3_ws/install/dynamixel_sdk/lib:/home/bose/dev_ws/src/my_bot/install/my_bot/lib:/home/bose/install/serial_motor_demo_msgs/lib:/home/bose/install/my_bot/lib:/home/bose/install/gazebo_ros2_control/lib:/home/bose/dev_ws/src/install/my_bot/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/bose'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '18060'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/bose/dev_ws/src/my_bot/install:/home/bose/ros2_ws/install:/home/bose/dev_ws/install:/home/bose/install:/home/bose/turtlebot3_ws/install:/home/bose/dev_ws/src/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'bose'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'bose'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/bose-virtual-machine:@/tmp/.ICE-unix/1279,unix/bose-virtual-machine:/tmp/.ICE-unix/1279'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e3d42694_f9ee_4ae0_be79_55dabe1cbb3b'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.8DOE42'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.187'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '28'), ('AMENT_PREFIX_PATH', '/home/bose/dev_ws/install/my_bot:/home/bose/turtlebot3_ws/install/turtlebot3:/home/bose/turtlebot3_ws/install/turtlebot3_teleop:/home/bose/turtlebot3_ws/install/turtlebot3_simulations:/home/bose/turtlebot3_ws/install/turtlebot3_bringup:/home/bose/turtlebot3_ws/install/turtlebot3_node:/home/bose/turtlebot3_ws/install/turtlebot3_navigation2:/home/bose/turtlebot3_ws/install/turtlebot3_fake_node:/home/bose/turtlebot3_ws/install/turtlebot3_example:/home/bose/turtlebot3_ws/install/turtlebot3_msgs:/home/bose/turtlebot3_ws/install/turtlebot3_gazebo:/home/bose/turtlebot3_ws/install/turtlebot3_description:/home/bose/turtlebot3_ws/install/turtlebot3_cartographer:/home/bose/turtlebot3_ws/install/dynamixel_sdk_examples:/home/bose/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/bose/turtlebot3_ws/install/dynamixel_sdk:/home/bose/dev_ws/src/my_bot/install/my_bot:/home/bose/ros2_ws/install/urdf_example:/home/bose/install/urdf_example:/home/bose/install/serial_motor_demo:/home/bose/install/serial_motor_demo_msgs:/home/bose/install/ros2_control_demo_description:/home/bose/install/my_bot:/home/bose/install/gazebo_ros2_control_demos:/home/bose/install/gazebo_ros2_control:/home/bose/dev_ws/src/install/my_bot:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/bose/dev_ws/src/my_bot/build/my_bot'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/bose/turtlebot3_ws/build/turtlebot3_teleop:/home/bose/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.10/site-packages:/home/bose/turtlebot3_ws/build/turtlebot3_example:/home/bose/turtlebot3_ws/install/turtlebot3_example/lib/python3.10/site-packages:/home/bose/turtlebot3_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages:/home/bose/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/local/lib/python3.10/dist-packages:/home/bose/turtlebot3_ws/install/dynamixel_sdk/local/lib/python3.10/dist-packages:/home/bose/build/serial_motor_demo:/home/bose/install/serial_motor_demo/lib/python3.10/site-packages:/home/bose/install/serial_motor_demo_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/bose/dev_ws/install/my_bot:/home/bose/turtlebot3_ws/install/turtlebot3:/home/bose/turtlebot3_ws/install/turtlebot3_simulations:/home/bose/turtlebot3_ws/install/turtlebot3_bringup:/home/bose/turtlebot3_ws/install/turtlebot3_node:/home/bose/turtlebot3_ws/install/turtlebot3_navigation2:/home/bose/turtlebot3_ws/install/turtlebot3_fake_node:/home/bose/turtlebot3_ws/install/turtlebot3_msgs:/home/bose/turtlebot3_ws/install/turtlebot3_gazebo:/home/bose/turtlebot3_ws/install/turtlebot3_description:/home/bose/turtlebot3_ws/install/turtlebot3_cartographer:/home/bose/turtlebot3_ws/install/dynamixel_sdk_examples:/home/bose/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/bose/turtlebot3_ws/install/dynamixel_sdk:/home/bose/dev_ws/src/my_bot/install/my_bot:/home/bose/ros2_ws/install/urdf_example:/home/bose/install/urdf_example:/home/bose/install/serial_motor_demo_msgs:/home/bose/install/ros2_control_demo_description:/home/bose/install/my_bot:/home/bose/install/gazebo_ros2_control_demos:/home/bose/install/gazebo_ros2_control:/home/bose/dev_ws/src/install/my_bot:/home/bose/turtlebot3_ws/install/turtlebot3_teleop:/home/bose/turtlebot3_ws/install/turtlebot3_example:/home/bose/install/serial_motor_demo:/opt/ros/humble')]), 'shell': False}
+[3.340834] (-) TimerEvent: {}
+[3.408910] (my_bot) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target my_bot\x1b[0m\n'}
+[3.441620] (-) TimerEvent: {}
+[3.497861] (my_bot) StderrLine: {'line': b"gmake[2]: *** No rule to make target '/usr/lib/aarch64-linux-gnu/libtinyxml2.so', needed by 'libmy_bot.so'.  Stop.\n"}
+[3.498074] (my_bot) StderrLine: {'line': b'gmake[2]: *** Waiting for unfinished jobs....\n'}
+[3.510756] (my_bot) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/my_bot.dir/hardware/diffbot_system.cpp.o\x1b[0m\n'}
+[3.542516] (-) TimerEvent: {}
+[3.644320] (-) TimerEvent: {}
+[3.746881] (-) TimerEvent: {}
+[3.847323] (-) TimerEvent: {}
+[3.953774] (-) TimerEvent: {}
+[4.054981] (-) TimerEvent: {}
+[4.156115] (-) TimerEvent: {}
+[4.256495] (-) TimerEvent: {}
+[4.357630] (-) TimerEvent: {}
+[4.459223] (-) TimerEvent: {}
+[4.560288] (-) TimerEvent: {}
+[4.661452] (-) TimerEvent: {}
+[4.762588] (-) TimerEvent: {}
+[4.863865] (-) TimerEvent: {}
+[4.964427] (-) TimerEvent: {}
+[5.065403] (-) TimerEvent: {}
+[5.166912] (-) TimerEvent: {}
+[5.272437] (-) TimerEvent: {}
+[5.375170] (-) TimerEvent: {}
+[5.475998] (-) TimerEvent: {}
+[5.576480] (-) TimerEvent: {}
+[5.677895] (-) TimerEvent: {}
+[5.779099] (-) TimerEvent: {}
+[5.881416] (-) TimerEvent: {}
+[5.982586] (-) TimerEvent: {}
+[6.084303] (-) TimerEvent: {}
+[6.188171] (-) TimerEvent: {}
+[6.288448] (-) TimerEvent: {}
+[6.390797] (-) TimerEvent: {}
+[6.491412] (-) TimerEvent: {}
+[6.594996] (-) TimerEvent: {}
+[6.695896] (-) TimerEvent: {}
+[6.797016] (-) TimerEvent: {}
+[6.897953] (-) TimerEvent: {}
+[7.000512] (-) TimerEvent: {}
+[7.101681] (-) TimerEvent: {}
+[7.204733] (-) TimerEvent: {}
+[7.305364] (-) TimerEvent: {}
+[7.407053] (-) TimerEvent: {}
+[7.510484] (-) TimerEvent: {}
+[7.611455] (-) TimerEvent: {}
+[7.712096] (-) TimerEvent: {}
+[7.813489] (-) TimerEvent: {}
+[7.914601] (-) TimerEvent: {}
+[8.015663] (-) TimerEvent: {}
+[8.116172] (-) TimerEvent: {}
+[8.217398] (-) TimerEvent: {}
+[8.318027] (-) TimerEvent: {}
+[8.419465] (-) TimerEvent: {}
+[8.524977] (-) TimerEvent: {}
+[8.625604] (-) TimerEvent: {}
+[8.727447] (-) TimerEvent: {}
+[8.828221] (-) TimerEvent: {}
+[8.930703] (-) TimerEvent: {}
+[9.031827] (-) TimerEvent: {}
+[9.133033] (-) TimerEvent: {}
+[9.234726] (-) TimerEvent: {}
+[9.337674] (-) TimerEvent: {}
+[9.439517] (-) TimerEvent: {}
+[9.541005] (-) TimerEvent: {}
+[9.642736] (-) TimerEvent: {}
+[9.744044] (-) TimerEvent: {}
+[9.845841] (-) TimerEvent: {}
+[9.947494] (-) TimerEvent: {}
+[10.050350] (-) TimerEvent: {}
+[10.110396] (my_bot) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/my_bot.dir/all] Error 2\n'}
+[10.110606] (my_bot) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[10.113855] (my_bot) CommandEnded: {'returncode': 2}
+[10.151519] (-) TimerEvent: {}
+[10.167821] (my_bot) JobEnded: {'identifier': 'my_bot', 'rc': 2}
+[10.181321] (-) EventReactorShutdown: {}
