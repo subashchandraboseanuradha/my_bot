@@ -66,6 +66,15 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}],
     )
 
+    # Static transform publisher for map to odom
+    static_map_to_odom_publisher = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_map_to_odom',
+        arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
+        parameters=[{'use_sim_time': use_sim_time}],
+    )
+
     # Joystick controller - include only if file exists
     joystick_launch_path = os.path.join(my_bot_dir, 'launch', 'joystick.launch.py')
     
@@ -116,6 +125,7 @@ def generate_launch_description():
         robot_state_pub_node,
         controller_manager,
         static_base_footprint_publisher,
+        static_map_to_odom_publisher,
         delayed_joint_state_broadcaster_spawner,
         delayed_diff_drive_spawner,
     ]
