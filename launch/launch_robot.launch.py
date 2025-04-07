@@ -57,21 +57,30 @@ def generate_launch_description():
         output="screen",
     )
 
-    # Static transform publisher for base_footprint to base_link
-    static_base_footprint_publisher = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='static_base_footprint_to_link',
-        arguments=['0', '0', '0', '0', '0', '0', 'base_footprint', 'base_link'],
-        parameters=[{'use_sim_time': use_sim_time}],
-    )
-
     # Static transform publisher for map to odom
     static_map_to_odom_publisher = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         name='static_map_to_odom',
         arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
+        parameters=[{'use_sim_time': use_sim_time}],
+    )
+
+    # Static transform publisher for odom to base_footprint
+    static_odom_to_base_footprint_publisher = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_odom_to_base_footprint',
+        arguments=['0', '0', '0', '0', '0', '0', 'odom', 'base_footprint'],
+        parameters=[{'use_sim_time': use_sim_time}],
+    )
+
+    # Static transform publisher for base_footprint to base_link
+    static_base_footprint_publisher = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_base_footprint_to_link',
+        arguments=['0', '0', '0', '0', '0', '0', 'base_footprint', 'base_link'],
         parameters=[{'use_sim_time': use_sim_time}],
     )
 
@@ -124,8 +133,9 @@ def generate_launch_description():
         declare_use_sim_time,
         robot_state_pub_node,
         controller_manager,
-        static_base_footprint_publisher,
         static_map_to_odom_publisher,
+        static_odom_to_base_footprint_publisher,
+        static_base_footprint_publisher,
         delayed_joint_state_broadcaster_spawner,
         delayed_diff_drive_spawner,
     ]
