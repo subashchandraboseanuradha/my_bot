@@ -17,6 +17,7 @@ find_package(pluginlib REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_lifecycle REQUIRED)
 find_package(PkgConfig REQUIRED)
+pkg_check_modules(TINYXML2 REQUIRED tinyxml2)
 pkg_check_modules(SERIAL libserial REQUIRED)
 
 # Hardware interface library
@@ -31,11 +32,13 @@ target_include_directories(
   PRIVATE
   hardware/include
   ${SERIAL_INCLUDE_DIRS}
+  ${TINYXML2_INCLUDE_DIRS}
 )
 
 target_link_libraries(
   ${PROJECT_NAME}
   ${SERIAL_LIBRARIES}
+  ${TINYXML2_LIBRARIES}
 )
 
 ament_target_dependencies(

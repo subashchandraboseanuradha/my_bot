@@ -1,0 +1,6 @@
+[0.079s] Invoking command in '/home/bose/dev_ws/src/my_bot/build/my_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/dev_ws/install/serial_motor_demo:/home/bose/dev_ws/install/joy_tester:/home/bose/turtlebot3_ws/install/turtlebot3_teleop:/home/bose/turtlebot3_ws/install/turtlebot3_example:/home/bose/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --build /home/bose/dev_ws/src/my_bot/build/my_bot -- -j8 -l8
+[0.630s] [35m[1mConsolidate compiler generated dependencies of target my_bot[0m
+[0.689s] gmake[2]: *** No rule to make target '/usr/lib/aarch64-linux-gnu/libtinyxml2.so', needed by 'libmy_bot.so'.  Stop.
+[0.689s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/my_bot.dir/all] Error 2
+[0.690s] gmake: *** [Makefile:146: all] Error 2
+[0.697s] Invoked command in '/home/bose/dev_ws/src/my_bot/build/my_bot' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/dev_ws/install/serial_motor_demo:/home/bose/dev_ws/install/joy_tester:/home/bose/turtlebot3_ws/install/turtlebot3_teleop:/home/bose/turtlebot3_ws/install/turtlebot3_example:/home/bose/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --build /home/bose/dev_ws/src/my_bot/build/my_bot -- -j8 -l8

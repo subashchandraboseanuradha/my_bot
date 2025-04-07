@@ -100,7 +100,26 @@ def generate_launch_description():
         actions=[diff_drive_spawner]
     )
 
-    # Define the final launch description and return it
+    # Static transform publisher to help stabilize TF tree:
+    # Publish a fixed transform from base_link to temp_wheel_stabilizer
+    static_transform_publisher = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_tf_pub_wheel_fix',
+        arguments=['0', '0', '0', '0', '0', '0', 'base_link', 'temp_wheel_stabilizer'],
+        parameters=[{'use_sim_time': use_sim_time}]
+    )
+
+    # Publish a fixed transform from base_footprint to base_link
+    static_base_footprint_publisher = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_base_footprint_to_link',
+        arguments=['0', '0', '0', '0', '0', '0', 'base_footprint', 'base_link'],
+        parameters=[{'use_sim_time': use_sim_time}]
+    )
+
+    # Assemble the launch description
     nodes = [
         declare_use_mock_hardware,
         declare_use_sim_time,
@@ -108,10 +127,12 @@ def generate_launch_description():
         controller_manager,
         delayed_joint_state_broadcaster_spawner,
         delayed_diff_drive_spawner,
+        static_transform_publisher,
+        static_base_footprint_publisher
     ]
 
-    # Add joystick if available
+    # Add joystick launch if available
     if joystick_ld is not None:
         nodes.append(joystick_ld)
 
-    return LaunchDescription(nodes) 
+    return LaunchDescription(nodes)
