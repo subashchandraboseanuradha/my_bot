@@ -52,22 +52,34 @@ def generate_launch_description():
         'gazebo_params.yaml'
     )
 
-    # Static transform publisher to help stabilize TF tree
-    static_transform_publisher = Node(
+    # TF Tree Configuration
+    # 1. Map to Odom (static)
+    static_map_to_odom = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        name='static_tf_pub_wheel_fix',
-        arguments=['0', '0', '0', '0', '0', '0', 'base_link', 'temp_wheel_stabilizer'],
-        parameters=[{'use_sim_time': use_sim_time}]
+        name='static_map_to_odom',
+        arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],  # Rotated 180 degrees around Z
+        parameters=[{'use_sim_time': use_sim_time}],
+        output='screen'
     )
 
-    # Static transform publisher for base_footprint to base_link
-    static_base_footprint_publisher = Node(
+    # 2. Base Footprint to Base Link (static)
+    static_base_footprint_to_link = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         name='static_base_footprint_to_link',
         arguments=['0', '0', '0', '0', '0', '0', 'base_footprint', 'base_link'],
-        parameters=[{'use_sim_time': use_sim_time}]
+        parameters=[{'use_sim_time': use_sim_time}],
+        output='screen'
+    )
+
+    # 3. Add TF buffer and listener for debugging
+    tf_buffer = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='tf_buffer',
+        parameters=[{'use_sim_time': use_sim_time}],
+        output='screen'
     )
 
     # Gazebo Simulation
@@ -87,7 +99,7 @@ def generate_launch_description():
         executable='spawn_entity.py',
         arguments=['-topic', 'robot_description', '-entity', 'my_bot'],
         output='screen',
-        parameters=[{'use_sim_time': True}]
+        parameters=[{'use_sim_time': use_sim_time}]
     )
     
     # Load controllers after robot is spawned
@@ -96,7 +108,7 @@ def generate_launch_description():
         executable='spawner',
         arguments=['diff_cont', '--controller-manager', '/controller_manager'],
         output='screen',
-        parameters=[{'use_sim_time': True}]
+        parameters=[{'use_sim_time': use_sim_time}]
     )
     
     joint_state_broadcaster_spawner = Node(
@@ -104,7 +116,7 @@ def generate_launch_description():
         executable='spawner',
         arguments=['joint_state_broadcaster', '--controller-manager', '/controller_manager'],
         output='screen',
-        parameters=[{'use_sim_time': True}]
+        parameters=[{'use_sim_time': use_sim_time}]
     )
     
     # Make sure controllers start after robot is spawned
@@ -122,26 +134,16 @@ def generate_launch_description():
         )
     )
 
-    # Add static transform publisher for map->odom to stabilize the TF tree when needed
-    static_tf = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='static_map_to_odom',
-        output='screen',
-        arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'map', 'odom'],
-        parameters=[{'use_sim_time': use_sim_time}]
-    )
-
     # Create launch description elements list
     nodes = [
-        static_transform_publisher,
-        static_base_footprint_publisher,
+        static_map_to_odom,
+        static_base_footprint_to_link,
+        tf_buffer,
         rsp,
         gazebo,
         spawn_entity,
         diff_drive_delay,
         joint_state_broadcaster_delay,
-        static_tf,
     ]
     
     # Add joystick if it exists
@@ -149,7 +151,7 @@ def generate_launch_description():
         print("Including joystick launch file")
         joystick = IncludeLaunchDescription(
             PythonLaunchDescriptionSource([joystick_launch_path]), 
-            launch_arguments={'use_sim_time': 'true'}.items()
+            launch_arguments={'use_sim_time': use_sim_time}.items()
         )
         nodes.append(joystick)
     else:

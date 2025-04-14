@@ -12,18 +12,19 @@ teleop_node:
     # Axes: 0=LeftStickX, 1=LeftStickY, 2=LeftTrigger, 3=RightStickX, 
     #       4=RightStickY, 5=RightTrigger, 6=DPadX, 7=DPadY
     axis_linear:
-      x: 1  # Left stick up/down
+      x: 4  # Changed from 1 to 4 (Right stick up/down)
     scale_linear:
-      x: 2.0  # Increased from 1.0 for higher linear speed
-    scale_linear_turbo:
-      x: 4.0  # Increased from 2.0 for higher turbo speed
+      x: 0.7  
+    scale_linear_turbo:calulate pid loop for my encoder value 
+
+      x: 1.2  
 
     axis_angular:
-      yaw: 0  # Left stick left/right
+      yaw: 3  # Changed from 0 to 3 (Right stick left/right)
     scale_angular:
-      yaw: 4.0  # Increased from 3.0 for higher rotation speed
+      yaw: 2.0  # Reduced for more precise control
     scale_angular_turbo:
-      yaw: 6.0  # Increased from 4.0 for higher turbo rotation speed
+      yaw: 3.0  # Higher for turbo mode
 
     # Xbox 360 buttons: 
     # 0=A, 1=B, 2=X, 3=Y, 4=LB, 5=RB, 6=Back/Select, 7=Start, 

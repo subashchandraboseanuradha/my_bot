@@ -27,17 +27,17 @@
     <origin xyz="0.2 0 0.12" rpy="0 0 0" />
   </joint>
 
-  <!-- Improved RPLIDAR A1 Gazebo Configuration -->
+  <!-- RPLIDAR A1 Gazebo Configuration -->
   <gazebo reference="lidar_frame">
     <material>Gazebo/Red</material>
     <sensor name="laser" type="ray">
       <pose>0 0 0 0 0 0</pose>
       <visualize>false</visualize>
-      <update_rate>10.0</update_rate>  <!-- Increased from 5.5 for more stable updates -->
+      <update_rate>10.0</update_rate>
       <ray>
         <scan>
           <horizontal>
-            <samples>720</samples>  <!-- Doubled from 360 for higher resolution -->
+            <samples>360</samples>  <!-- Standard RPLIDAR A1 resolution -->
             <resolution>1</resolution>
             <min_angle>-3.14159</min_angle>
             <max_angle>3.14159</max_angle>
@@ -46,7 +46,7 @@
         <range>
           <min>0.15</min>  <!-- RPLIDAR A1 minimum range -->
           <max>12.0</max>  <!-- RPLIDAR A1 maximum range -->
-          <resolution>0.01</resolution>  <!-- Improved from 0.03 -->
+          <resolution>0.01</resolution>
         </range>
         <noise>
           <type>gaussian</type>
