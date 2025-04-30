@@ -12,15 +12,14 @@ teleop_node:
     # Axes: 0=LeftStickX, 1=LeftStickY, 2=LeftTrigger, 3=RightStickX, 
     #       4=RightStickY, 5=RightTrigger, 6=DPadX, 7=DPadY
     axis_linear:
-      x: 4  # Changed from 1 to 4 (Right stick up/down)
+      x: 4  # Right stick up/down
     scale_linear:
-      x: 0.7  
-    scale_linear_turbo:calulate pid loop for my encoder value 
-
-      x: 1.2  
+      x: 0.7
+    scale_linear_turbo:
+      x: 1.2
 
     axis_angular:
-      yaw: 3  # Changed from 0 to 3 (Right stick left/right)
+      yaw: 3  # Right stick left/right
     scale_angular:
       yaw: 2.0  # Reduced for more precise control
     scale_angular_turbo:
