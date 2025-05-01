@@ -1,37 +1,38 @@
 joy_node:
   ros__parameters:
-    device_id: 0  # Use js0 (confirmed working)
-    device_name: "Xbox 360 Controller"  # Use exact name from joy_node output
-    deadzone: 0.05
-    autorepeat_rate: 20.0
-    default_trig_val: true  # Set default trigger value to 1.0 when not pressed
+    device_id: 0
+    device_name: "Xbox 360 Controller"
+    deadzone: 0.05  # Reduced deadzone for faster response
+    autorepeat_rate: 50.0  # Increased from 20.0 for more frequent updates
+    default_trig_val: true
+    publish_rate: 100.0  # Added higher publish rate
+    coalesce_interval_ms: 10  # Added to reduce input lag
+    wait_for_data: false  # Don't wait for initial data
 
 teleop_node:
   ros__parameters:
-    #  Xbox 360 controller mapping:
-    # Axes: 0=LeftStickX, 1=LeftStickY, 2=LeftTrigger, 3=RightStickX, 
-    #       4=RightStickY, 5=RightTrigger, 6=DPadX, 7=DPadY
+    # Xbox 360 controller mapping
     axis_linear:
-      x: 4  # Right stick up/down
+      x: 1  # Changed to left stick Y-axis
     scale_linear:
-      x: 0.7
+      x: 0.3
     scale_linear_turbo:
-      x: 1.2
+      x: 0.5
 
     axis_angular:
-      yaw: 3  # Right stick left/right
+      yaw: 0  # Changed to left stick X-axis
     scale_angular:
-      yaw: 2.0  # Reduced for more precise control
+      yaw: 1.0
     scale_angular_turbo:
-      yaw: 3.0  # Higher for turbo mode
+      yaw: 1.5
 
-    # Xbox 360 buttons: 
-    # 0=A, 1=B, 2=X, 3=Y, 4=LB, 5=RB, 6=Back/Select, 7=Start, 
-    # 8=Guide, 9=Left stick press, 10=Right stick press
-    enable_button: 4  # LB button (TL on jstest)
-    enable_turbo_button: 5  # RB button (TR on jstest)
-    
+    enable_button: 4
+    enable_turbo_button: 5
     require_enable_button: false
     
     stamped: false
     frame_id: "base_link"
+    
+    # Added timing parameters
+    cmd_vel_publish_rate: 50.0  # Increased publish rate
+    timeout_ticks: 2  # Reduced timeout for faster response
