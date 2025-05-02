@@ -2,7 +2,7 @@ joy_node:
   ros__parameters:
     device_id: 0
     device_name: "Xbox 360 Controller"
-    deadzone: 0.1  # Increased for D-pad
+    deadzone: 0.05  # Reduced for analog stick
     autorepeat_rate: 50.0
     default_trig_val: true
     publish_rate: 100.0
@@ -12,24 +12,24 @@ joy_node:
 teleop_node:
   ros__parameters:
     # Xbox 360 controller mapping
-    # Axes: 6=DPadX, 7=DPadY
+    # Axes: 3=RightStickX, 4=RightStickY
     axis_linear:
-      x: 7  # D-pad up/down
+      x: 4  # Right stick up/down
     scale_linear:
-      x: 0.15  # Reduced for D-pad control
+      x: 0.3  # Increased for analog control
     scale_linear_turbo:
-      x: 0.3
+      x: 0.5
 
     axis_angular:
-      yaw: 6  # D-pad left/right
+      yaw: 3  # Right stick left/right
     scale_angular:
-      yaw: 0.4  # Reduced for D-pad control
+      yaw: 0.8  # Increased for analog control
     scale_angular_turbo:
-      yaw: 0.6
+      yaw: 1.2
 
     enable_button: 4  # LB button
     enable_turbo_button: 5  # RB button
-    require_enable_button: true  # Enable for safety with D-pad
+    require_enable_button: true  # Keep safety feature
 
     stamped: false
     frame_id: "base_link"
