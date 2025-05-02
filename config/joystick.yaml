@@ -2,37 +2,38 @@ joy_node:
   ros__parameters:
     device_id: 0
     device_name: "Xbox 360 Controller"
-    deadzone: 0.05  # Reduced deadzone for faster response
-    autorepeat_rate: 50.0  # Increased from 20.0 for more frequent updates
+    deadzone: 0.1  # Increased for D-pad
+    autorepeat_rate: 50.0
     default_trig_val: true
-    publish_rate: 100.0  # Added higher publish rate
-    coalesce_interval_ms: 10  # Added to reduce input lag
-    wait_for_data: false  # Don't wait for initial data
+    publish_rate: 100.0
+    coalesce_interval_ms: 10
+    wait_for_data: false
 
 teleop_node:
   ros__parameters:
     # Xbox 360 controller mapping
+    # Axes: 6=DPadX, 7=DPadY
     axis_linear:
-      x: 1  # Changed to left stick Y-axis
+      x: 7  # D-pad up/down
     scale_linear:
-      x: 0.3
+      x: 0.15  # Reduced for D-pad control
     scale_linear_turbo:
-      x: 0.5
+      x: 0.3
 
     axis_angular:
-      yaw: 0  # Changed to left stick X-axis
+      yaw: 6  # D-pad left/right
     scale_angular:
-      yaw: 1.0
+      yaw: 0.4  # Reduced for D-pad control
     scale_angular_turbo:
-      yaw: 1.5
+      yaw: 0.6
 
-    enable_button: 4
-    enable_turbo_button: 5
-    require_enable_button: false
-    
+    enable_button: 4  # LB button
+    enable_turbo_button: 5  # RB button
+    require_enable_button: true  # Enable for safety with D-pad
+
     stamped: false
     frame_id: "base_link"
     
-    # Added timing parameters
-    cmd_vel_publish_rate: 50.0  # Increased publish rate
-    timeout_ticks: 2  # Reduced timeout for faster response
+    # Timing parameters
+    cmd_vel_publish_rate: 50.0
+    timeout_ticks: 2
