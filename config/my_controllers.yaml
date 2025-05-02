@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 200  # Hz - Maintain high update rate
+    update_rate: 200  # Hz
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
@@ -10,63 +10,63 @@ controller_manager:
 
 diff_cont:
   ros__parameters:
+    # Wheels
     left_wheel_names: ["left_wheel_joint"]
     right_wheel_names: ["right_wheel_joint"]
+    wheel_separation: 0.35
+    wheel_radius: 0.05
+    encoder_ticks_per_rev: 2787
+    gear_ratio: 99.5
+    wheel_separation_multiplier: 1.0
+    left_wheel_radius_multiplier: 1.0
+    right_wheel_radius_multiplier: 1.0  # calibrate ±2% if needed :contentReference[oaicite:6]{index=6}
 
-    # Motor and Encoder Parameters
-    wheel_separation: 0.35  # Keeping existing separation
-    wheel_radius: 0.05     # Keeping existing radius
-    encoder_ticks_per_rev: 2787  # 7 PPR × 99.5 gear ratio
-    gear_ratio: 99.5       # PG36M555-99.5K gear ratio
-    
-    # Additional wheel parameters
-    wheel_separation_multiplier: 1.0  # Keep at 1.0 for accurate odometry
-# Keep at 1.0 for accurate odometry     left_wheel_radius_multiplier: 1.0
-    right_wheel_radius_multiplier: 1.0
+    # Covariances (trust IMU more in yaw)
+    pose_covariance_diagonal: [0.001, 0.001, 0.002, 0.01, 0.01, 0.01]  # yaw cov bumped
+    twist_covariance_diagonal: [0.001, 0.001, 0.002, 0.01, 0.01, 0.01]
 
-    # Odometry covariances - adjusted for high-resolution encoder
-    pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.01, 0.01, 0.01]
-    twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.01, 0.01, 0.01]
+    # IMU fusion
+    odometry:
+      use_imu: true
+      imu_frame_id: "imu_link"
+      imu_queue_size: 50  # buffer depth
 
-    use_stamped_vel: false
-
-        # Velocity and acceleration limits - heavily reduced for safer operation
+    # Limits (safe, low‑slip)
     linear.x.has_velocity_limits: true
     linear.x.has_acceleration_limits: true
     linear.x.has_jerk_limits: true
-    linear.x.max_velocity: 0.2
-    linear.x.min_velocity: -0.2
-    linear.x.max_acceleration: 0.1
-    linear.x.min_acceleration: -0.1
-    linear.x.max_jerk: 0.15
-    linear.x.min_jerk: -0.15
+    linear.x.max_velocity: 0.15
+    linear.x.min_velocity: -0.15
+    linear.x.max_acceleration: 0.08
+    linear.x.min_acceleration: -0.08
+    linear.x.max_jerk: 0.1
+    linear.x.min_jerk: -0.1
 
     angular.z.has_velocity_limits: true
     angular.z.has_acceleration_limits: true
     angular.z.has_jerk_limits: true
-    angular.z.max_velocity: 0.5  # rad/s - reduced from 1.0
-    angular.z.min_velocity: -0.5 # rad/s - reduced from -1.0
-    angular.z.max_acceleration: 0.2  # rad/s^2 - reduced from 0.4
-    angular.z.min_acceleration: -0.2 # rad/s^2 - reduced from -0.4
-    angular.z.max_jerk: 0.35  # rad/s^3 - reduced from 0.7
-    angular.z.min_jerk: -0.35 # rad/s^3 - reduced from -0.7
+    angular.z.max_velocity: 0.3
+    angular.z.min_velocity: -0.3
+    angular.z.max_acceleration: 0.15
+    angular.z.min_acceleration: -0.15
+    angular.z.max_jerk: 0.25
+    angular.z.min_jerk: -0.25
 
-    # Odometry frame configuration
+    # Frames & topics
     odom_frame_id: "odom"
-    base_frame_id: "base_footprint"  # Matches SLAM config
+    base_frame_id: "base_footprint"
     publish_odom: true
     publish_odom_tf: true
-    publish_wheel_tf: true  # Enable wheel TF publishing for more complete TF tree
-    
-    # Topic configuration
+    publish_wheel_tf: true
     odom_topic: "/diff_cont/odom"
     cmd_vel_topic: "/cmd_vel"
-    
+
+    # Control mode
     position_feedback: true
-    open_loop: false  # Set to false for closed-loop control with encoder feedback
+    open_loop: false
     enable_odom_tf: true
-    publish_rate: 200.0  # Hz - Match update_rate for consistent timing
+    publish_rate: 200.0
     cmd_vel_timeout: 0.5
-    
-    # Velocity smoothing
-    velocity_rolling_window_size: 10
+
+    # Smoothing
+    velocity_rolling_window_size: 11
