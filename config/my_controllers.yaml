@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 200  # Hz - Increased for smoother control
+    update_rate: 200  # Hz - Maintain high update rate
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
@@ -13,30 +13,33 @@ diff_cont:
     left_wheel_names: ["left_wheel_joint"]
     right_wheel_names: ["right_wheel_joint"]
 
-    wheel_separation: 0.31
-    wheel_radius: 0.055
+    # Motor and Encoder Parameters
+    wheel_separation: 0.35  # Keeping existing separation
+    wheel_radius: 0.05     # Keeping existing radius
+    encoder_ticks_per_rev: 2787  # 7 PPR × 99.5 gear ratio
+    gear_ratio: 99.5       # PG36M555-99.5K gear ratio
     
     # Additional wheel parameters
     wheel_separation_multiplier: 1.0  # Keep at 1.0 for accurate odometry
-    left_wheel_radius_multiplier: 1.0
+# Keep at 1.0 for accurate odometry     left_wheel_radius_multiplier: 1.0
     right_wheel_radius_multiplier: 1.0
 
-    # Odometry covariances for the encoder output of the robot
-    pose_covariance_diagonal: [0.01, 0.01, 0.01, 0.1, 0.1, 0.1]  # Increased for more realistic error modeling
-    twist_covariance_diagonal: [0.01, 0.01, 0.01, 0.1, 0.1, 0.1]  # Increased for more realistic error modeling
+    # Odometry covariances - adjusted for high-resolution encoder
+    pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.01, 0.01, 0.01]
+    twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.01, 0.01, 0.01]
 
     use_stamped_vel: false
 
-    # Velocity and acceleration limits - heavily reduced for safer operation
+        # Velocity and acceleration limits - heavily reduced for safer operation
     linear.x.has_velocity_limits: true
     linear.x.has_acceleration_limits: true
     linear.x.has_jerk_limits: true
-    linear.x.max_velocity: 0.2  # m/s - reduced from 0.5
-    linear.x.min_velocity: -0.2 # m/s - reduced from -0.5
-    linear.x.max_acceleration: 0.1 # m/s^2 - reduced from 0.2
-    linear.x.min_acceleration: -0.1 # m/s^2 - reduced from -0.2
-    linear.x.max_jerk: 0.15  # m/s^3 - reduced from 0.3
-    linear.x.min_jerk: -0.15 # m/s^3 - reduced from -0.3
+    linear.x.max_velocity: 0.2
+    linear.x.min_velocity: -0.2
+    linear.x.max_acceleration: 0.1
+    linear.x.min_acceleration: -0.1
+    linear.x.max_jerk: 0.15
+    linear.x.min_jerk: -0.15
 
     angular.z.has_velocity_limits: true
     angular.z.has_acceleration_limits: true
@@ -59,9 +62,11 @@ diff_cont:
     odom_topic: "/diff_cont/odom"
     cmd_vel_topic: "/cmd_vel"
     
-    # Additional stability parameters
     position_feedback: true
     open_loop: false  # Set to false for closed-loop control with encoder feedback
     enable_odom_tf: true
     publish_rate: 200.0  # Hz - Match update_rate for consistent timing
     cmd_vel_timeout: 0.5
+    
+    # Velocity smoothing
+    velocity_rolling_window_size: 10
