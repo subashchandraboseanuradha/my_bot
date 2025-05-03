@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 200  # Hz
+    update_rate: 500  # Increase from 200 Hz to 500 Hz
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
@@ -65,8 +65,9 @@ diff_cont:
     position_feedback: true
     open_loop: false
     enable_odom_tf: true
-    publish_rate: 200.0
-    cmd_vel_timeout: 0.5
+    publish_rate: 500.0  # Increase from 200.0 to 500.0
+    cmd_vel_timeout: 0.2  # Reduce timeout
 
     # Smoothing
     velocity_rolling_window_size: 11
+
