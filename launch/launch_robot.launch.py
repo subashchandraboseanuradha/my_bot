@@ -13,7 +13,8 @@ def generate_launch_description():
     # Declare launch arguments
     use_mock_hardware = LaunchConfiguration('use_mock_hardware')
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
-    
+    namespace = LaunchConfiguration('namespace', default='')
+
     declare_use_mock_hardware = DeclareLaunchArgument(
         'use_mock_hardware',
         default_value='false',
@@ -23,6 +24,12 @@ def generate_launch_description():
         'use_sim_time',
         default_value='false',
         description='Use simulation clock if true, real clock if false')
+
+    declare_namespace = DeclareLaunchArgument(
+        'namespace',
+        default_value='',
+        description='Robot namespace'
+    )
     
     # Get URDF via xacro
     robot_description_content = Command(
@@ -127,8 +134,24 @@ def generate_launch_description():
         actions=[diff_drive_spawner]
     )
 
+    # Modify EKF node with additional parameters
+    ekf_yaml = os.path.join(my_bot_dir, 'config', 'ekf.yaml')
+    ekf_node = Node(
+        package='robot_localization',
+        executable='ekf_node',
+        name='ekf_filter_node',
+        output='screen',
+        parameters=[
+            ekf_yaml,
+            {'use_sim_time': use_sim_time},
+            {'publish_acceleration': True},
+            {'permit_corrected_publication': True}
+        ]
+    )
+
     # Define the final launch description and return it
     nodes = [
+        declare_namespace,
         declare_use_mock_hardware,
         declare_use_sim_time,
         robot_state_pub_node,
@@ -138,10 +161,11 @@ def generate_launch_description():
         static_base_footprint_publisher,
         delayed_joint_state_broadcaster_spawner,
         delayed_diff_drive_spawner,
+        ekf_node,
     ]
 
     # Add joystick if available
     if joystick_ld is not None:
         nodes.append(joystick_ld)
 
-    return LaunchDescription(nodes) 
+    return LaunchDescription(nodes)
