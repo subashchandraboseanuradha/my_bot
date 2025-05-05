@@ -59,7 +59,7 @@ diff_cont:
     publish_odom_tf: true
     publish_wheel_tf: true
     odom_topic: "/diff_cont/odom"
-    cmd_vel_topic: "/cmd_vel"
+    cmd_vel_topic: "/diff_cont/cmd_vel_unstamped"
 
     # Control mode
     position_feedback: true
