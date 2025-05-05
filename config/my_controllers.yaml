@@ -35,22 +35,22 @@ diff_cont:
     linear.x.has_velocity_limits: true
     linear.x.has_acceleration_limits: true
     linear.x.has_jerk_limits: true
-    linear.x.max_velocity: 0.15
-    linear.x.min_velocity: -0.15
-    linear.x.max_acceleration: 0.08
-    linear.x.min_acceleration: -0.08
-    linear.x.max_jerk: 0.1
-    linear.x.min_jerk: -0.1
+    linear.x.max_velocity: 0.5
+    linear.x.min_velocity: -0.5
+    linear.x.max_acceleration: 0.3
+    linear.x.min_acceleration: -0.3
+    linear.x.max_jerk: 0.5
+    linear.x.min_jerk: -0.5
 
     angular.z.has_velocity_limits: true
     angular.z.has_acceleration_limits: true
     angular.z.has_jerk_limits: true
-    angular.z.max_velocity: 0.3
-    angular.z.min_velocity: -0.3
-    angular.z.max_acceleration: 0.15
-    angular.z.min_acceleration: -0.15
-    angular.z.max_jerk: 0.25
-    angular.z.min_jerk: -0.25
+    angular.z.max_velocity: 1.0
+    angular.z.min_velocity: -1.0
+    angular.z.max_acceleration: 0.5
+    angular.z.min_acceleration: -0.5
+    angular.z.max_jerk: 0.8
+    angular.z.min_jerk: -0.8
 
     # Frames & topics
     odom_frame_id: "odom"
@@ -66,7 +66,7 @@ diff_cont:
     open_loop: false
     enable_odom_tf: true
     publish_rate: 500.0  # Increase from 200.0 to 500.0
-    cmd_vel_timeout: 0.2  # Reduce timeout
+    cmd_vel_timeout: 0.1  # Reduce timeout for faster response
 
     # Smoothing
     velocity_rolling_window_size: 11
