@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 import os
+import subprocess
 from launch import LaunchDescription
-from launch.actions import RegisterEventHandler, DeclareLaunchArgument, TimerAction
+from launch.actions import RegisterEventHandler, DeclareLaunchArgument, TimerAction, ExecuteProcess
 from launch.event_handlers import OnProcessExit, OnProcessStart
 from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration
 from launch_ros.actions import Node
@@ -10,6 +11,15 @@ from ament_index_python.packages import get_package_share_directory
 import xacro
 
 def generate_launch_description():
+    # Clear the serial port before starting
+    serial_port = "/dev/ttyUSB0"
+    try:
+        subprocess.run(["stty", "-F", serial_port, "115200"], check=False)
+        subprocess.run(["stty", "-F", serial_port, "raw"], check=False)
+        subprocess.run(["stty", "-F", serial_port, "-echo"], check=False)
+    except Exception as e:
+        print(f"Warning: Could not configure serial port: {e}")
+
     # Declare launch arguments
     use_mock_hardware = LaunchConfiguration('use_mock_hardware')
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
