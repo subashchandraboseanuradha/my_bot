@@ -8,6 +8,7 @@ from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
+    namespace = LaunchConfiguration('namespace')
 
     joy_params = os.path.join(get_package_share_directory('my_bot'),'config','joystick.yaml')
 
@@ -22,11 +23,18 @@ def generate_launch_description():
         default_value='false',
         description='Use simulation time if true, real time if false')
 
+    # Declare namespace parameter
+    declare_namespace = DeclareLaunchArgument(
+        'namespace',
+        default_value='',
+        description='Namespace for nodes to avoid duplication')
+
     joy_node = Node(
             package='joy',
             executable='joy_node',
             parameters=[joy_params, {'use_sim_time': use_sim_time}],
             output='screen',
+            namespace=namespace  # Add namespace to avoid duplication
          )
 
     teleop_node = Node(
@@ -36,6 +44,7 @@ def generate_launch_description():
             parameters=[joy_params, {'use_sim_time': use_sim_time}],
             remappings=[('/cmd_vel','/diff_cont/cmd_vel_unstamped')],
             output='screen',
+            namespace=namespace  # Add namespace to avoid duplication
          )
 
     # Diagnostic commands to check joystick inputs and velocity outputs
@@ -63,6 +72,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         declare_use_sim_time,
+        declare_namespace,
         log_time_source,
         joy_node,
         teleop_node,

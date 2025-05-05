@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 import os
 from launch import LaunchDescription
-from launch.actions import RegisterEventHandler, DeclareLaunchArgument, TimerAction
+from launch.actions import RegisterEventHandler, DeclareLaunchArgument, TimerAction, LogInfo
 from launch.event_handlers import OnProcessExit, OnProcessStart
 from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration
+from launch.conditions import IfCondition
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from ament_index_python.packages import get_package_share_directory
@@ -91,7 +92,7 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}],
     )
 
-    # Joystick controller - include only if file exists
+    # Joystick controller - include only if file exists and joy_node is not already running
     joystick_launch_path = os.path.join(my_bot_dir, 'launch', 'joystick.launch.py')
     
     joystick_ld = None
@@ -101,8 +102,15 @@ def generate_launch_description():
         
         joystick_ld = IncludeLaunchDescription(
             PythonLaunchDescriptionSource([joystick_launch_path]),
-            launch_arguments={'use_sim_time': 'false'}.items()
+            launch_arguments={'use_sim_time': 'false'}.items(),
+            condition=IfCondition("not '/joy_node' in `ros2 node list`")  # Prevent duplicate launch
         )
+
+    # Log a message if joystick is already running
+    log_joystick_running = LogInfo(
+        condition=IfCondition("'/joy_node' in `ros2 node list`"),
+        msg="Joystick node is already running, skipping launch."
+    )
 
     # Joint state broadcaster spawner
     joint_state_broadcaster_spawner = Node(
@@ -166,6 +174,7 @@ def generate_launch_description():
 
     # Add joystick if available
     if joystick_ld is not None:
+        nodes.append(log_joystick_running)
         nodes.append(joystick_ld)
 
     return LaunchDescription(nodes)
