@@ -66,14 +66,15 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}],
     )
 
-    # Static transform publisher for odom to base_footprint
-    static_odom_to_base_footprint_publisher = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='static_odom_to_base_footprint',
-        arguments=['0', '0', '0', '0', '0', '0', 'odom', 'base_footprint'],
-        parameters=[{'use_sim_time': use_sim_time}],
-    )
+    # Comment out this static transform publisher since diff_drive_controller will handle this
+    # We don't want both nodes publishing this transform at the same time
+    # static_odom_to_base_footprint_publisher = Node(
+    #     package='tf2_ros',
+    #     executable='static_transform_publisher',
+    #     name='static_odom_to_base_footprint',
+    #     arguments=['0', '0', '0', '0', '0', '0', 'odom', 'base_footprint'],
+    #     parameters=[{'use_sim_time': use_sim_time}],
+    # )
 
     # Static transform publisher for base_footprint to base_link
     static_base_footprint_publisher = Node(
@@ -134,7 +135,7 @@ def generate_launch_description():
         robot_state_pub_node,
         controller_manager,
         static_map_to_odom_publisher,
-        static_odom_to_base_footprint_publisher,
+        # static_odom_to_base_footprint_publisher,  # Removed this line
         static_base_footprint_publisher,
         delayed_joint_state_broadcaster_spawner,
         delayed_diff_drive_spawner,
