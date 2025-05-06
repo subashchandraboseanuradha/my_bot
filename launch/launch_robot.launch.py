@@ -135,7 +135,7 @@ def generate_launch_description():
         controller_manager,
         static_map_to_odom_publisher,
         static_base_footprint_publisher,
-        diff_tf_node,  # Add DiffTF node
+        diff_tf_node,
         delayed_joint_state_broadcaster_spawner,
         delayed_diff_drive_spawner,
     ]

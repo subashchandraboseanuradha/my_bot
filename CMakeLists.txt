@@ -66,6 +66,9 @@ install(
 install(PROGRAMS
   src/diff_tf.py
   DESTINATION lib/${PROJECT_NAME}
+  PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE
+              GROUP_READ GROUP_EXECUTE
+              WORLD_READ WORLD_EXECUTE
 )
 
 # Export hardware plugin

@@ -1,1 +1,4 @@
-/home/bose/dev_ws/src/my_bot/config/gazebo_params.yaml
+gazebo:
+  ros__parameters:
+    publish_rate: 300.0  # Increased for better physics-to-ROS synchronization
+  

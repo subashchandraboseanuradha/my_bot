@@ -5,7 +5,7 @@ set(my_bot_BUILD_DEPENDS "libserial-dev" "ros2_control" "ros2_controllers" "gaze
 set(my_bot_BUILDTOOL_DEPENDS "ament_cmake")
 set(my_bot_BUILD_EXPORT_DEPENDS "ros2_control" "ros2_controllers" "gazebo_ros2_control" "diff_drive_controller" "hardware_interface" "pluginlib" "rclcpp_lifecycle" "rclcpp" "robot_state_publisher" "gazebo_ros" "gazebo_ros_pkgs" "xacro" "joint_state_publisher" "joint_state_publisher_gui" "controller_manager")
 set(my_bot_BUILDTOOL_EXPORT_DEPENDS )
-set(my_bot_EXEC_DEPENDS "libserial" "ros2_control" "ros2_controllers" "gazebo_ros2_control" "diff_drive_controller" "hardware_interface" "pluginlib" "rclcpp_lifecycle" "rclcpp" "robot_state_publisher" "gazebo_ros" "gazebo_ros_pkgs" "xacro" "joint_state_publisher" "joint_state_publisher_gui" "controller_manager")
+set(my_bot_EXEC_DEPENDS "libserial" "rclpy" "nav_msgs" "geometry_msgs" "sensor_msgs" "tf2_ros" "ros2_control" "ros2_controllers" "gazebo_ros2_control" "diff_drive_controller" "hardware_interface" "pluginlib" "rclcpp_lifecycle" "rclcpp" "robot_state_publisher" "gazebo_ros" "gazebo_ros_pkgs" "xacro" "joint_state_publisher" "joint_state_publisher_gui" "controller_manager")
 set(my_bot_TEST_DEPENDS "ament_lint_auto" "ament_lint_common")
 set(my_bot_GROUP_DEPENDS )
 set(my_bot_MEMBER_OF_GROUPS )
