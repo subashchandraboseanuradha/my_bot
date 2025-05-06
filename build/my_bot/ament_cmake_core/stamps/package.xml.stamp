@@ -3,46 +3,50 @@
 <package format="3">
   <name>my_bot</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="my_email@email.com">MY NAME</maintainer>
-  <license>TODO: License declaration</license>
+  <description>ROS2 Differential Drive Robot Package</description>
+  <maintainer email="bose@todo.todo">bose</maintainer>
+  <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
 
-  <!-- Add these dependencies -->
-  <depend>ros2_control</depend>
-  <depend>ros2_controllers</depend>
-  <depend>gazebo_ros2_control</depend>
-  <depend>diff_drive_controller</depend>
-
+  <!-- Core dependencies -->
+  <depend>rclcpp</depend>
+  <depend>rclcpp_lifecycle</depend>
   <depend>hardware_interface</depend>
   <depend>pluginlib</depend>
-  <depend>rclcpp_lifecycle</depend>
+  <depend>robot_state_publisher</depend>
+
+  <!-- Serial communication -->
   <build_depend>libserial-dev</build_depend>
   <exec_depend>libserial</exec_depend>
-  <depend>rclcpp</depend>
 
-  <depend>robot_state_publisher</depend>
+  <!-- Controllers and simulation -->
+  <depend>ros2_control</depend>
+  <depend>ros2_controllers</depend>
+  <depend>controller_manager</depend>
+  <depend>diff_drive_controller</depend>
+  <depend>gazebo_ros2_control</depend>
   <depend>gazebo_ros</depend>
   <depend>gazebo_ros_pkgs</depend>
+
+  <!-- Visualization and tools -->
   <depend>xacro</depend>
   <depend>joint_state_publisher</depend>
   <depend>joint_state_publisher_gui</depend>
 
-  <test_depend>ament_lint_auto</test_depend>
-  <test_depend>ament_lint_common</test_depend>
-
-  <depend>controller_manager</depend>
-
-  <export>
-    <build_type>ament_cmake</build_type>
-  </export>
-
-  <!-- Add these lines before the closing </package> tag -->
+  <!-- Python dependencies -->
   <exec_depend>rclpy</exec_depend>
   <exec_depend>nav_msgs</exec_depend>
   <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>sensor_msgs</exec_depend>
   <exec_depend>tf2_ros</exec_depend>
 
+  <!-- Testing -->
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
 </package>

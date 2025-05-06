@@ -7,9 +7,11 @@ from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, 
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from ament_index_python.packages import get_package_share_directory
-import xacro
 
 def generate_launch_description():
+    # Get package directory
+    pkg_dir = os.path.dirname(os.path.dirname(__file__))
+    
     # Declare launch arguments
     use_mock_hardware = LaunchConfiguration('use_mock_hardware')
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
@@ -29,9 +31,7 @@ def generate_launch_description():
         [
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
-            PathJoinSubstitution(
-                [FindPackageShare("my_bot"), "description", "robot.urdf.xacro"]
-            ),
+            os.path.join(pkg_dir, "description", "robot.urdf.xacro"),
             " ",
             "use_mock_hardware:=", use_mock_hardware,
             " ",
@@ -40,8 +40,7 @@ def generate_launch_description():
     )
     robot_description = {"robot_description": robot_description_content}
 
-    my_bot_dir = get_package_share_directory('my_bot')
-    controller_config = os.path.join(my_bot_dir, 'config', 'my_controllers.yaml')
+    controller_config = os.path.join(pkg_dir, 'config', 'my_controllers.yaml')
 
     robot_state_pub_node = Node(
         package="robot_state_publisher",
@@ -78,14 +77,14 @@ def generate_launch_description():
     # Add DiffTF node
     diff_tf_node = Node(
         package="my_bot",
-        executable="diff_tf.py",
+        executable="diff_tf",
         name="diff_tf",
         parameters=[{'use_sim_time': use_sim_time}],
         output="screen",
     )
 
     # Joystick controller - include only if file exists
-    joystick_launch_path = os.path.join(my_bot_dir, 'launch', 'joystick.launch.py')
+    joystick_launch_path = os.path.join(pkg_dir, 'launch', 'joystick.launch.py')
     
     joystick_ld = None
     if os.path.exists(joystick_launch_path):

@@ -12,6 +12,7 @@ endif()
 
 # Find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_python REQUIRED)
 find_package(hardware_interface REQUIRED)
 find_package(pluginlib REQUIRED)
 find_package(rclcpp REQUIRED)
@@ -46,7 +47,7 @@ ament_target_dependencies(
   rclcpp_lifecycle
 )
 
-# Install
+# Install C++ targets
 install(
   TARGETS ${PROJECT_NAME}
   DESTINATION lib
@@ -57,23 +58,30 @@ install(
   DESTINATION include
 )
 
+# Install Python module
+ament_python_install_package(${PROJECT_NAME})
+
+# Install directories
 install(
-  DIRECTORY config description launch worlds
+  DIRECTORY
+    config
+    description
+    launch
+    worlds
   DESTINATION share/${PROJECT_NAME}
 )
 
 # Install Python scripts
 install(PROGRAMS
-  src/diff_tf.py
+  my_bot/diff_tf.py
   DESTINATION lib/${PROJECT_NAME}
-  PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE
-              GROUP_READ GROUP_EXECUTE
-              WORLD_READ WORLD_EXECUTE
+  RENAME diff_tf
 )
 
 # Export hardware plugin
 pluginlib_export_plugin_description_file(hardware_interface my_bot.xml)
 
+# Export dependencies
 ament_export_include_directories(
   include
 )

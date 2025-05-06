@@ -57,14 +57,17 @@ class DiffTF(Node):
         try:
             left_idx = msg.name.index('left_wheel_joint')
             right_idx = msg.name.index('right_wheel_joint')
+            
+            # Read the encoder values
+            self.enc_left = msg.position[left_idx]
+            self.enc_right = msg.position[right_idx]
+            
+            # Add debug logging
+            self.get_logger().info(f'Received joint states - Left: {self.enc_left}, Right: {self.enc_right}')
         except ValueError:
-            self.get_logger().warn('Joint states message did not contain expected joint names')
+            self.get_logger().warn(f'Joint states message did not contain expected joint names. Got: {msg.name}')
             return
             
-        # Read the encoder values
-        self.enc_left = msg.position[left_idx]
-        self.enc_right = msg.position[right_idx]
-        
     def update(self):
         now = self.get_clock().now()
         elapsed = now - self.then
@@ -73,6 +76,7 @@ class DiffTF(Node):
         
         # Calculate odometry
         if self.enc_left is None or self.enc_right is None:
+            self.get_logger().warn('No encoder data received yet')
             return
             
         # Convert encoder counts to distance in meters
@@ -91,16 +95,21 @@ class DiffTF(Node):
         self.dx = d / elapsed
         self.dr = th / elapsed
         
+        # Add debug logging for odometry calculations
+        self.get_logger().debug(f'Odometry update - dx: {self.dx}, dr: {self.dr}, x: {self.x}, y: {self.y}, th: {self.th}')
+        
+        # Update the pose of the robot
         if d != 0:
             # Calculate distance traveled in x and y
-            x = cos(th) * d
-            y = -sin(th) * d
-            # Calculate the final position of the robot
-            self.x = self.x + (cos(self.th) * x - sin(self.th) * y)
-            self.y = self.y + (sin(self.th) * x + cos(self.th) * y)
+            dx = d * cos(self.th)
+            dy = d * sin(self.th)
+            self.x += dx
+            self.y += dy
         
         if th != 0:
-            self.th = self.th + th
+            self.th += th
+            # Normalize angle to -pi to +pi
+            self.th = math.atan2(math.sin(self.th), math.cos(self.th))
             
         # Create quaternion from yaw
         odom_quat = Quaternion()

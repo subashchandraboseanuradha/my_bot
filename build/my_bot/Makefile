@@ -210,6 +210,32 @@ my_bot/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_bot.dir/build.make CMakeFiles/my_bot.dir/build
 .PHONY : my_bot/fast
 
+#=============================================================================
+# Target rules for targets named ament_cmake_python_symlink_my_bot
+
+# Build rule for target.
+ament_cmake_python_symlink_my_bot: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ament_cmake_python_symlink_my_bot
+.PHONY : ament_cmake_python_symlink_my_bot
+
+# fast build rule for target.
+ament_cmake_python_symlink_my_bot/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ament_cmake_python_symlink_my_bot.dir/build.make CMakeFiles/ament_cmake_python_symlink_my_bot.dir/build
+.PHONY : ament_cmake_python_symlink_my_bot/fast
+
+#=============================================================================
+# Target rules for targets named ament_cmake_python_build_my_bot_egg
+
+# Build rule for target.
+ament_cmake_python_build_my_bot_egg: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ament_cmake_python_build_my_bot_egg
+.PHONY : ament_cmake_python_build_my_bot_egg
+
+# fast build rule for target.
+ament_cmake_python_build_my_bot_egg/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ament_cmake_python_build_my_bot_egg.dir/build.make CMakeFiles/ament_cmake_python_build_my_bot_egg.dir/build
+.PHONY : ament_cmake_python_build_my_bot_egg/fast
+
 hardware/diffbot_system.o: hardware/diffbot_system.cpp.o
 .PHONY : hardware/diffbot_system.o
 
@@ -247,6 +273,8 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... ament_cmake_python_build_my_bot_egg"
+	@echo "... ament_cmake_python_symlink_my_bot"
 	@echo "... my_bot_uninstall"
 	@echo "... uninstall"
 	@echo "... my_bot"

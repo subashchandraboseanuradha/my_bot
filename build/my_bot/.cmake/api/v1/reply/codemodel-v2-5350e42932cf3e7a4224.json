@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-a5b9b67334d263c29800.json",
+					"jsonFile" : "directory-.-6d0d40391fcd12ae824e.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.12"
@@ -18,7 +18,9 @@
 					[
 						0,
 						1,
-						2
+						2,
+						3,
+						4
 					]
 				}
 			],
@@ -35,7 +37,9 @@
 					[
 						0,
 						1,
-						2
+						2,
+						3,
+						4
 					]
 				}
 			],
@@ -43,8 +47,22 @@
 			[
 				{
 					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_my_bot_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_my_bot_egg-a9be8f67dc80fc2fed06.json",
+					"name" : "ament_cmake_python_build_my_bot_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_symlink_my_bot::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_symlink_my_bot-cf59a1c10993def35762.json",
+					"name" : "ament_cmake_python_symlink_my_bot",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "my_bot::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-my_bot-1102b56b0bfd927b2e9c.json",
+					"jsonFile" : "target-my_bot-b4955f64ad1044f23855.json",
 					"name" : "my_bot",
 					"projectIndex" : 0
 				},
