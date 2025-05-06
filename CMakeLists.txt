@@ -62,6 +62,12 @@ install(
   DESTINATION share/${PROJECT_NAME}
 )
 
+# Install Python scripts
+install(PROGRAMS
+  src/diff_tf.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 # Export hardware plugin
 pluginlib_export_plugin_description_file(hardware_interface my_bot.xml)
 

@@ -22,7 +22,12 @@ diff_cont:
     
     # Transform synchronization parameters
     publish_rate: 50.0  # Hz - Ensure this matches the controller_manager update_rate
-    enable_odom_tf: true
+    enable_odom_tf: false  # Disable odometry TF publishing since we're using DiffTF
+    publish_odom: false    # Disable odometry message publishing
+    
+    # Odometry parameters
+    position_feedback: true  # Use position feedback
+    encoder_ticks_per_meter: 3831.75  # Your robot's encoder counts per meter
     
     # Speed limits
     linear:
