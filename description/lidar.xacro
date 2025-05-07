@@ -24,7 +24,7 @@
   <joint name="lidar_joint" type="fixed">
     <parent link="base_link" />
     <child link="lidar_frame" />
-    <origin xyz="0.2 0 0.12" rpy="0 0 0" />
+    <origin xyz="0.0 0 0.08" rpy="0 0 0" />
   </joint>
 
   <!-- RPLIDAR A1 Gazebo Configuration -->
@@ -44,7 +44,7 @@
           </horizontal>
         </scan>
         <range>
-          <min>0.15</min>  <!-- RPLIDAR A1 minimum range -->
+          <min>0.2</min>  <!-- Adjusted to match real LiDAR -->
           <max>12.0</max>  <!-- RPLIDAR A1 maximum range -->
           <resolution>0.01</resolution>
         </range>
