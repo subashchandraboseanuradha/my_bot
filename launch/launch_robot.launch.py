@@ -67,15 +67,6 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}],
     )
 
-    # Static transform publisher for base_footprint to base_link
-    static_base_footprint_publisher = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='static_base_footprint_to_link',
-        arguments=['0', '0', '0', '0', '0', '0', 'base_footprint', 'base_link'],
-        parameters=[{'use_sim_time': use_sim_time}],
-    )
-
     # Joystick controller - include only if file exists
     joystick_launch_path = os.path.join(pkg_dir, 'launch', 'joystick.launch.py')
     
@@ -123,10 +114,21 @@ def generate_launch_description():
         robot_state_pub_node,
         controller_manager,
         static_map_to_odom_publisher,
-        static_base_footprint_publisher,
         delayed_joint_state_broadcaster_spawner,
         delayed_diff_drive_spawner,
     ]
+
+    # Add EKF node for odometry fusion and base_link transform
+    ekf_config_path = os.path.join(pkg_dir, 'config', 'ekf.yaml')
+    if os.path.exists(ekf_config_path):
+        ekf_node = Node(
+            package='robot_localization',
+            executable='ekf_node',
+            name='ekf_filter_node',
+            output='screen',
+            parameters=[ekf_config_path, {'use_sim_time': use_sim_time}],
+        )
+        nodes.append(ekf_node)
 
     # Add joystick if available
     if joystick_ld is not None:
