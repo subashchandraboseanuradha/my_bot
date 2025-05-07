@@ -1,0 +1,116 @@
+[0.604s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.604s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffff94661390>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff94660f40>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff94660f40>>)
+[1.704s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.705s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.706s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.706s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.706s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[1.707s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.707s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/bose/dev_ws/src/my_bot'
+[1.708s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.709s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.709s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.709s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[1.709s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[1.710s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[1.710s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[1.710s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.710s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.781s] DEBUG:colcon.colcon_core.package_identification:Package '.' with type 'ros.ament_cmake' and name 'my_bot'
+[1.781s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.782s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.783s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.783s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.783s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.937s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[1.937s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[1.955s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 3 installed packages in /home/bose/ros2_ws/install
+[1.958s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 4 installed packages in /home/bose/dev_ws/install
+[1.962s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/bose/install
+[1.975s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 333 installed packages in /opt/ros/humble
+[1.983s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[2.278s] Level 5:colcon.colcon_core.verb:set package 'my_bot' build argument 'cmake_args' from command line to 'None'
+[2.278s] Level 5:colcon.colcon_core.verb:set package 'my_bot' build argument 'cmake_target' from command line to 'None'
+[2.279s] Level 5:colcon.colcon_core.verb:set package 'my_bot' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.279s] Level 5:colcon.colcon_core.verb:set package 'my_bot' build argument 'cmake_clean_cache' from command line to 'False'
+[2.279s] Level 5:colcon.colcon_core.verb:set package 'my_bot' build argument 'cmake_clean_first' from command line to 'False'
+[2.279s] Level 5:colcon.colcon_core.verb:set package 'my_bot' build argument 'cmake_force_configure' from command line to 'False'
+[2.279s] Level 5:colcon.colcon_core.verb:set package 'my_bot' build argument 'ament_cmake_args' from command line to 'None'
+[2.279s] Level 5:colcon.colcon_core.verb:set package 'my_bot' build argument 'catkin_cmake_args' from command line to 'None'
+[2.279s] Level 5:colcon.colcon_core.verb:set package 'my_bot' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.280s] DEBUG:colcon.colcon_core.verb:Building package 'my_bot' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/bose/dev_ws/src/my_bot/build/my_bot', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/bose/dev_ws/src/my_bot/install/my_bot', 'merge_install': False, 'path': '/home/bose/dev_ws/src/my_bot', 'symlink_install': False, 'test_result_base': None}
+[2.280s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[2.284s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[2.286s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/bose/dev_ws/src/my_bot' with build type 'ament_cmake'
+[2.287s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/bose/dev_ws/src/my_bot'
+[2.304s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[2.305s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.305s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.357s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bose/dev_ws/src/my_bot/build/my_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake /home/bose/dev_ws/src/my_bot -DCMAKE_INSTALL_PREFIX=/home/bose/dev_ws/src/my_bot/install/my_bot
+[7.020s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bose/dev_ws/src/my_bot/build/my_bot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake /home/bose/dev_ws/src/my_bot -DCMAKE_INSTALL_PREFIX=/home/bose/dev_ws/src/my_bot/install/my_bot
+[7.037s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bose/dev_ws/src/my_bot/build/my_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --build /home/bose/dev_ws/src/my_bot/build/my_bot -- -j4 -l4
+[8.887s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bose/dev_ws/src/my_bot/build/my_bot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --build /home/bose/dev_ws/src/my_bot/build/my_bot -- -j4 -l4
+[8.934s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bose/dev_ws/src/my_bot/build/my_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --install /home/bose/dev_ws/src/my_bot/build/my_bot
+[9.308s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(my_bot)
+[9.310s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bose/dev_ws/src/my_bot/build/my_bot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --install /home/bose/dev_ws/src/my_bot/build/my_bot
+[9.336s] Level 1:colcon.colcon_core.environment:checking '/home/bose/dev_ws/src/my_bot/install/my_bot' for CMake module files
+[9.341s] Level 1:colcon.colcon_core.environment:checking '/home/bose/dev_ws/src/my_bot/install/my_bot' for CMake config files
+[9.348s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_bot', 'cmake_prefix_path')
+[9.350s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/hook/cmake_prefix_path.ps1'
+[9.355s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/hook/cmake_prefix_path.dsv'
+[9.358s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/hook/cmake_prefix_path.sh'
+[9.364s] Level 1:colcon.colcon_core.environment:checking '/home/bose/dev_ws/src/my_bot/install/my_bot/lib'
+[9.366s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_bot', 'ld_library_path_lib')
+[9.367s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/hook/ld_library_path_lib.ps1'
+[9.370s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/hook/ld_library_path_lib.dsv'
+[9.372s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/hook/ld_library_path_lib.sh'
+[9.375s] Level 1:colcon.colcon_core.environment:checking '/home/bose/dev_ws/src/my_bot/install/my_bot/bin'
+[9.376s] Level 1:colcon.colcon_core.environment:checking '/home/bose/dev_ws/src/my_bot/install/my_bot/lib/pkgconfig/my_bot.pc'
+[9.377s] Level 1:colcon.colcon_core.environment:checking '/home/bose/dev_ws/src/my_bot/install/my_bot/lib/python3.10/site-packages'
+[9.378s] Level 1:colcon.colcon_core.environment:checking '/home/bose/dev_ws/src/my_bot/install/my_bot/bin'
+[9.380s] INFO:colcon.colcon_core.shell:Creating package script '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/package.ps1'
+[9.387s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/package.dsv'
+[9.393s] INFO:colcon.colcon_core.shell:Creating package script '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/package.sh'
+[9.398s] INFO:colcon.colcon_core.shell:Creating package script '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/package.bash'
+[9.403s] INFO:colcon.colcon_core.shell:Creating package script '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/package.zsh'
+[9.409s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bose/dev_ws/src/my_bot/install/my_bot/share/colcon-core/packages/my_bot)
+[9.413s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(my_bot)
+[9.414s] Level 1:colcon.colcon_core.environment:checking '/home/bose/dev_ws/src/my_bot/install/my_bot' for CMake module files
+[9.418s] Level 1:colcon.colcon_core.environment:checking '/home/bose/dev_ws/src/my_bot/install/my_bot' for CMake config files
+[9.424s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_bot', 'cmake_prefix_path')
+[9.425s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/hook/cmake_prefix_path.ps1'
+[9.428s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/hook/cmake_prefix_path.dsv'
+[9.430s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/hook/cmake_prefix_path.sh'
+[9.434s] Level 1:colcon.colcon_core.environment:checking '/home/bose/dev_ws/src/my_bot/install/my_bot/lib'
+[9.435s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_bot', 'ld_library_path_lib')
+[9.436s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/hook/ld_library_path_lib.ps1'
+[9.439s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/hook/ld_library_path_lib.dsv'
+[9.442s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/hook/ld_library_path_lib.sh'
+[9.446s] Level 1:colcon.colcon_core.environment:checking '/home/bose/dev_ws/src/my_bot/install/my_bot/bin'
+[9.446s] Level 1:colcon.colcon_core.environment:checking '/home/bose/dev_ws/src/my_bot/install/my_bot/lib/pkgconfig/my_bot.pc'
+[9.447s] Level 1:colcon.colcon_core.environment:checking '/home/bose/dev_ws/src/my_bot/install/my_bot/lib/python3.10/site-packages'
+[9.449s] Level 1:colcon.colcon_core.environment:checking '/home/bose/dev_ws/src/my_bot/install/my_bot/bin'
+[9.451s] INFO:colcon.colcon_core.shell:Creating package script '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/package.ps1'
+[9.457s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/package.dsv'
+[9.460s] INFO:colcon.colcon_core.shell:Creating package script '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/package.sh'
+[9.465s] INFO:colcon.colcon_core.shell:Creating package script '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/package.bash'
+[9.468s] INFO:colcon.colcon_core.shell:Creating package script '/home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/package.zsh'
+[9.471s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bose/dev_ws/src/my_bot/install/my_bot/share/colcon-core/packages/my_bot)
+[9.474s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[9.482s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[9.482s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[9.483s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[9.563s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[9.564s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[9.564s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[10.523s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[10.525s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/bose/dev_ws/src/my_bot/install/local_setup.ps1'
+[10.533s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/bose/dev_ws/src/my_bot/install/_local_setup_util_ps1.py'
+[10.547s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/bose/dev_ws/src/my_bot/install/setup.ps1'
+[10.561s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/bose/dev_ws/src/my_bot/install/local_setup.sh'
+[10.568s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/bose/dev_ws/src/my_bot/install/_local_setup_util_sh.py'
+[10.575s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/bose/dev_ws/src/my_bot/install/setup.sh'
+[10.589s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/bose/dev_ws/src/my_bot/install/local_setup.bash'
+[10.597s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/bose/dev_ws/src/my_bot/install/setup.bash'
+[10.619s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/bose/dev_ws/src/my_bot/install/local_setup.zsh'
+[10.635s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/bose/dev_ws/src/my_bot/install/setup.zsh'

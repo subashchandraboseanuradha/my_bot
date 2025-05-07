@@ -8,7 +8,7 @@ def generate_launch_description():
     # Add launch arguments
     serial_port_arg = DeclareLaunchArgument(
         'serial_port',
-        default_value='/dev/rplidar',
+        default_value='/dev/ttyUSB3',
         description='Serial port for the RPLIDAR')
     
     serial_baudrate_arg = DeclareLaunchArgument(
@@ -32,7 +32,6 @@ def generate_launch_description():
                 'frame_id': 'lidar_frame',
                 'angle_compensate': True,
                 'scan_mode': 'Standard'
-            }],
-            arguments=['--ros-args', '--log-level', 'DEBUG']
+            }]
         )
     ])

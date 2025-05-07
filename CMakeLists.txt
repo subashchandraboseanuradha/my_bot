@@ -72,10 +72,11 @@ install(
 )
 
 # Install Python scripts
-install(PROGRAMS
-  my_bot/diff_tf.py
+install(
+  PROGRAMS
+    src/diff_tf.py
+    scripts/diff_tf
   DESTINATION lib/${PROJECT_NAME}
-  RENAME diff_tf
 )
 
 # Export hardware plugin

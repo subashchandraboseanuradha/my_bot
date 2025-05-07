@@ -7,6 +7,8 @@ from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, 
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from ament_index_python.packages import get_package_share_directory
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def generate_launch_description():
     # Get package directory
@@ -74,27 +76,26 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}],
     )
 
-    # Add DiffTF node
-    diff_tf_node = Node(
-        package="my_bot",
-        executable="diff_tf",
-        name="diff_tf",
-        parameters=[{'use_sim_time': use_sim_time}],
-        output="screen",
-    )
-
     # Joystick controller - include only if file exists
     joystick_launch_path = os.path.join(pkg_dir, 'launch', 'joystick.launch.py')
     
     joystick_ld = None
     if os.path.exists(joystick_launch_path):
-        from launch.actions import IncludeLaunchDescription
-        from launch.launch_description_sources import PythonLaunchDescriptionSource
-        
         joystick_ld = IncludeLaunchDescription(
             PythonLaunchDescriptionSource([joystick_launch_path]),
-            launch_arguments={'use_sim_time': 'false'}.items()
+            launch_arguments={'use_sim_time': use_sim_time}.items()
         )
+
+    # Diff_tf node for odometry calculation
+    diff_tf_launch_path = os.path.join(pkg_dir, 'launch', 'diff_tf.launch.py')
+    diff_tf_ld = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([diff_tf_launch_path]),
+        launch_arguments={
+            'use_sim_time': use_sim_time,
+            'ticks_meter': '3831.75',  # Encoder ticks per meter - adjust as needed
+            'base_width': '0.255'      # Must match wheel_separation in controllers.yaml
+        }.items()
+    )
 
     # Joint state broadcaster spawner
     joint_state_broadcaster_spawner = Node(
@@ -134,7 +135,7 @@ def generate_launch_description():
         controller_manager,
         static_map_to_odom_publisher,
         static_base_footprint_publisher,
-        diff_tf_node,
+        diff_tf_ld,
         delayed_joint_state_broadcaster_spawner,
         delayed_diff_drive_spawner,
     ]

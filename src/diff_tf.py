@@ -49,7 +49,7 @@ class DiffTf(Node):
         self.get_logger().info("-I- %s started" % self.nodename)
         
         #### parameters #######
-        self.declare_parameter('rate', 50.0)  # Increased default rate
+        self.declare_parameter('rate', 10.0)
         self.declare_parameter('ticks_meter', 50.0)
         self.declare_parameter('base_width', 0.245)
         self.declare_parameter('base_frame_id', 'base_link')
@@ -109,7 +109,7 @@ class DiffTf(Node):
         elapsed = elapsed.nanoseconds / 1e9  # Convert to seconds
         
         # calculate odometry
-        if self.enc_left is None or self.enc_right is None:
+        if self.enc_left is None:
             d_left = 0.0
             d_right = 0.0
         else:
@@ -125,6 +125,7 @@ class DiffTf(Node):
         # calculate velocities
         self.dx = float(d / elapsed if elapsed > 0 else 0.0)
         self.dr = float(th / elapsed if elapsed > 0 else 0.0)
+       
          
         if (d != 0.0):
             # calculate distance traveled in x and y
@@ -171,25 +172,6 @@ class DiffTf(Node):
         odom.twist.twist.linear.x = float(self.dx)
         odom.twist.twist.linear.y = 0.0
         odom.twist.twist.angular.z = float(self.dr)
-        
-        # Set covariance values
-        odom.pose.covariance = [
-            0.1, 0.0, 0.0, 0.0, 0.0, 0.0,
-            0.0, 0.1, 0.0, 0.0, 0.0, 0.0,
-            0.0, 0.0, 0.1, 0.0, 0.0, 0.0,
-            0.0, 0.0, 0.0, 0.1, 0.0, 0.0,
-            0.0, 0.0, 0.0, 0.0, 0.1, 0.0,
-            0.0, 0.0, 0.0, 0.0, 0.0, 0.1
-        ]
-        odom.twist.covariance = [
-            0.1, 0.0, 0.0, 0.0, 0.0, 0.0,
-            0.0, 0.1, 0.0, 0.0, 0.0, 0.0,
-            0.0, 0.0, 0.1, 0.0, 0.0, 0.0,
-            0.0, 0.0, 0.0, 0.1, 0.0, 0.0,
-            0.0, 0.0, 0.0, 0.0, 0.1, 0.0,
-            0.0, 0.0, 0.0, 0.0, 0.0, 0.1
-        ]
-        
         self.odomPub.publish(odom)
             
     #############################################################################
