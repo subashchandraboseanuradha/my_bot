@@ -8,7 +8,7 @@ def generate_launch_description():
     # Add launch arguments
     serial_port_arg = DeclareLaunchArgument(
         'serial_port',
-        default_value='/dev/ttyUSB3',
+        default_value='/dev/ttyUSB1',
         description='Serial port for the RPLIDAR')
     
     serial_baudrate_arg = DeclareLaunchArgument(

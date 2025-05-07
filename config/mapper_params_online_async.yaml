@@ -20,9 +20,14 @@ slam_toolbox:
     # IF YOu'd like to immediately start continuing a map at a given pose
     # or at the dock, but they are mutually exclusive, if pose is given
     # will use pose
-    map_file_name: /home/bose/dev_ws/clean_serial_map
+    map_file_name: /home/bose/dev_ws/first_map_serial
     #map_start_pose: [0.0, 0.0, 0.0]
-    map_start_at_dock: true  # Commented out as it can cause issues with mapping mode
+    #map_start_at_dock: true  # Commented out as it can cause issues with mapping mode
+    map_start_at_dock: false
+
+
+    localize: true
+
 
     debug_logging: true  # Enable debug logging to help diagnose issues
     throttle_scans: 2  # Increased to help with queue overflow
