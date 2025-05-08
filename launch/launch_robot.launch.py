@@ -48,9 +48,10 @@ def generate_launch_description():
         package="robot_state_publisher",
         executable="robot_state_publisher",
         output="both",
-        parameters=[robot_description, {'use_sim_time': use_sim_time}],
+        parameters=[robot_description, {'use_sim_time': use_sim_time, 'frame_prefix': '', 'publish_frequency': 30.0}],
     )
 
+    # Delay all other nodes to give robot_state_publisher time to publish frames
     controller_manager = Node(
         package="controller_manager",
         executable="ros2_control_node",
@@ -64,7 +65,7 @@ def generate_launch_description():
         executable='static_transform_publisher',
         name='static_map_to_odom',
         arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
-        parameters=[{'use_sim_time': use_sim_time}],
+        parameters=[{'use_sim_time': use_sim_time, 'publish_frequency': 30.0, 'transform_tolerance': 1.0}],
     )
 
     # Joystick controller - include only if file exists
@@ -112,11 +113,21 @@ def generate_launch_description():
         declare_use_mock_hardware,
         declare_use_sim_time,
         robot_state_pub_node,
-        controller_manager,
+    ]
+
+    # Delay controller_manager to ensure robot_state_publisher has published frames
+    delayed_controller_manager = TimerAction(
+        period=2.0,
+        actions=[controller_manager]
+    )
+    nodes.append(delayed_controller_manager)
+    
+    # Add other nodes
+    nodes.extend([
         static_map_to_odom_publisher,
         delayed_joint_state_broadcaster_spawner,
         delayed_diff_drive_spawner,
-    ]
+    ])
 
     # Add EKF node for odometry fusion and base_link transform
     ekf_config_path = os.path.join(pkg_dir, 'config', 'ekf.yaml')
