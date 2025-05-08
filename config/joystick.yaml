@@ -21,9 +21,9 @@ teleop_node:
     axis_angular:
       yaw: 4  # Left stick horizontal (axis 4)
     scale_angular:
-      yaw: 0.5
-    scale_angular_turbo:
       yaw: 1.0
+    scale_angular_turbo:
+      yaw: 1.5
 
     enable_button: 5  # RB button on Xbox 360
     enable_turbo_button: 4  # LB on Xbox 360
