@@ -10,3 +10,6 @@ twist_mux:
         timeout : 0.5
         priority: 100
 
+    # Default output topic
+    publisher_topic: cmd_vel_out
+

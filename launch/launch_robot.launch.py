@@ -43,6 +43,7 @@ def generate_launch_description():
     robot_description = {"robot_description": robot_description_content}
 
     controller_config = os.path.join(pkg_dir, 'config', 'my_controllers.yaml')
+    twist_mux_config = os.path.join(pkg_dir, 'config', 'twist_mux.yaml')
 
     robot_state_pub_node = Node(
         package="robot_state_publisher",
