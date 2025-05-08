@@ -18,6 +18,10 @@ diff_cont:
     wheel_separation: 0.255
     wheel_radius: 0.0575
     
+    # Encoder parameters
+    left_wheel_encoder_ticks_per_meter: 3798.7
+    right_wheel_encoder_ticks_per_meter: 3862.8
+    
     # Odometry parameters
     base_frame_id: base_footprint
     odom_frame_id: odom

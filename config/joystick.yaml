@@ -3,35 +3,31 @@ joy_node:
     device_id: 0
     device_name: "Xbox 360 Controller"
     deadzone: 0.05
-    autorepeat_rate: 100.0  # Increased from 50.0
+    autorepeat_rate: 100.0
     default_trig_val: true
-    publish_rate: 200.0     # Increased from 100.0
-    coalesce_interval_ms: 5 # Reduced from 10
+    publish_rate: 200.0
+    coalesce_interval_ms: 5
     wait_for_data: false
     
 teleop_node:
   ros__parameters:
-    # Xbox 360 controller mapping
-    # Axes: 3=RightStickX, 4=RightStickY
     axis_linear:
-      x: 4  # Right stick up/down
+      x: 3  # Left stick vertical (axis 3)
     scale_linear:
-      x: 0.3  # Increased for analog control
+      x: 0.5
     scale_linear_turbo:
-      x: 0.4
+      x: 1.0
 
     axis_angular:
-      yaw: 3  # Right stick left/right
+      yaw: 4  # Left stick horizontal (axis 4)
     scale_angular:
-      yaw: 0.8  # Increased for analog control
+      yaw: 1.0
     scale_angular_turbo:
-      yaw: 1.2
+      yaw: 1.5
 
-    enable_button: 4  # LB button
-    enable_turbo_button: 5  # RB button
-    require_enable_button: true  #falsep saDisabled for faster responsetamped: false
-    frame_id: "base_link"
+    enable_button: 5  # RB button on Xbox 360
+    enable_turbo_button: 4  # LB on Xbox 360
+    require_enable_button: true
     
-    # Timing parameters
-    cmd_vel_publish_rate: 100.0  # Increased from 50.0
-    timeout_ticks: 1            # Reduced from 2
+    cmd_vel_publish_rate: 100.0
+    timeout_ticks: 1
