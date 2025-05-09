@@ -1,7 +1,7 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.substitutions import LaunchConfiguration
-from launch.actions import DeclareLaunchArgument, ExecuteProcess, LogInfo
+from launch.actions import DeclareLaunchArgument, LogInfo
 
 import os
 from ament_index_python.packages import get_package_share_directory
@@ -38,18 +38,6 @@ def generate_launch_description():
             output='screen',
          )
 
-    # Diagnostic commands to check joystick inputs and velocity outputs
-    # These will open in separate terminals to monitor the data
-    joy_echo = ExecuteProcess(
-            cmd=['ros2', 'topic', 'echo', '/joy'],
-            output='screen',
-         )
-
-    cmd_vel_echo = ExecuteProcess(
-            cmd=['ros2', 'topic', 'echo', '/diff_cont/cmd_vel_unstamped'],
-            output='screen',
-         )
-
     # For Humble, we might need the twist_stamper if using stamped velocity commands
     # Uncomment if needed later
     # twist_stamper = Node(
@@ -66,7 +54,5 @@ def generate_launch_description():
         log_time_source,
         joy_node,
         teleop_node,
-        joy_echo,
-        cmd_vel_echo,
         # twist_stamper       
     ])
