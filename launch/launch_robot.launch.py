@@ -65,7 +65,7 @@ def generate_launch_description():
         executable='static_transform_publisher',
         name='static_map_to_odom',
         arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
-        parameters=[{'use_sim_time': use_sim_time, 'publish_frequency': 30.0, 'transform_tolerance': 1.0}],
+        parameters=[{'use_sim_time': use_sim_time, 'publish_frequency': 100.0, 'transform_tolerance': 0.1}],
     )
 
     # Joystick controller - include only if file exists
