@@ -48,7 +48,15 @@ def generate_launch_description():
         package="robot_state_publisher",
         executable="robot_state_publisher",
         output="both",
-        parameters=[robot_description, {'use_sim_time': use_sim_time, 'frame_prefix': '', 'publish_frequency': 30.0}],
+        parameters=[
+            robot_description, 
+            {
+                'use_sim_time': use_sim_time, 
+                'frame_prefix': '', 
+                'publish_frequency': 50.0,  # Increased frequency
+                'transform_tolerance': 0.5   # Added transform tolerance
+            }
+        ],
     )
 
     # Delay all other nodes to give robot_state_publisher time to publish frames
@@ -59,14 +67,14 @@ def generate_launch_description():
         output="screen",
     )
 
-    # Static transform publisher for map to odom
-    static_map_to_odom_publisher = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='static_map_to_odom',
-        arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
-        parameters=[{'use_sim_time': use_sim_time, 'publish_frequency': 100.0, 'transform_tolerance': 0.1}],
-    )
+    # Static transform publisher for map to odom - commented out to let EKF handle this transform
+    # static_map_to_odom_publisher = Node(
+    #     package='tf2_ros',
+    #     executable='static_transform_publisher',
+    #     name='static_map_to_odom',
+    #     arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
+    #     parameters=[{'use_sim_time': use_sim_time, 'publish_frequency': 100.0, 'transform_tolerance': 0.1}],
+    # )
 
     # Joystick controller - include only if file exists
     joystick_launch_path = os.path.join(pkg_dir, 'launch', 'joystick.launch.py')
@@ -124,22 +132,34 @@ def generate_launch_description():
     
     # Add other nodes
     nodes.extend([
-        static_map_to_odom_publisher,
         delayed_joint_state_broadcaster_spawner,
         delayed_diff_drive_spawner,
     ])
 
-    # Add EKF node for odometry fusion and base_link transform
-    ekf_config_path = os.path.join(pkg_dir, 'config', 'ekf.yaml')
-    if os.path.exists(ekf_config_path):
-        ekf_node = Node(
-            package='robot_localization',
-            executable='ekf_node',
-            name='ekf_filter_node',
-            output='screen',
-            parameters=[ekf_config_path, {'use_sim_time': use_sim_time}],
-        )
-        nodes.append(ekf_node)
+    # Add transform publishers for the complete transform tree
+    # Map to Odom (static)
+    static_map_to_odom_publisher = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_map_to_odom',
+        arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
+        parameters=[{'use_sim_time': use_sim_time}],
+    )
+
+    # Remove static odom to base_footprint transform since it should come from odometry
+    # static_odom_to_base_footprint_publisher = Node(
+    #     package='tf2_ros',
+    #     executable='static_transform_publisher',
+    #     name='static_odom_to_base_footprint',
+    #     arguments=['0', '0', '0', '0', '0', '0', 'odom', 'base_footprint'],
+    #     parameters=[{'use_sim_time': use_sim_time}],
+    # )
+
+    # Add transform publishers to nodes list
+    nodes.extend([
+        static_map_to_odom_publisher,
+        # static_odom_to_base_footprint_publisher,  # Removed static transform
+    ])
 
     # Add joystick if available
     if joystick_ld is not None:
