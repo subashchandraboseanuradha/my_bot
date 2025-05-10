@@ -188,7 +188,11 @@ hardware_interface::return_type DiffBotSystemHardware::read(
   
   if (comms_->connected())
   {
-    comms_->read_encoder_values(enc_l, enc_r);
+    if (!comms_->read_encoder_values(enc_l, enc_r)) {
+      RCLCPP_ERROR(rclcpp::get_logger("DiffBotSystemHardware"), 
+        "Failed to read encoder values after retries");
+      return hardware_interface::return_type::ERROR;
+    }
     
     // Update wheel encoder values and calculate positions
     wheel_l_->enc = enc_l;
@@ -206,6 +210,7 @@ hardware_interface::return_type DiffBotSystemHardware::read(
   else
   {
     RCLCPP_ERROR(rclcpp::get_logger("DiffBotSystemHardware"), "Serial connection not established.");
+    return hardware_interface::return_type::ERROR;
   }
 
   return hardware_interface::return_type::OK;
@@ -228,7 +233,11 @@ hardware_interface::return_type DiffBotSystemHardware::write(
   
   if (comms_->connected())
   {
-    comms_->set_motor_values(motor_l, motor_r);
+    if (!comms_->set_motor_values(motor_l, motor_r)) {
+      RCLCPP_ERROR(rclcpp::get_logger("DiffBotSystemHardware"), 
+        "Failed to set motor values after retries");
+      return hardware_interface::return_type::ERROR;
+    }
     
     // Update wheel velocities based on commands
     wheel_l_->vel = wheel_l_->cmd;
@@ -237,6 +246,7 @@ hardware_interface::return_type DiffBotSystemHardware::write(
   else
   {
     RCLCPP_ERROR(rclcpp::get_logger("DiffBotSystemHardware"), "Serial connection not established.");
+    return hardware_interface::return_type::ERROR;
   }
 
   return hardware_interface::return_type::OK;
