@@ -53,8 +53,8 @@ def generate_launch_description():
             {
                 'use_sim_time': use_sim_time, 
                 'frame_prefix': '', 
-                'publish_frequency': 50.0,  # Increased frequency
-                'transform_tolerance': 0.5   # Added transform tolerance
+                'publish_frequency': 100.0,  # Increased frequency
+                'transform_tolerance': 2.5   # Increased transform tolerance
             }
         ],
     )
@@ -143,7 +143,7 @@ def generate_launch_description():
         executable='static_transform_publisher',
         name='static_map_to_odom',
         arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
-        parameters=[{'use_sim_time': use_sim_time}],
+        parameters=[{'use_sim_time': use_sim_time, 'publish_frequency': 100.0, 'transform_tolerance': 1.0}],
     )
 
     # Remove static odom to base_footprint transform since it should come from odometry

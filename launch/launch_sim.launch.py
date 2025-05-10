@@ -58,8 +58,8 @@ def generate_launch_description():
         package='tf2_ros',
         executable='static_transform_publisher',
         name='static_map_to_odom',
-        arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],  # Rotated 180 degrees around Z
-        parameters=[{'use_sim_time': use_sim_time}],
+        arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
+        parameters=[{'use_sim_time': use_sim_time, 'publish_frequency': 100.0, 'transform_tolerance': 1.0}],
         output='screen'
     )
 
@@ -69,7 +69,7 @@ def generate_launch_description():
         executable='static_transform_publisher',
         name='static_base_footprint_to_link',
         arguments=['0', '0', '0', '0', '0', '0', 'base_footprint', 'base_link'],
-        parameters=[{'use_sim_time': use_sim_time}],
+        parameters=[{'use_sim_time': use_sim_time, 'publish_frequency': 100.0, 'transform_tolerance': 1.0}],
         output='screen'
     )
 
