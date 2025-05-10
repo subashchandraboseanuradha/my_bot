@@ -30,7 +30,7 @@ from nav2_common.launch import RewrittenYaml, ReplaceString
 
 def generate_launch_description():
     # Get the launch directory
-    bringup_dir = get_package_share_directory('nav2_bringup')
+    bringup_dir = get_package_share_directory('my_bot')
     launch_dir = os.path.join(bringup_dir, 'launch')
 
     # Create the launch configuration variables
@@ -44,6 +44,9 @@ def generate_launch_description():
     use_composition = LaunchConfiguration('use_composition')
     use_respawn = LaunchConfiguration('use_respawn')
     log_level = LaunchConfiguration('log_level')
+
+    # Add SLAM Toolbox params file path
+    slam_params_file = os.path.join(get_package_share_directory('my_bot'), 'config', 'mapper_params_online_async.yaml')
 
     # Map fully qualified names to relative ones so the node's namespace can be prepended.
     # In case of the transforms (tf), currently, there doesn't seem to be a better alternative
@@ -91,7 +94,7 @@ def generate_launch_description():
 
     declare_slam_cmd = DeclareLaunchArgument(
         'slam',
-        default_value='False',
+        default_value='false',
         description='Whether run a SLAM')
 
     declare_map_yaml_cmd = DeclareLaunchArgument(
@@ -113,7 +116,7 @@ def generate_launch_description():
         description='Automatically startup the nav2 stack')
 
     declare_use_composition_cmd = DeclareLaunchArgument(
-        'use_composition', default_value='True',
+        'use_composition', default_value='False',
         description='Whether to use composed bringup')
 
     declare_use_respawn_cmd = DeclareLaunchArgument(
@@ -147,7 +150,7 @@ def generate_launch_description():
                               'use_sim_time': use_sim_time,
                               'autostart': autostart,
                               'use_respawn': use_respawn,
-                              'params_file': params_file}.items()),
+                              'params_file': slam_params_file}.items()),
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(launch_dir,
