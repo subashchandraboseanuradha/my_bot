@@ -127,6 +127,16 @@ def generate_launch_description():
         'log_level', default_value='info',
         description='log level')
 
+    # Include transforms launch file
+    # transforms_launch = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         os.path.join(launch_dir, 'transforms.launch.py')
+    #     ),
+    #     launch_arguments={
+    #         'use_sim_time': use_sim_time
+    #     }.items()
+    # )
+
     # Specify the actions
     bringup_cmd_group = GroupAction([
         PushRosNamespace(
@@ -193,6 +203,9 @@ def generate_launch_description():
     ld.add_action(declare_use_composition_cmd)
     ld.add_action(declare_use_respawn_cmd)
     ld.add_action(declare_log_level_cmd)
+
+    # Add transforms launch first
+    # ld.add_action(transforms_launch)
 
     # Add the actions to launch all of the navigation nodes
     ld.add_action(bringup_cmd_group)
