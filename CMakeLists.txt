@@ -74,8 +74,7 @@ install(
 # Install Python scripts
 install(
   PROGRAMS
-    src/diff_tf.py
-    scripts/diff_tf
+    src/diff_tf_script
     launch/sllidar_a1_launch.launch.py
   DESTINATION lib/${PROJECT_NAME}
 )
