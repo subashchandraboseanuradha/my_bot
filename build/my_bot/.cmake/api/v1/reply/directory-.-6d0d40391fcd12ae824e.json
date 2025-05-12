@@ -8,8 +8,7 @@
 			"include",
 			"find_package",
 			"_ament_cmake_python_install_package",
-			"ament_python_install_package",
-			"ament_cmake_symlink_install_programs"
+			"ament_python_install_package"
 		],
 		"files" : 
 		[
@@ -19,8 +18,7 @@
 			"/opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake",
 			"/opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake",
 			"CMakeLists.txt",
-			"/opt/ros/humble/share/ament_cmake_python/cmake/ament_python_install_package.cmake",
-			"/opt/ros/humble/share/ament_cmake_core/cmake/symlink_install/ament_cmake_symlink_install_programs.cmake"
+			"/opt/ros/humble/share/ament_cmake_python/cmake/ament_python_install_package.cmake"
 		],
 		"nodes" : 
 		[
@@ -102,24 +100,6 @@
 				"file" : 0,
 				"line" : 43,
 				"parent" : 13
-			},
-			{
-				"command" : 1,
-				"file" : 5,
-				"line" : 75,
-				"parent" : 0
-			},
-			{
-				"command" : 6,
-				"file" : 0,
-				"line" : 34,
-				"parent" : 15
-			},
-			{
-				"command" : 0,
-				"file" : 7,
-				"line" : 39,
-				"parent" : 16
 			}
 		]
 	},
@@ -135,19 +115,6 @@
 			"backtrace" : 14,
 			"component" : "Unspecified",
 			"type" : "code"
-		},
-		{
-			"backtrace" : 17,
-			"component" : "Unspecified",
-			"destination" : "lib/my_bot",
-			"paths" : 
-			[
-				{
-					"from" : "my_bot/diff_tf.py",
-					"to" : "diff_tf"
-				}
-			],
-			"type" : "file"
 		}
 	],
 	"paths" : 

@@ -1,0 +1,381 @@
+[0.000000] (-) TimerEvent: {}
+[0.001286] (my_bot) JobQueued: {'identifier': 'my_bot', 'dependencies': OrderedDict()}
+[0.002382] (my_bot) JobStarted: {'identifier': 'my_bot'}
+[0.058710] (my_bot) JobProgress: {'identifier': 'my_bot', 'progress': 'cmake'}
+[0.062971] (my_bot) Command: {'cmd': ['/usr/bin/cmake', '/home/bose/dev_ws/src/my_bot', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/bose/dev_ws/src/my_bot/install/my_bot'], 'cwd': '/home/bose/dev_ws/src/my_bot/build/my_bot', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_GB:en'), ('USER', 'bose'), ('SSH_CLIENT', '192.168.241.179 49218 22'), ('LC_TIME', 'en_IN'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/bose/.cursor-server/cli/servers/Stable-0781e811de386a0c5bcb07ceb259df8ff8246a50/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/bose/dev_ws/install/serial/lib:/home/bose/dev_ws/install/my_bot/lib:/home/bose/dev_ws/install/diffdrive_arduino/lib:/home/bose/ros2_ws/install/serial_motor_demo_msgs/lib:/home/bose/ros2_ws/install/diffdrive_arduino/lib:/home/bose/dev_ws/src/my_bot/install/my_bot/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/bose/.cursor-server/cli/servers/Stable-0781e811de386a0c5bcb07ceb259df8ff8246a50/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/bose'), ('TERM_PROGRAM_VERSION', '0.49.6'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-841bb5cf-946b-4e2e-af9a-a272631bbf0a.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/bose/.cursor-server/cli/servers/Stable-0781e811de386a0c5bcb07ceb259df8ff8246a50/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'en_IN'), ('VSCODE_GIT_ASKPASS_NODE', '/home/bose/.cursor-server/cli/servers/Stable-0781e811de386a0c5bcb07ceb259df8ff8246a50/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/bose/ros2_ws/install:/home/bose/dev_ws/install:/home/bose/install:/home/bose/dev_ws/src/my_bot/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'bose'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '9'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/bose/.cursor-server/cli/servers/Stable-0781e811de386a0c5bcb07ceb259df8ff8246a50/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('PAPERSIZE', 'a4'), ('LC_ADDRESS', 'en_IN'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_GB.UTF-8'), ('LC_TELEPHONE', 'en_IN'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-335ce7890d.sock'), ('TERM_PROGRAM', 'vscode'), ('ROS_DOMAIN_ID', '28'), ('AMENT_PREFIX_PATH', '/home/bose/dev_ws/install/serial:/home/bose/dev_ws/install/my_bot:/home/bose/dev_ws/install/diffdrive_arduino:/home/bose/ros2_ws/install/serial_motor_demo:/home/bose/ros2_ws/install/serial_motor_demo_msgs:/home/bose/ros2_ws/install/diffdrive_arduino:/home/bose/install/my_bot:/home/bose/dev_ws/src/my_bot/install/my_bot:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_IN'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_IN'), ('LC_IDENTIFICATION', 'en_IN'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/bose/dev_ws/src/my_bot/build/my_bot'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.241.179 49218 192.168.241.178 22'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/bose/dev_ws/install/my_bot/local/lib/python3.10/dist-packages:/home/bose/ros2_ws/build/serial_motor_demo:/home/bose/ros2_ws/install/serial_motor_demo/lib/python3.10/site-packages:/home/bose/ros2_ws/install/serial_motor_demo_msgs/local/lib/python3.10/dist-packages:/home/bose/dev_ws/src/my_bot/install/my_bot/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_IN'), ('LC_PAPER', 'en_IN'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/bose/dev_ws/install/serial:/home/bose/dev_ws/install/my_bot:/home/bose/dev_ws/install/diffdrive_arduino:/home/bose/ros2_ws/install/serial_motor_demo_msgs:/home/bose/ros2_ws/install/diffdrive_arduino:/home/bose/install/my_bot:/home/bose/dev_ws/src/my_bot/install/my_bot:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble')]), 'shell': False}
+[0.099595] (-) TimerEvent: {}
+[0.130819] (my_bot) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.199709] (-) TimerEvent: {}
+[0.300912] (-) TimerEvent: {}
+[0.402113] (-) TimerEvent: {}
+[0.502809] (-) TimerEvent: {}
+[0.603533] (-) TimerEvent: {}
+[0.704253] (-) TimerEvent: {}
+[0.778075] (my_bot) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.804508] (-) TimerEvent: {}
+[0.817517] (my_bot) StdoutLine: {'line': b'-- Found hardware_interface: 2.50.0 (/opt/ros/humble/share/hardware_interface/cmake)\n'}
+[0.904679] (-) TimerEvent: {}
+[0.989444] (my_bot) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[1.004904] (-) TimerEvent: {}
+[1.005773] (my_bot) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[1.028833] (my_bot) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[1.069740] (my_bot) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.105114] (-) TimerEvent: {}
+[1.125280] (my_bot) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.205276] (-) TimerEvent: {}
+[1.305993] (-) TimerEvent: {}
+[1.406723] (-) TimerEvent: {}
+[1.507421] (-) TimerEvent: {}
+[1.608114] (-) TimerEvent: {}
+[1.708828] (-) TimerEvent: {}
+[1.809527] (-) TimerEvent: {}
+[1.910190] (-) TimerEvent: {}
+[1.979079] (my_bot) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.986661] (my_bot) StdoutLine: {'line': b'-- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)\n'}
+[2.010357] (-) TimerEvent: {}
+[2.063172] (my_bot) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_cyclonedds_cpp' as default\n"}
+[2.110530] (-) TimerEvent: {}
+[2.211324] (-) TimerEvent: {}
+[2.312063] (-) TimerEvent: {}
+[2.412862] (-) TimerEvent: {}
+[2.513530] (-) TimerEvent: {}
+[2.614272] (-) TimerEvent: {}
+[2.715189] (-) TimerEvent: {}
+[2.816074] (-) TimerEvent: {}
+[2.916838] (-) TimerEvent: {}
+[3.017589] (-) TimerEvent: {}
+[3.039107] (my_bot) StdoutLine: {'line': b'-- Configuring done\n'}
+[3.117757] (-) TimerEvent: {}
+[3.208949] (my_bot) StdoutLine: {'line': b'-- Generating done\n'}
+[3.217929] (-) TimerEvent: {}
+[3.247243] (my_bot) StdoutLine: {'line': b'-- Build files have been written to: /home/bose/dev_ws/src/my_bot/build/my_bot\n'}
+[3.281424] (my_bot) CommandEnded: {'returncode': 0}
+[3.298052] (my_bot) JobProgress: {'identifier': 'my_bot', 'progress': 'build'}
+[3.300013] (my_bot) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/bose/dev_ws/src/my_bot/build/my_bot', '--', '-j4', '-l4'], 'cwd': '/home/bose/dev_ws/src/my_bot/build/my_bot', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_GB:en'), ('USER', 'bose'), ('SSH_CLIENT', '192.168.241.179 49218 22'), ('LC_TIME', 'en_IN'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/bose/.cursor-server/cli/servers/Stable-0781e811de386a0c5bcb07ceb259df8ff8246a50/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/bose/dev_ws/install/serial/lib:/home/bose/dev_ws/install/my_bot/lib:/home/bose/dev_ws/install/diffdrive_arduino/lib:/home/bose/ros2_ws/install/serial_motor_demo_msgs/lib:/home/bose/ros2_ws/install/diffdrive_arduino/lib:/home/bose/dev_ws/src/my_bot/install/my_bot/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/bose/.cursor-server/cli/servers/Stable-0781e811de386a0c5bcb07ceb259df8ff8246a50/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/bose'), ('TERM_PROGRAM_VERSION', '0.49.6'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-841bb5cf-946b-4e2e-af9a-a272631bbf0a.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/bose/.cursor-server/cli/servers/Stable-0781e811de386a0c5bcb07ceb259df8ff8246a50/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'en_IN'), ('VSCODE_GIT_ASKPASS_NODE', '/home/bose/.cursor-server/cli/servers/Stable-0781e811de386a0c5bcb07ceb259df8ff8246a50/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/bose/ros2_ws/install:/home/bose/dev_ws/install:/home/bose/install:/home/bose/dev_ws/src/my_bot/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'bose'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '9'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/bose/.cursor-server/cli/servers/Stable-0781e811de386a0c5bcb07ceb259df8ff8246a50/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('PAPERSIZE', 'a4'), ('LC_ADDRESS', 'en_IN'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_GB.UTF-8'), ('LC_TELEPHONE', 'en_IN'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-335ce7890d.sock'), ('TERM_PROGRAM', 'vscode'), ('ROS_DOMAIN_ID', '28'), ('AMENT_PREFIX_PATH', '/home/bose/dev_ws/install/serial:/home/bose/dev_ws/install/my_bot:/home/bose/dev_ws/install/diffdrive_arduino:/home/bose/ros2_ws/install/serial_motor_demo:/home/bose/ros2_ws/install/serial_motor_demo_msgs:/home/bose/ros2_ws/install/diffdrive_arduino:/home/bose/install/my_bot:/home/bose/dev_ws/src/my_bot/install/my_bot:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_IN'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_IN'), ('LC_IDENTIFICATION', 'en_IN'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/bose/dev_ws/src/my_bot/build/my_bot'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.241.179 49218 192.168.241.178 22'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/bose/dev_ws/install/my_bot/local/lib/python3.10/dist-packages:/home/bose/ros2_ws/build/serial_motor_demo:/home/bose/ros2_ws/install/serial_motor_demo/lib/python3.10/site-packages:/home/bose/ros2_ws/install/serial_motor_demo_msgs/local/lib/python3.10/dist-packages:/home/bose/dev_ws/src/my_bot/install/my_bot/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_IN'), ('LC_PAPER', 'en_IN'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/bose/dev_ws/install/serial:/home/bose/dev_ws/install/my_bot:/home/bose/dev_ws/install/diffdrive_arduino:/home/bose/ros2_ws/install/serial_motor_demo_msgs:/home/bose/ros2_ws/install/diffdrive_arduino:/home/bose/install/my_bot:/home/bose/dev_ws/src/my_bot/install/my_bot:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble')]), 'shell': False}
+[3.318113] (-) TimerEvent: {}
+[3.418887] (-) TimerEvent: {}
+[3.509513] (my_bot) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target my_bot\x1b[0m\n'}
+[3.519073] (-) TimerEvent: {}
+[3.613750] (my_bot) StdoutLine: {'line': b'[  0%] Built target ament_cmake_python_symlink_my_bot\n'}
+[3.619299] (-) TimerEvent: {}
+[3.630236] (my_bot) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/my_bot.dir/hardware/diffbot_system.cpp.o\x1b[0m\n'}
+[3.719446] (-) TimerEvent: {}
+[3.820422] (-) TimerEvent: {}
+[3.921690] (-) TimerEvent: {}
+[4.022766] (-) TimerEvent: {}
+[4.123525] (-) TimerEvent: {}
+[4.224927] (-) TimerEvent: {}
+[4.325806] (-) TimerEvent: {}
+[4.426552] (-) TimerEvent: {}
+[4.527408] (-) TimerEvent: {}
+[4.630068] (-) TimerEvent: {}
+[4.730894] (-) TimerEvent: {}
+[4.831667] (-) TimerEvent: {}
+[4.932392] (-) TimerEvent: {}
+[5.033130] (-) TimerEvent: {}
+[5.133812] (-) TimerEvent: {}
+[5.234751] (-) TimerEvent: {}
+[5.335560] (-) TimerEvent: {}
+[5.436242] (-) TimerEvent: {}
+[5.538036] (-) TimerEvent: {}
+[5.639612] (-) TimerEvent: {}
+[5.698592] (my_bot) StdoutLine: {'line': b'running egg_info\n'}
+[5.702166] (my_bot) StdoutLine: {'line': b'writing my_bot.egg-info/PKG-INFO\n'}
+[5.703467] (my_bot) StdoutLine: {'line': b'writing dependency_links to my_bot.egg-info/dependency_links.txt\n'}
+[5.710073] (my_bot) StdoutLine: {'line': b'writing top-level names to my_bot.egg-info/top_level.txt\n'}
+[5.719388] (my_bot) StdoutLine: {'line': b"reading manifest file 'my_bot.egg-info/SOURCES.txt'\n"}
+[5.723314] (my_bot) StdoutLine: {'line': b"writing manifest file 'my_bot.egg-info/SOURCES.txt'\n"}
+[5.741325] (-) TimerEvent: {}
+[5.842621] (-) TimerEvent: {}
+[5.901970] (my_bot) StdoutLine: {'line': b'[ 50%] Built target ament_cmake_python_build_my_bot_egg\n'}
+[5.942805] (-) TimerEvent: {}
+[6.043657] (-) TimerEvent: {}
+[6.144415] (-) TimerEvent: {}
+[6.245380] (-) TimerEvent: {}
+[6.346126] (-) TimerEvent: {}
+[6.446846] (-) TimerEvent: {}
+[6.547683] (-) TimerEvent: {}
+[6.648589] (-) TimerEvent: {}
+[6.749462] (-) TimerEvent: {}
+[6.850408] (-) TimerEvent: {}
+[6.954156] (-) TimerEvent: {}
+[7.055437] (-) TimerEvent: {}
+[7.156223] (-) TimerEvent: {}
+[7.257163] (-) TimerEvent: {}
+[7.359649] (-) TimerEvent: {}
+[7.461718] (-) TimerEvent: {}
+[7.562842] (-) TimerEvent: {}
+[7.663597] (-) TimerEvent: {}
+[7.764390] (-) TimerEvent: {}
+[7.865272] (-) TimerEvent: {}
+[7.966463] (-) TimerEvent: {}
+[8.068195] (-) TimerEvent: {}
+[8.169152] (-) TimerEvent: {}
+[8.270232] (-) TimerEvent: {}
+[8.371501] (-) TimerEvent: {}
+[8.472455] (-) TimerEvent: {}
+[8.573567] (-) TimerEvent: {}
+[8.674841] (-) TimerEvent: {}
+[8.775783] (-) TimerEvent: {}
+[8.876679] (-) TimerEvent: {}
+[8.977653] (-) TimerEvent: {}
+[9.078638] (-) TimerEvent: {}
+[9.179784] (-) TimerEvent: {}
+[9.280788] (-) TimerEvent: {}
+[9.381865] (-) TimerEvent: {}
+[9.482837] (-) TimerEvent: {}
+[9.583651] (-) TimerEvent: {}
+[9.685060] (-) TimerEvent: {}
+[9.786057] (-) TimerEvent: {}
+[9.886823] (-) TimerEvent: {}
+[9.987743] (-) TimerEvent: {}
+[10.088549] (-) TimerEvent: {}
+[10.189442] (-) TimerEvent: {}
+[10.290620] (-) TimerEvent: {}
+[10.391801] (-) TimerEvent: {}
+[10.493010] (-) TimerEvent: {}
+[10.598941] (-) TimerEvent: {}
+[10.701574] (-) TimerEvent: {}
+[10.803962] (-) TimerEvent: {}
+[10.906528] (-) TimerEvent: {}
+[11.007485] (-) TimerEvent: {}
+[11.108335] (-) TimerEvent: {}
+[11.209447] (-) TimerEvent: {}
+[11.310304] (-) TimerEvent: {}
+[11.411180] (-) TimerEvent: {}
+[11.512012] (-) TimerEvent: {}
+[11.612852] (-) TimerEvent: {}
+[11.713746] (-) TimerEvent: {}
+[11.815377] (-) TimerEvent: {}
+[11.917759] (-) TimerEvent: {}
+[12.019241] (-) TimerEvent: {}
+[12.120331] (-) TimerEvent: {}
+[12.222873] (-) TimerEvent: {}
+[12.323861] (-) TimerEvent: {}
+[12.425280] (-) TimerEvent: {}
+[12.526338] (-) TimerEvent: {}
+[12.627323] (-) TimerEvent: {}
+[12.728376] (-) TimerEvent: {}
+[12.829209] (-) TimerEvent: {}
+[12.930065] (-) TimerEvent: {}
+[13.030887] (-) TimerEvent: {}
+[13.131754] (-) TimerEvent: {}
+[13.232752] (-) TimerEvent: {}
+[13.333566] (-) TimerEvent: {}
+[13.435775] (-) TimerEvent: {}
+[13.536559] (-) TimerEvent: {}
+[13.637438] (-) TimerEvent: {}
+[13.738358] (-) TimerEvent: {}
+[13.839192] (-) TimerEvent: {}
+[13.940035] (-) TimerEvent: {}
+[14.040862] (-) TimerEvent: {}
+[14.141653] (-) TimerEvent: {}
+[14.242393] (-) TimerEvent: {}
+[14.343246] (-) TimerEvent: {}
+[14.444548] (-) TimerEvent: {}
+[14.545499] (-) TimerEvent: {}
+[14.646310] (-) TimerEvent: {}
+[14.747052] (-) TimerEvent: {}
+[14.847830] (-) TimerEvent: {}
+[14.948603] (-) TimerEvent: {}
+[15.049430] (-) TimerEvent: {}
+[15.150217] (-) TimerEvent: {}
+[15.250980] (-) TimerEvent: {}
+[15.351736] (-) TimerEvent: {}
+[15.452511] (-) TimerEvent: {}
+[15.553330] (-) TimerEvent: {}
+[15.654549] (-) TimerEvent: {}
+[15.755604] (-) TimerEvent: {}
+[15.856398] (-) TimerEvent: {}
+[15.957312] (-) TimerEvent: {}
+[16.058299] (-) TimerEvent: {}
+[16.159116] (-) TimerEvent: {}
+[16.260618] (-) TimerEvent: {}
+[16.362639] (-) TimerEvent: {}
+[16.463428] (-) TimerEvent: {}
+[16.564207] (-) TimerEvent: {}
+[16.665074] (-) TimerEvent: {}
+[16.765887] (-) TimerEvent: {}
+[16.866722] (-) TimerEvent: {}
+[16.967581] (-) TimerEvent: {}
+[17.068334] (-) TimerEvent: {}
+[17.169219] (-) TimerEvent: {}
+[17.270000] (-) TimerEvent: {}
+[17.371346] (-) TimerEvent: {}
+[17.472104] (-) TimerEvent: {}
+[17.572965] (-) TimerEvent: {}
+[17.673782] (-) TimerEvent: {}
+[17.775202] (-) TimerEvent: {}
+[17.876135] (-) TimerEvent: {}
+[17.976992] (-) TimerEvent: {}
+[18.077835] (-) TimerEvent: {}
+[18.178688] (-) TimerEvent: {}
+[18.279553] (-) TimerEvent: {}
+[18.380412] (-) TimerEvent: {}
+[18.481264] (-) TimerEvent: {}
+[18.582050] (-) TimerEvent: {}
+[18.682827] (-) TimerEvent: {}
+[18.783654] (-) TimerEvent: {}
+[18.884447] (-) TimerEvent: {}
+[18.985432] (-) TimerEvent: {}
+[19.086189] (-) TimerEvent: {}
+[19.186972] (-) TimerEvent: {}
+[19.287843] (-) TimerEvent: {}
+[19.388668] (-) TimerEvent: {}
+[19.489475] (-) TimerEvent: {}
+[19.590305] (-) TimerEvent: {}
+[19.691038] (-) TimerEvent: {}
+[19.791848] (-) TimerEvent: {}
+[19.892606] (-) TimerEvent: {}
+[19.993404] (-) TimerEvent: {}
+[20.094303] (-) TimerEvent: {}
+[20.195249] (-) TimerEvent: {}
+[20.296100] (-) TimerEvent: {}
+[20.396940] (-) TimerEvent: {}
+[20.505855] (-) TimerEvent: {}
+[20.606645] (-) TimerEvent: {}
+[20.707479] (-) TimerEvent: {}
+[20.808226] (-) TimerEvent: {}
+[20.909077] (-) TimerEvent: {}
+[21.009836] (-) TimerEvent: {}
+[21.110638] (-) TimerEvent: {}
+[21.211438] (-) TimerEvent: {}
+[21.312184] (-) TimerEvent: {}
+[21.412973] (-) TimerEvent: {}
+[21.513919] (-) TimerEvent: {}
+[21.615288] (-) TimerEvent: {}
+[21.716149] (-) TimerEvent: {}
+[21.816975] (-) TimerEvent: {}
+[21.917892] (-) TimerEvent: {}
+[22.018750] (-) TimerEvent: {}
+[22.119673] (-) TimerEvent: {}
+[22.220471] (-) TimerEvent: {}
+[22.321327] (-) TimerEvent: {}
+[22.422188] (-) TimerEvent: {}
+[22.523174] (-) TimerEvent: {}
+[22.624053] (-) TimerEvent: {}
+[22.725592] (-) TimerEvent: {}
+[22.826341] (-) TimerEvent: {}
+[22.927124] (-) TimerEvent: {}
+[23.027955] (-) TimerEvent: {}
+[23.128732] (-) TimerEvent: {}
+[23.229568] (-) TimerEvent: {}
+[23.330381] (-) TimerEvent: {}
+[23.431147] (-) TimerEvent: {}
+[23.531924] (-) TimerEvent: {}
+[23.632710] (-) TimerEvent: {}
+[23.733608] (-) TimerEvent: {}
+[23.834353] (-) TimerEvent: {}
+[23.935572] (-) TimerEvent: {}
+[24.036318] (-) TimerEvent: {}
+[24.137169] (-) TimerEvent: {}
+[24.238066] (-) TimerEvent: {}
+[24.339016] (-) TimerEvent: {}
+[24.439733] (-) TimerEvent: {}
+[24.540577] (-) TimerEvent: {}
+[24.641444] (-) TimerEvent: {}
+[24.742289] (-) TimerEvent: {}
+[24.813802] (my_bot) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library libmy_bot.so\x1b[0m\n'}
+[24.842495] (-) TimerEvent: {}
+[24.943424] (-) TimerEvent: {}
+[25.044332] (-) TimerEvent: {}
+[25.145594] (-) TimerEvent: {}
+[25.246497] (-) TimerEvent: {}
+[25.347651] (-) TimerEvent: {}
+[25.448684] (-) TimerEvent: {}
+[25.550084] (-) TimerEvent: {}
+[25.651370] (-) TimerEvent: {}
+[25.752383] (-) TimerEvent: {}
+[25.853386] (-) TimerEvent: {}
+[25.954331] (-) TimerEvent: {}
+[25.994458] (my_bot) StdoutLine: {'line': b'[100%] Built target my_bot\n'}
+[26.041665] (my_bot) CommandEnded: {'returncode': 0}
+[26.043955] (my_bot) JobProgress: {'identifier': 'my_bot', 'progress': 'install'}
+[26.054697] (-) TimerEvent: {}
+[26.085899] (my_bot) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/bose/dev_ws/src/my_bot/build/my_bot'], 'cwd': '/home/bose/dev_ws/src/my_bot/build/my_bot', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_GB:en'), ('USER', 'bose'), ('SSH_CLIENT', '192.168.241.179 49218 22'), ('LC_TIME', 'en_IN'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/bose/.cursor-server/cli/servers/Stable-0781e811de386a0c5bcb07ceb259df8ff8246a50/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/bose/dev_ws/install/serial/lib:/home/bose/dev_ws/install/my_bot/lib:/home/bose/dev_ws/install/diffdrive_arduino/lib:/home/bose/ros2_ws/install/serial_motor_demo_msgs/lib:/home/bose/ros2_ws/install/diffdrive_arduino/lib:/home/bose/dev_ws/src/my_bot/install/my_bot/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/bose/.cursor-server/cli/servers/Stable-0781e811de386a0c5bcb07ceb259df8ff8246a50/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/bose'), ('TERM_PROGRAM_VERSION', '0.49.6'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-841bb5cf-946b-4e2e-af9a-a272631bbf0a.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/bose/.cursor-server/cli/servers/Stable-0781e811de386a0c5bcb07ceb259df8ff8246a50/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'en_IN'), ('VSCODE_GIT_ASKPASS_NODE', '/home/bose/.cursor-server/cli/servers/Stable-0781e811de386a0c5bcb07ceb259df8ff8246a50/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/bose/ros2_ws/install:/home/bose/dev_ws/install:/home/bose/install:/home/bose/dev_ws/src/my_bot/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'bose'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '9'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/bose/.cursor-server/cli/servers/Stable-0781e811de386a0c5bcb07ceb259df8ff8246a50/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('PAPERSIZE', 'a4'), ('LC_ADDRESS', 'en_IN'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_GB.UTF-8'), ('LC_TELEPHONE', 'en_IN'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-335ce7890d.sock'), ('TERM_PROGRAM', 'vscode'), ('ROS_DOMAIN_ID', '28'), ('AMENT_PREFIX_PATH', '/home/bose/dev_ws/install/serial:/home/bose/dev_ws/install/my_bot:/home/bose/dev_ws/install/diffdrive_arduino:/home/bose/ros2_ws/install/serial_motor_demo:/home/bose/ros2_ws/install/serial_motor_demo_msgs:/home/bose/ros2_ws/install/diffdrive_arduino:/home/bose/install/my_bot:/home/bose/dev_ws/src/my_bot/install/my_bot:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_IN'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_IN'), ('LC_IDENTIFICATION', 'en_IN'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/bose/dev_ws/src/my_bot/build/my_bot'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.241.179 49218 192.168.241.178 22'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/bose/dev_ws/install/my_bot/local/lib/python3.10/dist-packages:/home/bose/ros2_ws/build/serial_motor_demo:/home/bose/ros2_ws/install/serial_motor_demo/lib/python3.10/site-packages:/home/bose/ros2_ws/install/serial_motor_demo_msgs/local/lib/python3.10/dist-packages:/home/bose/dev_ws/src/my_bot/install/my_bot/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_IN'), ('LC_PAPER', 'en_IN'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/bose/dev_ws/install/serial:/home/bose/dev_ws/install/my_bot:/home/bose/dev_ws/install/diffdrive_arduino:/home/bose/ros2_ws/install/serial_motor_demo_msgs:/home/bose/ros2_ws/install/diffdrive_arduino:/home/bose/install/my_bot:/home/bose/dev_ws/src/my_bot/install/my_bot:/home/bose/ros2_ws/install/serial_motor_demo:/opt/ros/humble')]), 'shell': False}
+[26.126840] (my_bot) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[26.128690] (my_bot) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[26.130265] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/lib/libmy_bot.so\n'}
+[26.132165] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/include/my_bot/arduino_comms.hpp\n'}
+[26.132881] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/include/my_bot/diffbot_system.hpp\n'}
+[26.133894] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/include/my_bot/visibility_control.h\n'}
+[26.134764] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/include/my_bot/wheel.hpp\n'}
+[26.136377] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/environment/pythonpath.sh\n'}
+[26.136961] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/environment/pythonpath.dsv\n'}
+[26.138951] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/local/lib/python3.10/dist-packages/my_bot-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[26.139828] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/local/lib/python3.10/dist-packages/my_bot-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[26.140727] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/local/lib/python3.10/dist-packages/my_bot-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[26.141715] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/local/lib/python3.10/dist-packages/my_bot-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[26.143685] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/local/lib/python3.10/dist-packages/my_bot/__init__.py\n'}
+[26.144496] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/local/lib/python3.10/dist-packages/my_bot/diff_tf.py\n'}
+[26.146840] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/config/drive_ot.rviz\n'}
+[26.147489] (my_bot) StdoutLine: {'line': b'-- Symlinking: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/config/ekf.yaml\n'}
+[26.154808] (-) TimerEvent: {}
+[26.194034] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/config/empty.yaml\n'}
+[26.195768] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/config/fastrtps.xml\n'}
+[26.196648] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/config/gazebo_params.yaml\n'}
+[26.201326] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/config/joystick.yaml\n'}
+[26.202193] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/config/mapper_params_online_async.yaml\n'}
+[26.202719] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/config/my_controllers.yaml\n'}
+[26.203289] (my_bot) StdoutLine: {'line': b'-- Symlinking: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/config/nav2/nav2_params.yaml\n'}
+[26.241284] (my_bot) StdoutLine: {'line': b'-- Symlinking: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/config/nav2/nav2_params.yaml.backup\n'}
+[26.255086] (-) TimerEvent: {}
+[26.287916] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/config/twist_mux.yaml\n'}
+[26.288650] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/config/view_bot.rviz\n'}
+[26.290508] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/description/camera.xacro\n'}
+[26.291334] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/description/gazebo_control.xacro\n'}
+[26.292093] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/description/inertial_macros.xacro\n'}
+[26.292941] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/description/lidar.xacro\n'}
+[26.293885] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/description/robot.urdf.xacro\n'}
+[26.294600] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/description/robot_core.xacro\n'}
+[26.296172] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/description/ros2_control.xacro\n'}
+[26.298101] (my_bot) StdoutLine: {'line': b'-- Symlinking: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/launch/__pycache__/launch_robot.launch.cpython-310.pyc\n'}
+[26.343370] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/launch/camera.launch.py\n'}
+[26.344883] (my_bot) StdoutLine: {'line': b'-- Symlinking: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/launch/diff_tf.launch.py\n'}
+[26.355287] (-) TimerEvent: {}
+[26.390828] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/launch/joystick.launch.py\n'}
+[26.391623] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/launch/launch_robot.launch.py\n'}
+[26.392299] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/launch/launch_sim.launch.py\n'}
+[26.393774] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/launch/rplidar.launch.py\n'}
+[26.394632] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/launch/rsp.launch.py\n'}
+[26.395753] (my_bot) StdoutLine: {'line': b'-- Symlinking: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/launch/test_diff_tf.launch.py\n'}
+[26.436579] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/worlds/empty.world\n'}
+[26.437389] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/worlds/house.world\n'}
+[26.438051] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/worlds/lid.world\n'}
+[26.438734] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/worlds/lidar.world\n'}
+[26.439399] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/worlds/new.world\n'}
+[26.440083] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/worlds/obstacle.world\n'}
+[26.441966] (my_bot) StdoutLine: {'line': b'-- Symlinking: /home/bose/dev_ws/src/my_bot/install/my_bot/lib/my_bot/diff_tf.py\n'}
+[26.455470] (-) TimerEvent: {}
+[26.482925] (my_bot) StdoutLine: {'line': b'-- Symlinking: /home/bose/dev_ws/src/my_bot/install/my_bot/lib/my_bot/diff_tf\n'}
+[26.524925] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot//my_bot.xml\n'}
+[26.526119] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/environment/library_path.sh\n'}
+[26.527098] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/environment/library_path.dsv\n'}
+[26.528378] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/ament_index/resource_index/package_run_dependencies/my_bot\n'}
+[26.529764] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/ament_index/resource_index/parent_prefix_path/my_bot\n'}
+[26.530872] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/environment/ament_prefix_path.sh\n'}
+[26.531906] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/environment/ament_prefix_path.dsv\n'}
+[26.533112] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/environment/path.sh\n'}
+[26.534269] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/environment/path.dsv\n'}
+[26.535665] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/local_setup.bash\n'}
+[26.536910] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/local_setup.sh\n'}
+[26.538103] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/local_setup.zsh\n'}
+[26.539056] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/local_setup.dsv\n'}
+[26.539798] (my_bot) StdoutLine: {'line': b'-- Symlinking: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/package.dsv\n'}
+[26.555643] (-) TimerEvent: {}
+[26.580691] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/ament_index/resource_index/packages/my_bot\n'}
+[26.582021] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/my_bot\n'}
+[26.583543] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[26.586131] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[26.586878] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[26.588418] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/cmake/my_botConfig.cmake\n'}
+[26.589511] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/cmake/my_botConfig-version.cmake\n'}
+[26.590687] (my_bot) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bose/dev_ws/src/my_bot/install/my_bot/share/my_bot/package.xml\n'}
+[26.655786] (-) TimerEvent: {}
+[26.756533] (-) TimerEvent: {}
+[26.793093] (my_bot) StdoutLine: {'line': b"Listing '/home/bose/dev_ws/src/my_bot/install/my_bot/local/lib/python3.10/dist-packages/my_bot'...\n"}
+[26.795620] (my_bot) StdoutLine: {'line': b"Compiling '/home/bose/dev_ws/src/my_bot/install/my_bot/local/lib/python3.10/dist-packages/my_bot/diff_tf.py'...\n"}
+[26.831556] (my_bot) CommandEnded: {'returncode': 0}
+[26.856670] (-) TimerEvent: {}
+[26.951707] (my_bot) JobEnded: {'identifier': 'my_bot', 'rc': 0}
+[26.955029] (-) EventReactorShutdown: {}

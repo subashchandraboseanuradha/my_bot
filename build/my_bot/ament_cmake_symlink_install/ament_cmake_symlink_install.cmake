@@ -331,6 +331,9 @@ ament_cmake_symlink_install_directory("/home/bose/dev_ws/src/my_bot" DIRECTORY "
 # install(DIRECTORY "config" "description" "launch" "worlds" "DESTINATION" "share/my_bot")
 ament_cmake_symlink_install_directory("/home/bose/dev_ws/src/my_bot" DIRECTORY "config" "description" "launch" "worlds" "DESTINATION" "share/my_bot")
 
+# install(PROGRAMS "src/diff_tf.py" "scripts/diff_tf" "DESTINATION" "lib/my_bot")
+ament_cmake_symlink_install_programs("/home/bose/dev_ws/src/my_bot" PROGRAMS "src/diff_tf.py" "scripts/diff_tf" "DESTINATION" "lib/my_bot")
+
 # install(FILES "my_bot.xml" "DESTINATION" "share/my_bot/")
 ament_cmake_symlink_install_files("/home/bose/dev_ws/src/my_bot" FILES "my_bot.xml" "DESTINATION" "share/my_bot/")
 

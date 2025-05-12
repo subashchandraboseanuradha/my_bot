@@ -44,6 +44,16 @@ def generate_launch_description():
 
     controller_config = os.path.join(pkg_dir, 'config', 'my_controllers.yaml')
 
+    # Define transform publishers
+    # Base footprint to base_link
+    static_base_footprint_to_base_link = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_base_footprint_to_base_link',
+        arguments=['0', '0', '0', '0', '0', '0', 'base_footprint', 'base_link'],
+        parameters=[{'use_sim_time': use_sim_time, 'publish_frequency': 100.0}],
+    )
+
     robot_state_pub_node = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
@@ -59,22 +69,13 @@ def generate_launch_description():
         ],
     )
 
-    # Delay all other nodes to give robot_state_publisher time to publish frames
+    # Controller nodes
     controller_manager = Node(
         package="controller_manager",
         executable="ros2_control_node",
         parameters=[robot_description, controller_config, {'use_sim_time': use_sim_time}],
         output="screen",
     )
-
-    # Static transform publisher for map to odom - commented out to let EKF handle this transform
-    # static_map_to_odom_publisher = Node(
-    #     package='tf2_ros',
-    #     executable='static_transform_publisher',
-    #     name='static_map_to_odom',
-    #     arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
-    #     parameters=[{'use_sim_time': use_sim_time, 'publish_frequency': 100.0, 'transform_tolerance': 0.1}],
-    # )
 
     # Joystick controller - include only if file exists
     joystick_launch_path = os.path.join(pkg_dir, 'launch', 'joystick.launch.py')
@@ -104,65 +105,44 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}],
     )
 
-    # Delay joint_state_broadcaster after controller_manager
-    delayed_joint_state_broadcaster_spawner = TimerAction(
-        period=3.0,
-        actions=[joint_state_broadcaster_spawner]
-    )
-
-    # Delay diff_drive_spawner after joint_state_broadcaster
-    delayed_diff_drive_spawner = TimerAction(
-        period=5.0,
-        actions=[diff_drive_spawner]
-    )
-
     # Define the final launch description and return it
     nodes = [
         declare_use_mock_hardware,
         declare_use_sim_time,
-        robot_state_pub_node,
+        # Only include these transforms
+        static_base_footprint_to_base_link,
     ]
-
-    # Delay controller_manager to ensure robot_state_publisher has published frames
+    
+    # Step 1: Launch robot_state_publisher first
+    nodes.append(robot_state_pub_node)
+    
+    # Step 2: Delay controller_manager to ensure robot_state_publisher has established frames
     delayed_controller_manager = TimerAction(
-        period=2.0,
+        period=3.0,  # Increased from 2.0 to 3.0 seconds
         actions=[controller_manager]
     )
     nodes.append(delayed_controller_manager)
     
-    # Add other nodes
-    nodes.extend([
-        delayed_joint_state_broadcaster_spawner,
-        delayed_diff_drive_spawner,
-    ])
-
-    # Add transform publishers for the complete transform tree
-    # Map to Odom (static)
-    static_map_to_odom_publisher = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='static_map_to_odom',
-        arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
-        parameters=[{'use_sim_time': use_sim_time, 'publish_frequency': 100.0, 'transform_tolerance': 1.0}],
+    # Step 3: Delay joint_state_broadcaster after controller_manager is running
+    delayed_joint_state_broadcaster_spawner = TimerAction(
+        period=6.0,  # Increased from 3.0 to 6.0 seconds (3s delay after controller_manager)
+        actions=[joint_state_broadcaster_spawner]
     )
+    nodes.append(delayed_joint_state_broadcaster_spawner)
+    
+    # Step 4: Delay diff_drive_spawner after joint_state_broadcaster
+    delayed_diff_drive_spawner = TimerAction(
+        period=8.0,  # Increased from 5.0 to 8.0 seconds (2s delay after joint_state_broadcaster)
+        actions=[diff_drive_spawner]
+    )
+    nodes.append(delayed_diff_drive_spawner)
 
-    # Remove static odom to base_footprint transform since it should come from odometry
-    # static_odom_to_base_footprint_publisher = Node(
-    #     package='tf2_ros',
-    #     executable='static_transform_publisher',
-    #     name='static_odom_to_base_footprint',
-    #     arguments=['0', '0', '0', '0', '0', '0', 'odom', 'base_footprint'],
-    #     parameters=[{'use_sim_time': use_sim_time}],
-    # )
-
-    # Add transform publishers to nodes list
-    nodes.extend([
-        static_map_to_odom_publisher,
-        # static_odom_to_base_footprint_publisher,  # Removed static transform
-    ])
-
-    # Add joystick if available
+    # Add joystick if available, with a delay to ensure all controllers are running
     if joystick_ld is not None:
-        nodes.append(joystick_ld)
+        delayed_joystick = TimerAction(
+            period=10.0,  # Start joystick 2s after diff_drive controller
+            actions=[joystick_ld]
+        )
+        nodes.append(delayed_joystick)
 
-    return LaunchDescription(nodes) 
+    return LaunchDescription(nodes)

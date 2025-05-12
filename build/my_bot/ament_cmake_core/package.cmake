@@ -5,7 +5,7 @@ set(my_bot_BUILD_DEPENDS "libserial-dev" "rclcpp" "rclcpp_lifecycle" "hardware_i
 set(my_bot_BUILDTOOL_DEPENDS "ament_cmake" "ament_cmake_python")
 set(my_bot_BUILD_EXPORT_DEPENDS "rclcpp" "rclcpp_lifecycle" "hardware_interface" "pluginlib" "robot_state_publisher" "ros2_control" "ros2_controllers" "controller_manager" "diff_drive_controller" "gazebo_ros2_control" "gazebo_ros" "gazebo_ros_pkgs" "xacro" "joint_state_publisher" "joint_state_publisher_gui")
 set(my_bot_BUILDTOOL_EXPORT_DEPENDS )
-set(my_bot_EXEC_DEPENDS "libserial" "rclpy" "nav_msgs" "geometry_msgs" "sensor_msgs" "tf2_ros" "rclcpp" "rclcpp_lifecycle" "hardware_interface" "pluginlib" "robot_state_publisher" "ros2_control" "ros2_controllers" "controller_manager" "diff_drive_controller" "gazebo_ros2_control" "gazebo_ros" "gazebo_ros_pkgs" "xacro" "joint_state_publisher" "joint_state_publisher_gui")
+set(my_bot_EXEC_DEPENDS "libserial" "rclpy" "nav_msgs" "geometry_msgs" "sensor_msgs" "tf2_ros" "std_msgs" "rclcpp" "rclcpp_lifecycle" "hardware_interface" "pluginlib" "robot_state_publisher" "ros2_control" "ros2_controllers" "controller_manager" "diff_drive_controller" "gazebo_ros2_control" "gazebo_ros" "gazebo_ros_pkgs" "xacro" "joint_state_publisher" "joint_state_publisher_gui")
 set(my_bot_TEST_DEPENDS "ament_lint_auto" "ament_lint_common")
 set(my_bot_GROUP_DEPENDS )
 set(my_bot_MEMBER_OF_GROUPS )
