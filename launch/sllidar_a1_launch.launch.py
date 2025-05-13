@@ -11,13 +11,13 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    channel_type =  LaunchConfiguration('channel_type', default='serial')
+    channel_type = LaunchConfiguration('channel_type', default='serial')
     serial_port = LaunchConfiguration('serial_port', default='/dev/ttyUSB1')
     serial_baudrate = LaunchConfiguration('serial_baudrate', default='115200')
-    frame_id = LaunchConfiguration('frame_id', default='lidar_frame')  # Changed to match your URDF
+    frame_id = LaunchConfiguration('frame_id', default='laser_frame')
     inverted = LaunchConfiguration('inverted', default='false')
     angle_compensate = LaunchConfiguration('angle_compensate', default='true')
-    scan_mode = LaunchConfiguration('scan_mode', default='Standard')  # Changed to Standard mode
+    scan_mode = LaunchConfiguration('scan_mode', default='Standard')
     
     return LaunchDescription([
 
@@ -29,7 +29,7 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'serial_port',
             default_value=serial_port,
-            description='Specifying usb port to connected lidar'),
+            description='USB port connected to LIDAR'),
 
         DeclareLaunchArgument(
             'serial_baudrate',
@@ -39,7 +39,7 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'frame_id',
             default_value=frame_id,
-            description='Specifying frame_id of lidar'),
+            description='TF frame ID for LiDAR'),
 
         DeclareLaunchArgument(
             'inverted',
@@ -55,16 +55,34 @@ def generate_launch_description():
             default_value=scan_mode,
             description='Specifying scan mode of lidar'),
 
+        # Static transforms for TurtleBot3
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            arguments=['0', '0', '0', '0', '0', '0', 'base_footprint', 'base_link'],
+            name='base_footprint_to_base_link'
+        ),
+
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            arguments=['0', '0', '0.105', '0', '0', '0', 'base_link', 'laser_frame'],
+            name='base_link_to_laser_frame'
+        ),
 
         Node(
             package='sllidar_ros2',
             executable='sllidar_node',
             name='sllidar_node',
-            parameters=[{'channel_type':channel_type,
-                         'serial_port': serial_port, 
-                         'serial_baudrate': serial_baudrate, 
-                         'frame_id': frame_id,
-                         'inverted': inverted, 
-                         'angle_compensate': angle_compensate}],
-            output='screen'),
+            parameters=[{
+                'channel_type': channel_type,
+                'serial_port': serial_port,
+                'serial_baudrate': serial_baudrate,
+                'frame_id': frame_id,
+                'inverted': inverted,
+                'angle_compensate': angle_compensate,
+                'scan_mode': scan_mode
+            }],
+            output='screen'
+        ),
     ]) 
