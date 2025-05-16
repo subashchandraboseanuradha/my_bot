@@ -34,6 +34,8 @@ diff_cont:
     
     # Other parameters  
     publish_rate: 100.0
+    tf_broadcast_rate: 100.0  # Match the publish_rate for TF
+    odom_publish_rate: 100.0  # Publish odometry at same rate
     use_stamped_vel: false
     
     # Enable TF publishing and disable diff_tf

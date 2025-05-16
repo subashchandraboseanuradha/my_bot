@@ -55,21 +55,6 @@ def generate_launch_description():
             default_value=scan_mode,
             description='Specifying scan mode of lidar'),
 
-        # Static transforms for TurtleBot3
-        Node(
-            package='tf2_ros',
-            executable='static_transform_publisher',
-            arguments=['0', '0', '0', '0', '0', '0', 'base_footprint', 'base_link'],
-            name='base_footprint_to_base_link'
-        ),
-
-        Node(
-            package='tf2_ros',
-            executable='static_transform_publisher',
-            arguments=['0', '0', '0.105', '0', '0', '0', 'base_link', 'laser_frame'],
-            name='base_link_to_laser_frame'
-        ),
-
         Node(
             package='sllidar_ros2',
             executable='sllidar_node',

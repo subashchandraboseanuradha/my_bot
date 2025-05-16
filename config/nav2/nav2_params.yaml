@@ -1,10 +1,10 @@
 amcl:
   ros__parameters:
     use_sim_time: false
-    alpha1: 0.1  # Reduced for more stable odometry noise model
-    alpha2: 0.1  # Reduced for more stable odometry noise model
-    alpha3: 0.1  # Reduced for more stable odometry noise model
-    alpha4: 0.1  # Reduced for more stable odometry noise model
+    alpha1: 0.2  # Increased for odometry noise modeling
+    alpha2: 0.2  # Increased for odometry noise modeling
+    alpha3: 0.2  # Increased for odometry noise modeling
+    alpha4: 0.2  # Increased for odometry noise modeling
     alpha5: 0.1  # Reduced for more stable odometry noise model
     base_frame_id: "base_footprint"
     beam_skip_distance: 0.5
@@ -44,6 +44,9 @@ amcl:
       y: 0.0
       z: 0.0
       yaw: 0.0
+      cov_xx: 0.05  # Initial pose covariance in x
+      cov_yy: 0.05  # Initial pose covariance in y
+      cov_yaw: 0.05 # Initial pose covariance in yaw
 
 bt_navigator:
   ros__parameters:
