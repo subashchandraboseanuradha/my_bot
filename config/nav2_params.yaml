@@ -30,7 +30,7 @@ amcl:
     save_pose_rate: 0.5
     sigma_hit: 0.2
     tf_broadcast: true
-    transform_tolerance: 1.0
+    transform_tolerance: 1.0max_vel_x: 0.5  # Match your controller settingmax
     update_min_a: 0.2
     update_min_d: 0.25
     z_hit: 0.5
@@ -143,7 +143,7 @@ controller_server:
       debug_trajectory_details: True
       min_vel_x: 0.0
       min_vel_y: 0.0
-      max_vel_x: 0.26
+      max_vel_x: 0.5
       max_vel_y: 0.0
       max_vel_theta: 1.0
       min_speed_xy: 0.0
