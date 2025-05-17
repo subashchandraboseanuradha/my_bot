@@ -18,6 +18,7 @@ def generate_launch_description():
     inverted = LaunchConfiguration('inverted', default='false')
     angle_compensate = LaunchConfiguration('angle_compensate', default='true')
     scan_mode = LaunchConfiguration('scan_mode', default='Standard')
+    use_sim_time = LaunchConfiguration('use_sim_time', default='false')
     
     return LaunchDescription([
 
@@ -66,8 +67,9 @@ def generate_launch_description():
                 'frame_id': frame_id,
                 'inverted': inverted,
                 'angle_compensate': angle_compensate,
-                'scan_mode': scan_mode
+                'scan_mode': scan_mode,
+                'use_sim_time': use_sim_time
             }],
             output='screen'
         ),
-    ]) 
+    ])

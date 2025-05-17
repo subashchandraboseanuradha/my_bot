@@ -27,12 +27,13 @@ diff_cont:
     right_wheel_encoder_ticks_per_meter: 3862.8
     
     # Odometry parameters
-    base_frame_id: base_footprint
-    odom_frame_id: odom
+    # Ensure correct frame ordering
+    odom_frame_id: "odom"
+    base_frame_id: "base_footprint"
     pose_covariance_diagonal: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
     twist_covariance_diagonal: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
     
-    # Other parameters  
+    # Other parameters
     publish_rate: 100.0
     tf_broadcast_rate: 100.0  # Match the publish_rate for TF
     odom_publish_rate: 100.0  # Publish odometry at same rate
@@ -41,11 +42,23 @@ diff_cont:
     # Enable TF publishing and disable diff_tf
     enable_odom_tf: true
     publish_odom: true
-    
+    # Add this parameter to ensure consistent publishing
+    publish_limited_velocity: true
+
+    # Very important - set this to use_sim_time if you're using simulation
+    use_sim_time: false
+
     # Velocity command limits
     linear.x.has_velocity_limits: true
     linear.x.max_velocity: 0.5
     linear.x.min_velocity: -0.5
     angular.z.has_velocity_limits: true  
     angular.z.max_velocity: 1.0
-    angular.z.min_velocity: -1.0 
+    angular.z.min_velocity: -1.0
+
+    # Fix initialization issues
+    reset_on_activation: true
+    initial_pose: [0.0, 0.0, 0.0]  # [x, y, theta]
+    
+
+  
