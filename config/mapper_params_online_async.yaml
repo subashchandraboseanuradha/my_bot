@@ -1,77 +1,76 @@
 slam_toolbox:
   ros__parameters:
-
     # Plugin params
     solver_plugin: solver_plugins::CeresSolver
-    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
-    ceres_preconditioner: SCHUR_JACOBI
+    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY  # Better for large-scale problems
+    ceres_preconditioner: JACOBI                 # More stable than SCHUR_JACOBI
     ceres_trust_strategy: LEVENBERG_MARQUARDT
+    ceres_loss_function: CauchyLoss
     ceres_dogleg_type: TRADITIONAL_DOGLEG
-    ceres_loss_function: None
 
     # ROS Parameters
     odom_frame: odom
     map_frame: map
-    base_frame: base_footprint
+    base_frame: base_link
     scan_topic: /scan
     use_map_saver: true
-    mode: localization  #mapping 
-
-    # if you'd like to immediately start continuing a map at a given pose
-    # or at the dock, but they are mutually exclusive, if pose is given
-    # will use pose
-    map_file_name: /home/subash/dev_ws/exp_c_serialmap
-    map_start_pose: [0.0, 0.0, 0.0]
-    #map_start_at_dock: true
-
-    localization: true 
-
-    debug_logging: false
-    throttle_scans: 1
-    transform_publish_period: 0.02 #if 0 never publishes odometry
-    map_update_interval: 5.0
-    resolution: 0.05
-    min_laser_range: 0.0 #for rastering images
-    max_laser_range: 20.0 #for rastering images
-    minimum_time_interval: 0.5
-    transform_timeout: 0.2
-    tf_buffer_duration: 30.
-    stack_size_to_use: 40000000 #// program needs a larger stack size to serialize large maps
-    enable_interactive_mode: true
-
-    # General Parameters
+    mode: mapping #localization #mapping  # Changed to mapping mode for map generation
+    
+    # Map file configuration
+    #map_file_name: /home/subash/dev_ws/exp_a_serialmap
+    #map_start_pose: [0.0, 0.0, 0.0]
+    localization : false
+    
+    # Core parameters
+    debug_logging: true  # Disabled for performance
+    throttle_scans: 1                   # Process all scans initially to prevent queue overflow
+    transform_publish_period: 0.05      # Keep at 20Hz
+    map_update_interval: 5.0            # Reduced frequency to prevent overload
+    resolution: 0.05                    # Maintain resolution
+    
+    # Scan parameters
+    min_laser_range: 0.15               # Restore default for better feature detection
+    max_laser_range: 12.0               # Match sensor's actual range
+    minimum_time_interval: 0.2          # Reduced from 0.5 to process scans more frequently
+    transform_timeout: 0.2              # Reduced back from 0.5 to prevent queue buildup
+    tf_buffer_duration: 20.0  # Increase from 10.0
+    stack_size_to_use: 40000000        # Restored to 40MB for stability
+    enable_interactive_mode: false
+    
+    # Scan matching parameters
     use_scan_matching: true
-    use_scan_barycenter: true
-    minimum_travel_distance: 0.5
-    minimum_travel_heading: 0.5
-    scan_buffer_size: 10
-    scan_buffer_maximum_scan_distance: 10.0
-    link_match_minimum_response_fine: 0.1  
-    link_scan_maximum_distance: 1.5
-    loop_search_maximum_distance: 3.0
-    do_loop_closing: true 
-    loop_match_minimum_chain_size: 10           
-    loop_match_maximum_variance_coarse: 3.0  
-    loop_match_minimum_response_coarse: 0.35    
-    loop_match_minimum_response_fine: 0.45
-
-    # Correlation Parameters - Correlation Parameters
-    correlation_search_space_dimension: 0.5
-    correlation_search_space_resolution: 0.01
-    correlation_search_space_smear_deviation: 0.1 
-
-    # Correlation Parameters - Loop Closure Parameters
+    use_scan_barycenter: false  # Can cause instability in small spaces
+    minimum_travel_distance: 0.2        # Reduced from 0.3 for more updates
+    minimum_travel_heading: 0.1         # Reduced for more frequent processing
+    scan_buffer_size: 10               # Reduced from 30 to prevent memory issues
+    scan_buffer_maximum_scan_distance: 5.0  # Reduced for initial stability
+    link_match_minimum_response_fine: 0.35
+    link_scan_maximum_distance: 3.0  # Increase from 2.0
+    
+    # Loop closing parameters
+    loop_search_maximum_distance: 3.0    # More conservatives
+    do_loop_closing: true
+    loop_match_minimum_chain_size: 3     # Reduced for initial mapping
+    loop_match_maximum_variance_coarse: 1.2  # Tightened for better quality
+    loop_match_minimum_response_coarse: 0.8  # Increased for reliability
+    loop_match_minimum_response_fine: 0.5    # Relaxed for better matching
+    
+    # Correlation Parameters
+    correlation_search_space_dimension: 0.5  # Restore default (0.3 was too tight)
+    correlation_search_space_resolution: 0.02  # Adjusted from 0.01
+    correlation_search_space_smear_deviation: 0.1
+    
+    # Loop Closure Parameters - tuned for balance
     loop_search_space_dimension: 8.0
     loop_search_space_resolution: 0.05
     loop_search_space_smear_deviation: 0.03
-
-    # Scan Matcher Parameters
-    distance_variance_penalty: 0.5      
-    angle_variance_penalty: 1.0    
-
-    fine_search_angle_offset: 0.00349     
-    coarse_search_angle_offset: 0.349   
-    coarse_angle_resolution: 0.0349        
-    minimum_angle_penalty: 0.9
-    minimum_distance_penalty: 0.5
-    use_response_expansion: true
+    
+    # Scan Matcher Parameters - balanced values
+    distance_variance_penalty: 0.2
+    angle_variance_penalty: 0.5
+    fine_search_angle_offset: 0.00375
+    coarse_search_angle_offset: 0.25
+    coarse_angle_resolution: 0.02
+    minimum_angle_penalty: 0.75
+    minimum_distance_penalty: 0.35
+    use_response_expansion: false       # Major stability improvement
