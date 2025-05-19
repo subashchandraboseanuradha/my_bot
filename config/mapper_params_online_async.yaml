@@ -2,62 +2,67 @@ slam_toolbox:
   ros__parameters:
     # Plugin params
     solver_plugin: solver_plugins::CeresSolver
-    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY  # Better for large-scale problems
-    ceres_preconditioner: JACOBI                 # More stable than SCHUR_JACOBI
+    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
+    ceres_preconditioner: SCHUR_JACOBI
     ceres_trust_strategy: LEVENBERG_MARQUARDT
-    ceres_loss_function: CauchyLoss
     ceres_dogleg_type: TRADITIONAL_DOGLEG
+    ceres_loss_function: HuberLoss  # Changed from None for better outlier handling
+    ceres_max_iterations: 5         # Faster optimizations
 
     # ROS Parameters
-    odom_frame: odom
-    map_frame: map
-    base_frame: base_link
-    scan_topic: /scan
+    odom_frame: "odom"
+    map_frame: "map"
+    base_frame: "base_link"
+    scan_topic: "/scan"
+    laser_frame: "laser_frame"  # Must match your actual lidar frame
     use_map_saver: true
-    mode: mapping #localization #mapping  # Changed to mapping mode for map generation
+    mode: "mapping"  # Explicit mapping mode
     
-    # Map file configuration
-    #map_file_name: /home/subash/dev_ws/exp_a_serialmap
-    #map_start_pose: [0.0, 0.0, 0.0]
-    localization : false
+    # Transform Publishing
+    transform_publish_period: 0.01  # 100Hz updates (default: 0.02)
+    publish_scan_matcher_pose: true
+    
+    # Scan Processing
+    minimum_time_interval: 0.05     # Process scans every 0.05s (20Hz)
+    map_update_interval: 1.0        # Partial map updates
+    
+    # Queue Management
+    message_filter_queue_size: 200  # Prevent drops
+    throttle_scans: 1               # Process every scan
     
     # Core parameters
-    debug_logging: true  # Disabled for performance
-    throttle_scans: 1                   # Process all scans initially to prevent queue overflow
-    transform_publish_period: 0.05      # Keep at 20Hz
-    map_update_interval: 5.0            # Reduced frequency to prevent overload
-    resolution: 0.05                    # Maintain resolution
+    debug_logging: false  # Disabled for performance
+    resolution: 0.05     # Balance detail/speed
     
     # Scan parameters
-    min_laser_range: 0.15               # Restore default for better feature detection
-    max_laser_range: 12.0               # Match sensor's actual range
-    minimum_time_interval: 0.2          # Reduced from 0.5 to process scans more frequently
-    transform_timeout: 0.2              # Reduced back from 0.5 to prevent queue buildup
-    tf_buffer_duration: 20.0  # Increase from 10.0
-    stack_size_to_use: 40000000        # Restored to 40MB for stability
+    min_laser_range: 0.15
+    max_laser_range: 10.0  # Adjusted for RPLidar A1
+    transform_timeout: 0.5
+    tf_buffer_duration: 10.0
+    stack_size_to_use: 40000000
     enable_interactive_mode: false
     
     # Scan matching parameters
     use_scan_matching: true
-    use_scan_barycenter: false  # Can cause instability in small spaces
-    minimum_travel_distance: 0.2        # Reduced from 0.3 for more updates
-    minimum_travel_heading: 0.1         # Reduced for more frequent processing
-    scan_buffer_size: 10               # Reduced from 30 to prevent memory issues
-    scan_buffer_maximum_scan_distance: 5.0  # Reduced for initial stability
+    use_scan_barycenter: true
+    minimum_travel_distance: 0.25  # Increased for better map quality
+    minimum_travel_heading: 0.25  # Increased for better map quality
+    scan_buffer_size: 100  # Increased for better loop closure
+    scan_buffer_maximum_scan_distance: 20.0  # Increased for better loop closure
     link_match_minimum_response_fine: 0.35
-    link_scan_maximum_distance: 3.0  # Increase from 2.0
+    link_scan_maximum_distance: 3.0  # Increased for better loop closure
     
     # Loop closing parameters
-    loop_search_maximum_distance: 3.0    # More conservatives
+    loop_search_maximum_distance: 8.0  # Decreased for higher confidence matches
     do_loop_closing: true
-    loop_match_minimum_chain_size: 3     # Reduced for initial mapping
+    loop_match_minimum_chain_size: 10  # Increased for better loop closure
     loop_match_maximum_variance_coarse: 1.2  # Tightened for better quality
-    loop_match_minimum_response_coarse: 0.8  # Increased for reliability
-    loop_match_minimum_response_fine: 0.5    # Relaxed for better matching
+    loop_match_minimum_response_coarse: 0.65  # Increased for more confident matches
+    loop_match_minimum_response_fine: 0.6  # Increased for more confident matches
     
-    # Correlation Parameters
-    correlation_search_space_dimension: 0.5  # Restore default (0.3 was too tight)
-    correlation_search_space_resolution: 0.02  # Adjusted from 0.01
+    # Correlation Parameters - tuned for balance
+    correlation_search_space_dimension: 0.5
+    correlation_search_space_resolution: 0.01
     correlation_search_space_smear_deviation: 0.1
     
     # Loop Closure Parameters - tuned for balance
@@ -73,4 +78,4 @@ slam_toolbox:
     coarse_angle_resolution: 0.02
     minimum_angle_penalty: 0.75
     minimum_distance_penalty: 0.35
-    use_response_expansion: false       # Major stability improvement
+    use_response_expansion: true
