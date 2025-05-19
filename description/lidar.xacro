@@ -23,7 +23,7 @@
     </inertial>
   </link>
 
-  <!-- Mount LiDAR to the chassis -->
+  <!-- Mount LiDAR to the base_link -->
   <joint name="lidar_joint" type="fixed">
     <parent link="base_link" />
     <child link="laser_frame" />
@@ -36,7 +36,7 @@
     <sensor name="laser" type="ray">
       <pose>0 0 0 0 0 0</pose>
       <visualize>false</visualize>
-      <update_rate>10.0</update_rate>
+      <update_rate>20.0</update_rate>
       <ray>
         <scan>
           <horizontal>
@@ -60,6 +60,14 @@
       <plugin name="gazebo_ros_laser" filename="libgazebo_ros_laser.so">
         <topicName>/scan</topicName>
         <frameName>laser_frame</frameName>
+        <ros>
+          <remapping>~/out:=scan</remapping>
+          <qos>
+            <reliability>best_effort</reliability>
+            <history>keep_last</history>
+            <depth>5</depth>
+          </qos>
+        </ros>
       </plugin>
     </sensor>
   </gazebo>

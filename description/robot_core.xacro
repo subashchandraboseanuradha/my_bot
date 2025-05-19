@@ -4,8 +4,8 @@
     <xacro:include filename="inertial_macros.xacro"/>
 
     <!-- Wheel parameters -->
-    <xacro:property name="wheel_diameter" value="0.115"/> <!-- 11.5 cm -->
-    <xacro:property name="wheel_separation" value="0.255"/> <!-- 25.5 cm -->
+    <xacro:property name="wheel_diameter" value="0.11"/> <!-- 11.5 cm -->
+    <xacro:property name="wheel_separation" value="0.345"/> <!-- 34.5 cm -->
     <xacro:property name="wheel_radius" value="${wheel_diameter/2}"/>
 
     <material name="white">

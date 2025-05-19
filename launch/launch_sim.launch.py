@@ -53,16 +53,7 @@ def generate_launch_description():
     )
 
     # TF Tree Configuration
-    # 1. Map to Odom (static)
-    static_map_to_odom = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='static_map_to_odom',
-        arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
-        parameters=[{'use_sim_time': use_sim_time, 'publish_frequency': 100.0, 'transform_tolerance': 1.0}],
-        output='screen'
-    )
-
+    # 1. Map to Odom (static) - REMOVED to avoid conflict with SLAM toolbox
     # 2. Base Footprint to Base Link (static)
     static_base_footprint_to_link = Node(
         package='tf2_ros',
@@ -136,7 +127,6 @@ def generate_launch_description():
 
     # Create launch description elements list
     nodes = [
-        static_map_to_odom,
         static_base_footprint_to_link,
         tf_buffer,
         rsp,
