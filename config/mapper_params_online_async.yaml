@@ -6,7 +6,7 @@ slam_toolbox:
     ceres_preconditioner: SCHUR_JACOBI
     ceres_trust_strategy: LEVENBERG_MARQUARDT
     ceres_dogleg_type: TRADITIONAL_DOGLEG
-    ceres_loss_function: HuberLoss  # Changed from None for better outlier handling
+    ceres_loss_function: HuberLoss  # Better for outlier handling
 
     # ROS Parameters
     odom_frame: odom
@@ -14,46 +14,46 @@ slam_toolbox:
     base_frame: base_footprint
     scan_topic: /scan
     use_map_saver: true
-    mode: mapping #localization #mapping  # Changed to mapping mode for map generation
+    mode: mapping  # Set to mapping mode
     
     # Map file configuration
     #map_file_name: /home/subash/dev_ws/exp_a_serialmap
     #map_start_pose: [0.0, 0.0, 0.0]
-    localization : false
+    localization: false
     
     # Core parameters
     debug_logging: false  # Disabled for performance
-    throttle_scans: 2  # Reduced from 4 for better detail without overwhelming processing
-    transform_publish_period: 0.05  # Balanced value
-    map_update_interval: 5.0  # Increased to reduce CPU load
-    resolution: 0.05  # Higher resolution for better detail
+    throttle_scans: 1  # Process every scan
+    transform_publish_period: 0.02  # Reduced to match lidar rate
+    map_update_interval: 0.5  # More frequent updates
+    resolution: 0.05
     
     # Scan parameters
     min_laser_range: 0.15
     max_laser_range: 12.0
-    minimum_time_interval: 0.5  # Balanced value
-    transform_timeout: 0.5
-    tf_buffer_duration: 10.0
+    minimum_time_interval: 0.05  # Reduced for more frequent updates
+    transform_timeout: 0.2  # Balanced timeout
+    tf_buffer_duration: 60.0  # Much larger buffer for transform history
     stack_size_to_use: 40000000
     enable_interactive_mode: false
     
     # Scan matching parameters
     use_scan_matching: true
     use_scan_barycenter: true
-    minimum_travel_distance: 0.15  # Reduced for more updates during slow movement
-    minimum_travel_heading: 0.1  # Reduced for more updates during rotation
-    scan_buffer_size: 30  # Increased for better loop closure
-    scan_buffer_maximum_scan_distance: 12.0
-    link_match_minimum_response_fine: 0.35
-    link_scan_maximum_distance: 3.0  # Increased for better loop closure
+    minimum_travel_distance: 0.1
+    minimum_travel_heading: 0.1
+    scan_buffer_size: 10  # Reduced for faster processing
+    scan_buffer_maximum_scan_distance: 10.0
+    link_match_minimum_response_fine: 0.1  # More lenient matching
+    link_scan_maximum_distance: 1.5  # Reduced for better local matches
     
     # Loop closing parameters
-    loop_search_maximum_distance: 8.0  # Decreased for higher confidence matches
+    loop_search_maximum_distance: 3.0  # Reduced for more reliable loop closures
     do_loop_closing: true
-    loop_match_minimum_chain_size: 8
-    loop_match_maximum_variance_coarse: 1.2  # Tightened for better quality
-    loop_match_minimum_response_coarse: 0.65  # Increased for more confident matches
-    loop_match_minimum_response_fine: 0.6  # Increased for more confident matches
+    loop_match_minimum_chain_size: 3  # Reduced for quicker loop closing
+    loop_match_maximum_variance_coarse: 3.0  # More lenient
+    loop_match_minimum_response_coarse: 0.35  # More lenient
+    loop_match_minimum_response_fine: 0.45  # More lenient
     
     # Correlation Parameters - tuned for balance
     correlation_search_space_dimension: 0.5

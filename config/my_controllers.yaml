@@ -1,12 +1,15 @@
 controller_manager:
   ros__parameters:
-    update_rate: 100  # Hz
+    update_rate: 200  # Hz
     
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
       
     diff_cont:
       type: diff_drive_controller/DiffDriveController
+      remappings:
+        odom: /odom
+        cmd_vel: /cmd_vel
 
 diff_cont:
   ros__parameters:
@@ -33,9 +36,9 @@ diff_cont:
     twist_covariance_diagonal: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
     
     # Other parameters  
-    publish_rate: 100.0
-    tf_broadcast_rate: 100.0  # Match the publish_rate for TF
-    odom_publish_rate: 100.0  # Publish odometry at same rate
+    publish_rate: 200.0
+    tf_broadcast_rate: 200.0  # Match the publish_rate for TF
+    odom_publish_rate: 200.0  # Publish odometry at same rate
     use_stamped_vel: false
     
     # Enable TF publishing and disable diff_tf
@@ -44,8 +47,8 @@ diff_cont:
     
     # Velocity command limits
     linear.x.has_velocity_limits: true
-    linear.x.max_velocity: 0.5
-    linear.x.min_velocity: -0.5
+    linear.x.max_velocity: 0.2
+    linear.x.min_velocity: -0.2
     angular.z.has_velocity_limits: true  
     angular.z.max_velocity: 1.0
     angular.z.min_velocity: -1.0 

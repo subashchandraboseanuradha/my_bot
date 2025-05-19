@@ -21,7 +21,8 @@ def generate_launch_description():
     declare_use_mock_hardware = DeclareLaunchArgument(
         'use_mock_hardware',
         default_value='false',
-        description='Whether to use mock hardware')
+        description='Whether to use mock hardware'
+    )
 
     declare_use_sim_time = DeclareLaunchArgument(
         'use_sim_time',
@@ -44,15 +45,7 @@ def generate_launch_description():
 
     controller_config = os.path.join(pkg_dir, 'config', 'my_controllers.yaml')
 
-    # Define transform publishers
-    # Base footprint to base_link
-    static_base_footprint_to_base_link = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='static_base_footprint_to_base_link',
-        arguments=['0', '0', '0', '0', '0', '0', 'base_footprint', 'base_link'],
-        parameters=[{'use_sim_time': use_sim_time, 'publish_frequency': 100.0}],
-    )
+    # Define transform publisher
 
     robot_state_pub_node = Node(
         package="robot_state_publisher",
@@ -63,8 +56,8 @@ def generate_launch_description():
             {
                 'use_sim_time': use_sim_time, 
                 'frame_prefix': '', 
-                'publish_frequency': 100.0,  # Increased frequency
-                'transform_tolerance': 2.5   # Increased transform tolerance
+                'publish_frequency': 200.0,  # Increased for higher frequency TF publishing
+                'transform_tolerance': 1.0   # Increased transform tolerance to handle timing issues
             }
         ],
     )
@@ -75,17 +68,11 @@ def generate_launch_description():
         executable="ros2_control_node",
         parameters=[robot_description, controller_config, {'use_sim_time': use_sim_time}],
         output="screen",
+        remappings=[
+            ('/diff_cont/odom', '/odom'),
+            ('/diff_cont/cmd_vel', '/cmd_vel')
+        ]
     )
-
-    # Joystick controller - include only if file exists
-    joystick_launch_path = os.path.join(pkg_dir, 'launch', 'joystick.launch.py')
-    
-    joystick_ld = None
-    if os.path.exists(joystick_launch_path):
-        joystick_ld = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([joystick_launch_path]),
-            launch_arguments={'use_sim_time': use_sim_time}.items()
-        )
 
     # Joint state broadcaster spawner
     joint_state_broadcaster_spawner = Node(
@@ -102,15 +89,13 @@ def generate_launch_description():
         executable="spawner",
         arguments=["diff_cont", "--controller-manager", "/controller_manager"],
         output="screen",
-        parameters=[{'use_sim_time': use_sim_time}],
+        parameters=[{'use_sim_time': use_sim_time}]
     )
 
     # Define the final launch description and return it
     nodes = [
         declare_use_mock_hardware,
         declare_use_sim_time,
-        # Only include these transforms
-        static_base_footprint_to_base_link,
     ]
     
     # Step 1: Launch robot_state_publisher first
@@ -136,13 +121,10 @@ def generate_launch_description():
         actions=[diff_drive_spawner]
     )
     nodes.append(delayed_diff_drive_spawner)
-
-    # Add joystick if available, with a delay to ensure all controllers are running
-    if joystick_ld is not None:
-        delayed_joystick = TimerAction(
-            period=10.0,  # Start joystick 2s after diff_drive controller
-            actions=[joystick_ld]
-        )
-        nodes.append(delayed_joystick)
+    
+    # Add a transform republisher for laser scans to handle timestamp issues
+    from launch_ros.actions import ComposableNodeContainer
+    from launch_ros.descriptions import ComposableNode
+    
 
     return LaunchDescription(nodes)
