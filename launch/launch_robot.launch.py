@@ -57,7 +57,7 @@ def generate_launch_description():
                 'use_sim_time': use_sim_time, 
                 'frame_prefix': '', 
                 'publish_frequency': 200.0,  # Increased for higher frequency TF publishing
-                'transform_tolerance': 1.0   # Increased transform tolerance to handle timing issues
+                'transform_tolerance': 0.01,  # Added lower transform tolerance
             }
         ],
     )
@@ -103,21 +103,21 @@ def generate_launch_description():
     
     # Step 2: Delay controller_manager to ensure robot_state_publisher has established frames
     delayed_controller_manager = TimerAction(
-        period=3.0,  # Increased from 2.0 to 3.0 seconds
+        period=20.0,  # Increased from previous suggestions
         actions=[controller_manager]
     )
     nodes.append(delayed_controller_manager)
     
     # Step 3: Delay joint_state_broadcaster after controller_manager is running
     delayed_joint_state_broadcaster_spawner = TimerAction(
-        period=6.0,  # Increased from 3.0 to 6.0 seconds (3s delay after controller_manager)
+        period=25.0,  # Increased from previous suggestions
         actions=[joint_state_broadcaster_spawner]
     )
     nodes.append(delayed_joint_state_broadcaster_spawner)
     
     # Step 4: Delay diff_drive_spawner after joint_state_broadcaster
     delayed_diff_drive_spawner = TimerAction(
-        period=8.0,  # Increased from 5.0 to 8.0 seconds (2s delay after joint_state_broadcaster)
+        period=30.0,  # Increased from previous suggestions
         actions=[diff_drive_spawner]
     )
     nodes.append(delayed_diff_drive_spawner)
