@@ -5,8 +5,6 @@
     <xacro:arg name="sim_mode" default="false"/>
     
     <xacro:property name="motor_power_multiplier" value="5.0"/>
-    <xacro:property name="left_wheel_multiplier" value="-1.0"/>
-    <xacro:property name="right_wheel_multiplier" value="1.0"/>
 
     <ros2_control name="RealRobot" type="system">
         <xacro:if value="$(arg use_mock_hardware)">
@@ -27,8 +25,6 @@
                 <param name="example_param_hw_start_duration_sec">0.0</param>
                 <param name="example_param_hw_stop_duration_sec">3.0</param>
                 <param name="motor_power_multiplier">${motor_power_multiplier}</param>
-                <param name="left_wheel_multiplier">${left_wheel_multiplier}</param>
-                <param name="right_wheel_multiplier">${right_wheel_multiplier}</param>
             </hardware>
         </xacro:unless>
         <joint name="left_wheel_joint">
