@@ -71,12 +71,7 @@ Visualization Manager:
       Value: false
       Visual Enabled: true
     - Class: rviz_default_plugins/TF
-      Enabled: true
-      Frame Timeout: 15
-      Frames:
-        All Enabled: false
-        base_footprint:
-          Value: true
+      Enabled: truea
         base_link:
           Value: true
         base_scan:
@@ -397,7 +392,7 @@ Visualization Manager:
             History Policy: Keep Last
             Reliability Policy: Reliable
             Value: /local_plan
-          Value: true
+          Value: truea
         - Class: rviz_default_plugins/MarkerArray
           Enabled: false
           Name: Trajectories

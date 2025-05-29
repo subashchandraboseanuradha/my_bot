@@ -13,26 +13,36 @@ slam_toolbox:
     map_frame: map
     base_frame: base_footprint
     scan_topic: /scan
-    mode: mapping
+    mode: localization
+
+     # if you'd like to immediately start continuing a map at a given pose
+    # or at the dock, but they are mutually exclusive, if pose is given
+    # will use pose
+    map_file_name: /home/subash/dev_ws/exp_e_serialmap
+    
+    #ap_start_pose: [0.0, 0.0, 0.0]
+    map_start_at_dock: true
+
+    localization: true
 
     # Core parameters
     debug_logging: false
-    throttle_scans: 2  # Process every other scan to reduce CPU load
-    transform_publish_period: 0.02  # 50Hz to match controller rate
-    map_update_interval: 0.2  # Increased to 5Hz for smoother updates
+    throttle_scans: 3  # Increased to process every third scan
+    transform_publish_period: 0.04  # Reduced to 25Hz
+    map_update_interval: 0.5  # Reduced to 2Hz for lighter processing
     resolution: 0.05
-    min_laser_range: 0.1
+    min_laser_range: 0.15
     max_laser_range: 12.0
     minimum_time_interval: 0.02  # Match controller rate
-    transform_timeout: 0.5  # Increased for better reliability
-    tf_buffer_duration: 10.0  # Reduced to prevent memory buildup
+    transform_timeout: 1.0  # Increased for better reliability
+    tf_buffer_duration: 30.0  # Reduced to prevent memory buildup
 
     # Scan matching parameters
     use_scan_matching: true
     use_scan_barycenter: true
-    minimum_travel_distance: 0.05  # Reduced for more frequent updates
-    minimum_travel_heading: 0.05  # Reduced for more frequent updates
-    scan_buffer_size: 15  # Increased for better matching
+    minimum_travel_distance: 0.1  # Increased to reduce processing frequency
+    minimum_travel_heading: 0.1  # Increased to reduce processing frequency
+    scan_buffer_size: 10  # Reduced for lighter memory usage
     scan_buffer_maximum_scan_distance: 5.0  # Reduced for faster processing
     link_match_minimum_response_fine: 0.1
     link_scan_maximum_distance: 1.5
