@@ -4,40 +4,43 @@
     <xacro:arg name="use_mock_hardware" default="false"/>
     <xacro:arg name="sim_mode" default="false"/>
     
-    <xacro:property name="motor_power_multiplier" value="5.0"/>
-    <xacro:property name="left_wheel_multiplier" value="-1.0"/>
-    <xacro:property name="right_wheel_multiplier" value="1.0"/>
-
-    <ros2_control name="RealRobot" type="system">
-        <xacro:if value="$(arg use_mock_hardware)">
-            <hardware>
-                <plugin>mock_components/GenericSystem</plugin>
-            </hardware>
-        </xacro:if>
-        <xacro:unless value="$(arg use_mock_hardware)">
-            <hardware>
-                <plugin>my_bot/DiffBotSystemHardware</plugin>
-                <param name="left_wheel_name">left_wheel_joint</param>
-                <param name="right_wheel_name">right_wheel_joint</param>
-                <param name="loop_rate">100.0</param>
-                <param name="device">/dev/ttyUSB0</param>
-                <param name="baud_rate">115200</param>
-                <param name="timeout_ms">1000</param>
-                <param name="enc_counts_per_rev">1393</param>
-                <param name="example_param_hw_start_duration_sec">0.0</param>
-                <param name="example_param_hw_stop_duration_sec">3.0</param>
-                <param name="motor_power_multiplier">${motor_power_multiplier}</param>
-                <param name="left_wheel_multiplier">${left_wheel_multiplier}</param>
-                <param name="right_wheel_multiplier">${right_wheel_multiplier}</param>
-            </hardware>
-        </xacro:unless>
+    <ros2_control name="GazeboSystem" type="system">
+        <hardware>
+            <xacro:if value="$(arg sim_mode)">
+                <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+            </xacro:if>
+            <xacro:unless value="$(arg sim_mode)">
+                <xacro:if value="$(arg use_mock_hardware)">
+                    <plugin>mock_components/GenericSystem</plugin>
+                </xacro:if>
+                <xacro:unless value="$(arg use_mock_hardware)">
+                    <plugin>my_bot/DiffBotSystemHardware</plugin>
+                    <param name="left_wheel_name">left_wheel_joint</param>
+                    <param name="right_wheel_name">right_wheel_joint</param>
+                    <param name="loop_rate">100.0</param>
+                    <param name="device">/dev/ttyUSB0</param>
+                    <param name="baud_rate">115200</param>
+                    <param name="timeout_ms">1000</param>
+                    <param name="enc_counts_per_rev">1393</param>
+                    <param name="motor_power_multiplier">5.0</param>
+                </xacro:unless>
+            </xacro:unless>
+        </hardware>
+        
         <joint name="left_wheel_joint">
-            <command_interface name="velocity"/>
+            <command_interface name="velocity">
+                <param name="min">-10</param>
+                <param name="max">10</param>
+            </command_interface>
             <state_interface name="position"/>
             <state_interface name="velocity"/>
         </joint>
+        
         <joint name="right_wheel_joint">
-            <command_interface name="velocity"/>
+            <command_interface name="velocity">
+                <param name="min">-10</param>
+                <param name="max">10</param>
+            </command_interface>
             <state_interface name="position"/>
             <state_interface name="velocity"/>
         </joint>

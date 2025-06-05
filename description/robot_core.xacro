@@ -41,24 +41,18 @@
 
     <!-- This is the actual physical base of the robot -->
     <link name="base_link">
+        <!-- Remove visual or make it a small reference point -->
         <visual>
             <geometry>
-                <box size="0.3 0.3 0.02"/>
+                <sphere radius="0.01"/>  <!-- Small sphere as reference -->
             </geometry>
-            <material name="white"/>
+            <material name="red"/>
         </visual>
-        <collision>
-            <geometry>
-                <box size="0.3 0.3 0.02"/>
-            </geometry>
-        </collision>
-        <xacro:inertial_box mass="0.5" x="0.3" y="0.3" z="0.02">
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-        </xacro:inertial_box>
+        <!-- Remove any collision geometry from base_link -->
+        <!-- The chassis will handle all collisions -->
     </link>
 
     <!-- CHASSIS LINK -->
-
     <joint name="chassis_joint" type="fixed">
         <parent link="base_link"/>
         <child link="chassis"/>
@@ -89,7 +83,6 @@
     </gazebo>
 
     <!-- LEFT WHEEL LINK -->
-
     <joint name="left_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="left_wheel"/>
@@ -118,11 +111,7 @@
         <material>Gazebo/Blue</material>
     </gazebo>
 
-
-
-
     <!-- RIGHT WHEEL LINK -->
-
     <joint name="right_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="right_wheel"/>
@@ -151,15 +140,12 @@
         <material>Gazebo/Blue</material>
     </gazebo>
 
-
     <!-- CASTER WHEEL LINK -->
-
     <joint name="caster_wheel_joint" type="fixed">
         <parent link="chassis"/>
         <child link="caster_wheel"/>
         <origin xyz="0.24 0 0"/>
     </joint>
-
 
     <link name="caster_wheel">
         <visual>
